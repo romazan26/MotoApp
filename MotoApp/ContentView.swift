@@ -12,7 +12,7 @@ struct ContentView: View {
         TabView {
            GarageView()
                 .tabItem {
-                    Image("door.garage.double.bay.closed")
+                    Image("door.garage.closed")
                     Text("Гараж")
                 }
             ProfileView()
