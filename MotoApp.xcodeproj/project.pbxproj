@@ -11,6 +11,9 @@
 		30C75F3D2AC452AB00B9D445 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C75F3C2AC452AB00B9D445 /* ContentView.swift */; };
 		30C75F3F2AC452AD00B9D445 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30C75F3E2AC452AD00B9D445 /* Assets.xcassets */; };
 		30C75F422AC452AD00B9D445 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30C75F412AC452AD00B9D445 /* Preview Assets.xcassets */; };
+		30C75F492AC4531E00B9D445 /* GarageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C75F482AC4531E00B9D445 /* GarageView.swift */; };
+		30C75F4B2AC459B300B9D445 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C75F4A2AC459B300B9D445 /* ProfileView.swift */; };
+		30C75F4D2AC45A1600B9D445 /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C75F4C2AC45A1600B9D445 /* EventsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		30C75F3C2AC452AB00B9D445 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		30C75F3E2AC452AD00B9D445 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30C75F412AC452AD00B9D445 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		30C75F482AC4531E00B9D445 /* GarageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageView.swift; sourceTree = "<group>"; };
+		30C75F4A2AC459B300B9D445 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		30C75F4C2AC45A1600B9D445 /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +61,9 @@
 				30C75F3C2AC452AB00B9D445 /* ContentView.swift */,
 				30C75F3E2AC452AD00B9D445 /* Assets.xcassets */,
 				30C75F402AC452AD00B9D445 /* Preview Content */,
+				30C75F482AC4531E00B9D445 /* GarageView.swift */,
+				30C75F4A2AC459B300B9D445 /* ProfileView.swift */,
+				30C75F4C2AC45A1600B9D445 /* EventsView.swift */,
 			);
 			path = MotoApp;
 			sourceTree = "<group>";
@@ -137,7 +146,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30C75F4B2AC459B300B9D445 /* ProfileView.swift in Sources */,
+				30C75F4D2AC45A1600B9D445 /* EventsView.swift in Sources */,
 				30C75F3D2AC452AB00B9D445 /* ContentView.swift in Sources */,
+				30C75F492AC4531E00B9D445 /* GarageView.swift in Sources */,
 				30C75F3B2AC452AB00B9D445 /* MotoAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
