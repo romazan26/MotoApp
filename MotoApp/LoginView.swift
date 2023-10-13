@@ -14,34 +14,53 @@ struct LoginView: View {
     @FocusState private var nameIsFocused: Bool
     
     var body: some View {
-       
+        
         VStack (spacing: 20){
             Image("moto")
                 .resizable()
                 .frame(width: 380, height: 220)
                 .offset(y: -30)
-            Text("Добро пожаловать")
+            Text("Добро пожаловать в Гараж")
                 .font(.largeTitle)
+                .multilineTextAlignment(.center)
                 .shadow(radius: 5)
             TextField("login...", text: $login)
-                .textFieldStyle(.roundedBorder)
-                .border(.black)
+                .costomStyle()
                 .focused($nameIsFocused)
             SecureField("password...", text: $password)
-                .textFieldStyle(.roundedBorder)
-                .border(.black)
+                .costomStyle()
                 .focused($nameIsFocused)
             
             HStack {
-                Button("Login", action: {
-                    isPresented.toggle()
-                }
-                ).sheet(isPresented: $isPresented, content: {
+                Button(action: { isPresented.toggle()},
+                       label: {
+                    Text("Вход")
+                        .foregroundStyle(.white)
+                        .font(.title2)
+                        .bold()
+                })
+                .frame(width: 160, height: 60)
+                .background(LinearGradient(
+                    colors: [.black, .blue.opacity(0.5)],
+                    startPoint: .bottomLeading,
+                    endPoint: .topTrailing))
+                .clipShape(RoundedRectangle(cornerRadius: 15))
+                .sheet(isPresented: $isPresented, content: {
                     ContentView()
                 })
-                    .buttonStyle(.borderedProminent)
-                Button("Create new user", action: {})
-                    .buttonStyle(.borderedProminent)
+                
+                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                    Text("Новый Гараж")
+                        .foregroundStyle(.white)
+                        .font(.title2)
+                        .bold()
+                })
+                .frame(width: 160, height: 60)
+                .background(LinearGradient(
+                    colors: [.black, .blue.opacity(0.5)],
+                    startPoint: .bottomLeading,
+                    endPoint: .topTrailing))
+                .clipShape(RoundedRectangle(cornerRadius: 15))
             }
         }
         .padding()
@@ -51,6 +70,23 @@ struct LoginView: View {
     }
 }
 
+
 #Preview {
     LoginView()
+}
+
+struct TFStyleViewModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .padding()
+            .frame(width: 320)
+            .background(.gray.opacity(0.1))
+            .clipShape(RoundedRectangle(cornerRadius: 15))
+    }
+}
+
+extension View {
+    func costomStyle() -> some View {
+        modifier(TFStyleViewModifier())
+    }
 }
