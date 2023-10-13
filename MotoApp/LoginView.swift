@@ -27,7 +27,7 @@ struct LoginView: View {
                 .textFieldStyle(.roundedBorder)
                 .border(.black)
                 .focused($nameIsFocused)
-            TextField("password...", text: $password)
+            SecureField("password...", text: $password)
                 .textFieldStyle(.roundedBorder)
                 .border(.black)
                 .focused($nameIsFocused)
