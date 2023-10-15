@@ -11,7 +11,7 @@ import SwiftUI
 struct MotoAppApp: App {
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            ContentView()
         }
     }
 }

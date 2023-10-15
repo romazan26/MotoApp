@@ -8,15 +8,10 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State private var userName = ""
-    @State private var password = ""
-    @State private var isPresented = false
+    @Bindable var viewModel: LoginViewModel
     
     @FocusState private var nameIsFocused: Bool
     
-    private var isLoginButtonDisable: Bool {
-        userName.isEmpty || password.isEmpty
-    }
     
     var body: some View {
         
@@ -32,15 +27,15 @@ struct LoginView: View {
                     .font(.largeTitle)
                     .multilineTextAlignment(.center)
                     .shadow(radius: 5)
-                TextField("login...", text: $userName)
+                TextField("login...", text: $viewModel.user.name)
                     .costomStyle()
                     .focused($nameIsFocused)
-                SecureField("password...", text: $password)
+                SecureField("password...", text: $viewModel.user.password)
                     .costomStyle()
                     .focused($nameIsFocused)
                 
                 HStack {
-                    Button(action: { isPresented.toggle()},
+                    Button(action: { viewModel.login()},
                            label: {
                         Text("Вход")
                             .foregroundStyle(.white)
@@ -49,16 +44,13 @@ struct LoginView: View {
                     })
                     .frame(width: 160, height: 60)
                     .background(LinearGradient(
-                        colors: isLoginButtonDisable
+                        colors: viewModel.isLoginButtonDisable
                         ?[.gray.opacity(0.6)]
                         :[.black, .blue.opacity(0.5)],
                         startPoint: .bottomLeading,
                         endPoint: .topTrailing))
                     .clipShape(RoundedRectangle(cornerRadius: 15))
-                    .sheet(isPresented: $isPresented, content: {
-                        ContentView()
-                    })
-                    .disabled(isLoginButtonDisable)
+                    .disabled(viewModel.isLoginButtonDisable)
                     
                     ButtonView(action: {}, label: "Новый Гараж")
                 }
@@ -73,7 +65,7 @@ struct LoginView: View {
 
 
 #Preview {
-    LoginView()
+    LoginView(viewModel: LoginViewModel())
 }
 
 struct TFStyleViewModifier: ViewModifier {

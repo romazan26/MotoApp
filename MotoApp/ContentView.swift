@@ -8,27 +8,31 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var viewModel = LoginViewModel()
     var body: some View {
-        TabView {
-           GarageView()
-                .tabItem {
-                    Image("door.garage.closed")
-                    Text("Гараж")
-                }
-            ProfileView()
-                .tabItem {
-                    Image(systemName: "person")
-                    Text("Профиль")
-                }
-            EventsView()
-                .tabItem {
-                    Image(systemName: "exclamationmark.bubble.fill")
-                    Text("События")
-                }
+        if !viewModel.authenticated {
+            LoginView(viewModel: viewModel)
+        } else {
+            TabView {
+                GarageView()
+                    .tabItem {
+                        Image("door.garage.closed")
+                        Text("Гараж")
+                    }
+                ProfileView(viewModel: viewModel)
+                    .tabItem {
+                        Image(systemName: "person")
+                        Text("Профиль")
+                    }
+                EventsView()
+                    .tabItem {
+                        Image(systemName: "exclamationmark.bubble.fill")
+                        Text("События")
+                    }
+            }
         }
     }
 }
-
 #Preview {
     ContentView()
 }
