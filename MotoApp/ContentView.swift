@@ -13,22 +13,32 @@ struct ContentView: View {
         if !viewModel.authenticated {
             LoginView(viewModel: viewModel)
         } else {
-            TabView {
-                GarageView()
-                    .tabItem {
-                        Image("door.garage.closed")
-                        Text("Гараж")
+            NavigationStack {
+                TabView {
+                    GarageView()
+                        .tabItem {
+                            Image("door.garage.closed")
+                            Text("Гараж")
+                        }
+                    ProfileView(viewModel: viewModel)
+                        .tabItem {
+                            Image(systemName: "person")
+                            Text("Профиль")
+                        }
+                    EventsView()
+                        .tabItem {
+                            Image(systemName: "exclamationmark.bubble.fill")
+                            Text("События")
+                        }
+                }
+                .navigationTitle(viewModel.user.name)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {viewModel.logout()}, label: {
+                            Text("LogOut")
+                        })
                     }
-                ProfileView(viewModel: viewModel)
-                    .tabItem {
-                        Image(systemName: "person")
-                        Text("Профиль")
-                    }
-                EventsView()
-                    .tabItem {
-                        Image(systemName: "exclamationmark.bubble.fill")
-                        Text("События")
-                    }
+                }
             }
         }
     }
