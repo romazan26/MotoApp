@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @Bindable var viewModel: LoginViewModel
+    var user: User
     var body: some View {
         VStack {
-            Text("User: \(viewModel.user.name)")
+            Text("User: \(user.name)")
             Image(systemName: "person")
                 .resizable()
                 .frame(width: 100, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
@@ -20,5 +20,5 @@ struct ProfileView: View {
 }
 
 #Preview {
-    ProfileView(viewModel: LoginViewModel())
+    ProfileView(user: DataManager.shared.createTempData())
 }
