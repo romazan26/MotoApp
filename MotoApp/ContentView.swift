@@ -20,7 +20,7 @@ struct ContentView: View {
                             Image("door.garage.closed")
                             Text("Гараж")
                         }
-                    ProfileView(viewModel: viewModel)
+                    ProfileView(user: viewModel.currentUser)
                         .tabItem {
                             Image(systemName: "person")
                             Text("Профиль")
@@ -31,7 +31,7 @@ struct ContentView: View {
                             Text("События")
                         }
                 }
-                .navigationTitle(viewModel.user.name)
+                .navigationTitle("User")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action: {viewModel.logout()}, label: {

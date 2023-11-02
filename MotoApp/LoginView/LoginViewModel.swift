@@ -7,34 +7,73 @@
 
 import Observation
 import SwiftUI
+import RealmSwift
 
-@Observable
-final class LoginViewModel {
-    var user = User()
+
+final class LoginViewModel: ObservableObject {
+    @Published var users = [User]()
+    
+    var currentUser: User!
     var authenticated = false
     
-    private var sampleUserName = "Username"
-    private var samplePassword = "Password"
+     var simpleUserName = ""
+     var simplePassword = ""
+    
+    init() {
+        
+        let realm = try? Realm()
+        
+        if let users = realm?.objects(User.self) {
+            self.users = Array(users)
+            print("init ok")
+        }else {
+            try? realm?.write({
+                let user = User()
+                user.login = "Admin"
+                user.password = "admin"
+                realm?.add(user)
+                print("add ok")
+            })
+            
+            print("init no")}
+        
+    }
     
     var isLoginButtonDisable: Bool {
-        user.name.isEmpty || user.password.isEmpty
+        simpleUserName.isEmpty || simplePassword.isEmpty
     }
     
     func login() {
-        guard user.name == sampleUserName, user.password == samplePassword else {
-            return
-        }
-       toggleAuthentication()
+//        for user in users {
+//            if user.login == simpleUserName || user.password == simplePassword {
+//                currentUser = user
+//                authenticated.toggle()
+//            }
+//        }
+//        print(users)
     }
     
     func logout() {
-        user.name = ""
-        user.password = ""
         toggleAuthentication()
     }
     private func toggleAuthentication() {
         withAnimation {
             authenticated.toggle()
         }
+    }
+    
+    func addNewUser() {
+        let user = User()
+        user.login = simpleUserName
+        user.password = simplePassword
+        
+        let realm = try? Realm()
+        
+        try? realm?.write {
+                users.append(user)
+            realm?.add(users)
+                print("add ok")
+            }
+        
     }
 }

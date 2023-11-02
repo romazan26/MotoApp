@@ -6,19 +6,24 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct LoginView: View {
-    @Bindable var viewModel: LoginViewModel
+    @StateObject var viewModel = LoginViewModel()
     
     @FocusState private var nameIsFocused: Bool
-    
     
     var body: some View {
         
         ZStack {
-            Color.black.opacity(0.15)
+            Image("serii-kirpich-fon")
+                .resizable()
                 .ignoresSafeArea()
+                .opacity(0.5)
             VStack (spacing: 20){
+                Button("show users") {
+                    print("\(viewModel.users) \(viewModel.simpleUserName)")
+                }
                 Image("moto")
                     .resizable()
                     .frame(width: 380, height: 220)
@@ -27,10 +32,11 @@ struct LoginView: View {
                     .font(.largeTitle)
                     .multilineTextAlignment(.center)
                     .shadow(radius: 5)
-                TextField("login...", text: $viewModel.user.name)
+                
+                TextField("login...", text: $viewModel.simpleUserName)
                     .costomStyle()
                     .focused($nameIsFocused)
-                SecureField("password...", text: $viewModel.user.password)
+                SecureField("password...", text: $viewModel.simplePassword)
                     .costomStyle()
                     .focused($nameIsFocused)
                 
@@ -52,7 +58,9 @@ struct LoginView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 15))
                     .disabled(viewModel.isLoginButtonDisable)
                     
-                    ButtonView(action: {}, label: "Новый Гараж")
+                    ButtonView(action: {
+                        viewModel.addNewUser()
+                    }, label: "Новый Гараж")
                 }
             }
             .padding()
@@ -73,7 +81,7 @@ struct TFStyleViewModifier: ViewModifier {
         content
             .padding()
             .frame(width: 320)
-            .background(.gray.opacity(0.2))
+            .background(.gray.opacity(0.8))
             .clipShape(RoundedRectangle(cornerRadius: 15))
     }
 }

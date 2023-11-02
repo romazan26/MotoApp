@@ -8,11 +8,18 @@
 import Foundation
 import RealmSwift
 
-final class User: Object {
-    @Persisted var name = ""
+final class User: Object, ObjectKeyIdentifiable {
+    @Persisted(primaryKey: true) var id: ObjectId
+    @Persisted var login = ""
     @Persisted var password = ""
     @Persisted var garageName = ""
+    @Persisted var name = ""
+    @Persisted var serName = ""
     @Persisted var technics = List<Technic>()
+    
+    override class func primaryKey() -> String? {
+        "id"
+    }
 }
 final class Technic: Object {
     @Persisted var type = ""
