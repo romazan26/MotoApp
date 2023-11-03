@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var viewModel = LoginViewModel()
+    @ObservedObject var viewModel = LoginViewModel()
     var body: some View {
         if !viewModel.authenticated {
             LoginView(viewModel: viewModel)

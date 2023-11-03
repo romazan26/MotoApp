@@ -9,7 +9,7 @@ import SwiftUI
 import RealmSwift
 
 struct LoginView: View {
-    @StateObject var viewModel = LoginViewModel()
+    @ObservedObject var viewModel = LoginViewModel()
     
     @FocusState private var nameIsFocused: Bool
     

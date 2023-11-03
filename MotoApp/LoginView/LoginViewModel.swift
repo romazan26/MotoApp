@@ -12,12 +12,10 @@ import RealmSwift
 
 final class LoginViewModel: ObservableObject {
     @Published var users = [User]()
-    
-    var currentUser: User!
-    var authenticated = false
-    
-     var simpleUserName = ""
-     var simplePassword = ""
+    @Published var currentUser: User!
+    @Published var authenticated = false
+    @Published var simpleUserName = ""
+    @Published var simplePassword = ""
     
     init() {
         
@@ -44,18 +42,21 @@ final class LoginViewModel: ObservableObject {
     }
     
     func login() {
-//        for user in users {
-//            if user.login == simpleUserName || user.password == simplePassword {
-//                currentUser = user
-//                authenticated.toggle()
-//            }
-//        }
-//        print(users)
+        for user in users {
+            if user.login == simpleUserName || user.password == simplePassword {
+                currentUser = user
+                toggleAuthentication()
+            }
+        }
     }
     
     func logout() {
         toggleAuthentication()
+        currentUser = nil
+        simplePassword = ""
+        simpleUserName = ""
     }
+    
     private func toggleAuthentication() {
         withAnimation {
             authenticated.toggle()
