@@ -16,7 +16,6 @@ final class User: Object, ObjectKeyIdentifiable {
     @Persisted var name = ""
     @Persisted var serName = ""
     @Persisted var technics = List<Technic>()
-   // @Persisted var currentUser = false
     
     override class func primaryKey() -> String? {
         "id"

@@ -12,19 +12,17 @@ struct ProfileView: View {
     @ObservedRealmObject var user: User
     @State var simpleUserName = ""
     @State var simpleUserSerName = ""
+
     var body: some View {
         
         VStack {
-            Button(action: {}, label: {
-                Text("Button")
-            })
-            Text("User: \(user.login)")
+            Text("User: \(user.name)")
             Image(systemName: "person")
                 .resizable()
                 .frame(width: 100, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
-            TextField("Name", text: $simpleUserName)
+            TextField(user.name, text: $simpleUserName)
                 .textFieldStyle(.roundedBorder)
-            TextField("serName", text: $simpleUserSerName)
+            TextField(user.serName, text: $simpleUserSerName)
                 .textFieldStyle(.roundedBorder)
             Button("addname") {
                 update()

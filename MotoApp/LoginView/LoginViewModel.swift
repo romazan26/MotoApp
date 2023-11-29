@@ -23,7 +23,7 @@ final class LoginViewModel: ObservableObject {
 //MARK: - Login
     func login() {
         for user in users {
-            if user.login == simpleUserName || user.password == simplePassword {
+            if user.login == simpleUserName && user.password == simplePassword {
                 currentUser = user
                 toggleAuthentication()
             }

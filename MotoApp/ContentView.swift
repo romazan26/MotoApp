@@ -15,7 +15,7 @@ struct ContentView: View {
     var body: some View {
             NavigationStack {
                 TabView {
-                    GarageView()
+                    GarageView(user: user)
                         .tabItem {
                             Image("door.garage.closed")
                             Text("Гараж")

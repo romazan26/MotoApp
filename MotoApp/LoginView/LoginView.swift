@@ -12,6 +12,7 @@ struct LoginView: View {
     @ObservedObject var viewModel = LoginViewModel()
     @FocusState private var nameIsFocused: Bool
     @State private var ispresented = false
+    @State private var showAlert = false
     
     //MARK: - Body
     var body: some View {
@@ -22,11 +23,17 @@ struct LoginView: View {
                 .ignoresSafeArea()
                 .opacity(0.5)
             VStack (spacing: 20){
-                Button("show users") {
+                
+                //MARK: - ShowUsersButton
+                Button("Show users") {
                     ispresented.toggle()
-                }.sheet(isPresented: $ispresented) {
+                }
+                .sheet(isPresented: $ispresented) {
                     UsersListView()
                 }
+                .shadow(color: .blue, radius: 10)
+                
+                //MARK: - Hellow Label
                 Image("moto")
                     .resizable()
                     .frame(width: 380, height: 220)
@@ -36,24 +43,36 @@ struct LoginView: View {
                     .multilineTextAlignment(.center)
                     .shadow(radius: 5)
                 
-                TextField("login...", text: $viewModel.simpleUserName)
+                //MARK: - TextFieldGroup
+                TextField("Login...", text: $viewModel.simpleUserName)
                     .costomStyle()
                     .focused($nameIsFocused)
-                SecureField("password...", text: $viewModel.simplePassword)
+                SecureField("Pasword...", text: $viewModel.simplePassword)
                     .costomStyle()
                     .focused($nameIsFocused)
                 
-                //MARK: - ActionButton
+                
                 HStack {
+                    
+                    //MARK: - LoginButton
                     Button(action: {
                         viewModel.login()
-                        },
+                        if !viewModel.authenticated {showAlert.toggle()}
+                    },
                            label: {
                         Text("Вход")
                             .foregroundStyle(.white)
                             .font(.title2)
                             .bold()
-                    }).sheet(isPresented: $viewModel.authenticated, content: {
+                    })
+                    .alert(isPresented: $showAlert, content: {
+                        Alert(title: Text("Неправильный ПАРОЛЬ или ЛОГИН"), dismissButton: .cancel({
+                            viewModel.simplePassword = ""
+                            viewModel.simpleUserName = ""
+                        }))
+                        
+                    })
+                    .sheet(isPresented: $viewModel.authenticated, content: {
                         ContentView(user: viewModel.currentUser)
                     })
                     .frame(width: 160, height: 60)
@@ -66,16 +85,18 @@ struct LoginView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 15))
                     .disabled(viewModel.isLoginButtonDisable)
                     
+                    
+                    //MARK: - AddUserButton
                     ButtonView(action: {
                         viewModel.addNewUser()
                         
-                    }, label: "Новый Гараж")
+                    }, label: "Новый пользователь")
                 }
             }
             .padding()
             .onTapGesture {
                 nameIsFocused = false
-        }
+            }
         }
     }
 }
