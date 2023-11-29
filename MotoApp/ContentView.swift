@@ -6,13 +6,13 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct ContentView: View {
     @ObservedObject var viewModel = LoginViewModel()
+    @ObservedRealmObject var user: User
+    
     var body: some View {
-        if !viewModel.authenticated {
-            LoginView(viewModel: viewModel)
-        } else {
             NavigationStack {
                 TabView {
                     GarageView()
@@ -20,7 +20,7 @@ struct ContentView: View {
                             Image("door.garage.closed")
                             Text("Гараж")
                         }
-                    ProfileView(user: viewModel.currentUser)
+                    ProfileView(user: user)
                         .tabItem {
                             Image(systemName: "person")
                             Text("Профиль")
@@ -34,7 +34,7 @@ struct ContentView: View {
                 .navigationTitle("User")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {viewModel.logout()}, label: {
+                        Button(action: {print(user)}, label: {
                             Text("LogOut")
                         })
                     }
@@ -42,7 +42,7 @@ struct ContentView: View {
             }
         }
     }
-}
+
 #Preview {
-    ContentView()
+    ContentView( user: User())
 }

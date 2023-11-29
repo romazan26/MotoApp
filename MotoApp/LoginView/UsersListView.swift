@@ -6,10 +6,23 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct UsersListView: View {
+    @ObservedResults(User.self) var users
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            if users.isEmpty {
+                Text("Нету созданных гаражей")
+            }
+            
+            List {
+                ForEach(users) { user in
+                    Text(user.login)
+                }.onDelete(perform: $users.remove)
+            }
+        }
     }
 }
 

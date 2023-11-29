@@ -10,9 +10,10 @@ import RealmSwift
 
 struct LoginView: View {
     @ObservedObject var viewModel = LoginViewModel()
-    
     @FocusState private var nameIsFocused: Bool
+    @State private var ispresented = false
     
+    //MARK: - Body
     var body: some View {
         
         ZStack {
@@ -22,7 +23,9 @@ struct LoginView: View {
                 .opacity(0.5)
             VStack (spacing: 20){
                 Button("show users") {
-                    print("\(viewModel.users) \(viewModel.simpleUserName)")
+                    ispresented.toggle()
+                }.sheet(isPresented: $ispresented) {
+                    UsersListView()
                 }
                 Image("moto")
                     .resizable()
@@ -40,13 +43,18 @@ struct LoginView: View {
                     .costomStyle()
                     .focused($nameIsFocused)
                 
+                //MARK: - ActionButton
                 HStack {
-                    Button(action: { viewModel.login()},
+                    Button(action: {
+                        viewModel.login()
+                        },
                            label: {
                         Text("Вход")
                             .foregroundStyle(.white)
                             .font(.title2)
                             .bold()
+                    }).sheet(isPresented: $viewModel.authenticated, content: {
+                        ContentView(user: viewModel.currentUser)
                     })
                     .frame(width: 160, height: 60)
                     .background(LinearGradient(
@@ -60,6 +68,7 @@ struct LoginView: View {
                     
                     ButtonView(action: {
                         viewModel.addNewUser()
+                        
                     }, label: "Новый Гараж")
                 }
             }
@@ -71,7 +80,7 @@ struct LoginView: View {
     }
 }
 
-
+//MARK: - Preview
 #Preview {
     LoginView(viewModel: LoginViewModel())
 }
