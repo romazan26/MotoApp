@@ -57,6 +57,8 @@ struct AddTechnicUIView: View {
                 }, label: "Добавить технику")
                 .offset(y: 40)
             }.padding()
+        }.onTapGesture {
+            nameIsFocused = false
         }
     }
     

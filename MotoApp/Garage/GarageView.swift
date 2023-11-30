@@ -22,17 +22,15 @@ struct GarageView: View {
                         technicUIViewCell(technic: technic)
                     }.onDelete(perform: $user.technics.remove)
                     
+                    ButtonView(action: {
+                        isPresented.toggle()
+                    }, label: "Добавить")
+                    .sheet(isPresented: $isPresented, content: {
+                        AddTechnicUIView(user: user)
+                    })
                 }
                 
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {isPresented.toggle()}
-                    label: {Image(systemName: "plus")}
-                }
-            }.sheet(isPresented: $isPresented, content: {
-                AddTechnicUIView(user: user)
-        })
         
     }
 }

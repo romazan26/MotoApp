@@ -12,24 +12,47 @@ struct ProfileView: View {
     @ObservedRealmObject var user: User
     @State var simpleUserName = ""
     @State var simpleUserSerName = ""
+    @State private var garageName = ""
+    @FocusState private var isFocused: Bool
 
     var body: some View {
         
-        VStack {
-            Text("User: \(user.name)")
-            Image(systemName: "person")
+        ZStack {
+            Image("serii-kirpich-fon")
                 .resizable()
-                .frame(width: 100, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
-            TextField(user.name, text: $simpleUserName)
-                .textFieldStyle(.roundedBorder)
-            TextField(user.serName, text: $simpleUserSerName)
-                .textFieldStyle(.roundedBorder)
-            Button("addname") {
-                update()
-            }
+                .ignoresSafeArea()
+                .opacity(0.5)
+            VStack {
+                Text(user.garageName)
+                    .font(.largeTitle)
+                    .multilineTextAlignment(.center)
+                    .shadow(color: .blue, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                    .bold()
+                Text("\(user.name) \(user.serName)")
+                    .font(.largeTitle)
+                    .bold()
+                Image(systemName: "person")
+                    .resizable()
+                    .frame(width: 100, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                TextField(user.name, text: $simpleUserName)
+                    .customStyle()
+                    .focused($isFocused)
+                TextField(user.serName, text: $simpleUserSerName)
+                    .customStyle()
+                    .focused($isFocused)
+                TextField(user.garageName, text: $garageName)
+                    .customStyle()
+                    .focused($isFocused)
+                ButtonView(action: {
+                    update()
+                }, label: "Изменить данные")
+            }.padding()
+        }.onTapGesture {
+            isFocused = false
         }
         
     }
+//MARK: - update fnction
     func update() {
         do{
             let realm = try Realm()
@@ -37,14 +60,17 @@ struct ProfileView: View {
                 return
             }
             try realm.write {
-                objecttoupdate.name = simpleUserName
-                objecttoupdate.serName = simpleUserSerName
+                if !simpleUserName.isEmpty
+                {objecttoupdate.name = simpleUserName}
+                if !simpleUserSerName.isEmpty
+                {objecttoupdate.serName = simpleUserSerName}
+                if !garageName.isEmpty
+                {objecttoupdate.garageName = garageName}
             }
-            
         }catch{print(error)}
     }
 }
 
 #Preview {
-    ProfileView( user: User())
+    ProfileView( user: DataManager.shared.createTempData())
 }
