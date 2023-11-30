@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct technicUIViewCell: View {
-    let tehnic = Technic()
+    let technic: Technic
     
     var body: some View {
-        VStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-        }
+        VStack(alignment: .leading) {
+            Text("Тип: \(technic.type)")
+            Text("Название: \(technic.title)")
+            Text("Примечание: \(technic.note)")
+        }.font(.title3)
     }
 }
 
 #Preview {
-    technicUIViewCell()
+    technicUIViewCell(technic: Technic())
 }

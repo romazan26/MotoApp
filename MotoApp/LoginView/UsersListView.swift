@@ -14,7 +14,9 @@ struct UsersListView: View {
     var body: some View {
         VStack{
             if users.isEmpty {
-                Text("Нету созданных гаражей")
+                Spacer()
+                Text("Список пользователей пуст")
+                    .font(.title)
             }
             
             List {

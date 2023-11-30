@@ -10,40 +10,33 @@ import RealmSwift
 
 struct GarageView: View {
     @ObservedRealmObject var user: User
-    @State private var nameTehnic = ""
+    @State private var isPresented = false
     var body: some View {
-        
-        VStack {
-            TextField("Name tehnic", text: $nameTehnic)
-                .textFieldStyle(.roundedBorder)
-            Button(action: {addTehnic()}, label: {
-                Text("Add tehnic")
-            })
-        }
-        .navigationTitle(Text("Garage: \(user.garageName)"))
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: {
-                    print(user)
-                },
-                       label: {
-                    Text("Add tehnic")
-                })
+            VStack {
+                if user.technics.isEmpty {
+                    Text("Список техники пуст. Нажмите + чтобы добавить технику" )
+                }
+                Text("Garage: \(user.garageName)")
+                List{
+                    ForEach(user.technics) { technic in
+                        technicUIViewCell(technic: technic)
+                    }.onDelete(perform: $user.technics.remove)
+                    
+                }
+                
             }
-        }
-    }
-    
-        
-    
-    
-    private func addTehnic() {
-        let tehnic = Technic()
-        tehnic.title = nameTehnic
-        $user.technics.append(tehnic)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {isPresented.toggle()}
+                    label: {Image(systemName: "plus")}
+                }
+            }.sheet(isPresented: $isPresented, content: {
+                AddTechnicUIView(user: user)
+        })
         
     }
 }
 
 #Preview {
-    GarageView(user: User())
+    GarageView(user: DataManager.shared.createTempData())
 }

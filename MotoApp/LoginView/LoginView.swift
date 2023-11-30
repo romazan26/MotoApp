@@ -24,15 +24,6 @@ struct LoginView: View {
                 .opacity(0.5)
             VStack (spacing: 20){
                 
-                //MARK: - ShowUsersButton
-                Button("Show users") {
-                    ispresented.toggle()
-                }
-                .sheet(isPresented: $ispresented) {
-                    UsersListView()
-                }
-                .shadow(color: .blue, radius: 10)
-                
                 //MARK: - Hellow Label
                 Image("moto")
                     .resizable()
@@ -41,14 +32,14 @@ struct LoginView: View {
                 Text("Добро пожаловать в Гараж")
                     .font(.largeTitle)
                     .multilineTextAlignment(.center)
-                    .shadow(radius: 5)
+                    .shadow(color: .blue, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/) ///Сделать моргающию надпись
                 
                 //MARK: - TextFieldGroup
                 TextField("Login...", text: $viewModel.simpleUserName)
-                    .costomStyle()
+                    .customStyle()
                     .focused($nameIsFocused)
                 SecureField("Pasword...", text: $viewModel.simplePassword)
-                    .costomStyle()
+                    .customStyle()
                     .focused($nameIsFocused)
                 
                 
@@ -72,7 +63,7 @@ struct LoginView: View {
                         }))
                         
                     })
-                    .sheet(isPresented: $viewModel.authenticated, content: {
+                    .fullScreenCover(isPresented: $viewModel.authenticated, content: {
                         ContentView(user: viewModel.currentUser)
                     })
                     .frame(width: 160, height: 60)
@@ -90,8 +81,16 @@ struct LoginView: View {
                     ButtonView(action: {
                         viewModel.addNewUser()
                         
-                    }, label: "Новый пользователь")
+                    }, label: "Новый гараж")
                 }
+                //MARK: - ShowUsersButton
+                Button("Show users") {
+                    ispresented.toggle()
+                }
+                .sheet(isPresented: $ispresented) {
+                    UsersListView()
+                }
+                .shadow(color: .blue, radius: 10)
             }
             .padding()
             .onTapGesture {
@@ -117,7 +116,7 @@ struct TFStyleViewModifier: ViewModifier {
 }
 
 extension View {
-    func costomStyle() -> some View {
+    func customStyle() -> some View {
         modifier(TFStyleViewModifier())
     }
 }

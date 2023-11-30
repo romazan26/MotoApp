@@ -21,7 +21,7 @@ final class User: Object, ObjectKeyIdentifiable {
         "id"
     }
 }
-final class Technic: Object {
+final class Technic: Object, ObjectKeyIdentifiable {
     @Persisted var type = ""
     @Persisted var title = ""
     @Persisted var note = ""

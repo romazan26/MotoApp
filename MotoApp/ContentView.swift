@@ -11,6 +11,7 @@ import RealmSwift
 struct ContentView: View {
     @ObservedObject var viewModel = LoginViewModel()
     @ObservedRealmObject var user: User
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
             NavigationStack {
@@ -31,10 +32,14 @@ struct ContentView: View {
                             Text("События")
                         }
                 }
-                .navigationTitle("User")
                 .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {print(user)}, label: {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(action: {
+                            dismiss()
+                            viewModel.currentUser = nil
+                            viewModel.simplePassword = ""
+                            viewModel.simpleUserName = ""
+                        }, label: {
                             Text("LogOut")
                         })
                     }
@@ -44,5 +49,5 @@ struct ContentView: View {
     }
 
 #Preview {
-    ContentView( user: User())
+    ContentView(user: DataManager.shared.createTempData())
 }
