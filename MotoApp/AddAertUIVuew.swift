@@ -13,6 +13,11 @@ struct AddAertUIVuew: View {
     let screenSize = UIScreen.main.bounds
     @Binding var isShow: Bool
     @Binding var text: String
+    @Binding var text2: String
+    @Binding var text3: String
+    @State var place: String
+    @State var place2: String
+    @State var place3: String
 
     var title: String = "Add new"
     var onAdd: (String) -> Void = { _ in }
@@ -25,21 +30,22 @@ struct AddAertUIVuew: View {
                 .multilineTextAlignment(.center)
                 .shadow(color: .blue, radius: 10)
             
-            TextField("", text: $text)
+            TextField(place, text: $text)
                 .textFieldStyle(.roundedBorder)
-            TextField("", text: $text)
+            TextField(place2, text: $text2)
                 .textFieldStyle(.roundedBorder)
-            TextField("", text: $text)
-                .textFieldStyle(.roundedBorder)
-            TextField("", text: $text)
+            TextField(place3, text: $text3)
                 .textFieldStyle(.roundedBorder)
             
             HStack(content: {
                 Button("Закрыть") {
                     self.isShow = false
                     self.onCancel()
+                    text = ""
                 }.buttonStyle(.borderedProminent)
+                
                 Spacer()
+                
                 Button("Добавть") {
                     self.isShow = false
                     self.onAdd(self.text)
@@ -56,6 +62,6 @@ struct AddAertUIVuew: View {
     }
 }
 
-#Preview {
-    AddAertUIVuew(isShow: .constant(true), text: .constant(""))
-}
+//#Preview {
+//    AddAertUIVuew(isShow: .constant(true), text: .constant(""), text2: .constant(""), text3: .constant(""))
+//}
