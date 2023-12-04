@@ -34,15 +34,14 @@ struct ProfileView: View {
                 Image(systemName: "person")
                     .resizable()
                     .frame(width: 100, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
-                TextField(user.name, text: $simpleUserName)
-                    .customStyle()
+               
+                CustomTextFieldUIView(text: $simpleUserName, placeHolder: "Имя")
                     .focused($isFocused)
-                TextField(user.serName, text: $simpleUserSerName)
-                    .customStyle()
+                CustomTextFieldUIView(text: $simpleUserSerName, placeHolder: "Фамилия")
                     .focused($isFocused)
-                TextField(user.garageName, text: $garageName)
-                    .customStyle()
+                CustomTextFieldUIView(text: $garageName , placeHolder: "Название гаража")
                     .focused($isFocused)
+                
                 ButtonView(action: {
                     update()
                 }, label: "Изменить данные")
@@ -68,6 +67,9 @@ struct ProfileView: View {
                 {objecttoupdate.garageName = garageName}
             }
         }catch{print(error)}
+        simpleUserName = ""
+        simpleUserSerName = ""
+        garageName = ""
     }
 }
 

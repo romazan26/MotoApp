@@ -8,11 +8,43 @@
 import SwiftUI
 
 struct CustomTextFieldUIView: View {
+    @Binding var text: String
+    @State var placeHolder = "Name"
+    @State private var isTapped = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            VStack(alignment: .leading, spacing: 4) {
+                TextField("", text: $text) { (status) in
+                    if status{
+                        withAnimation(.easeIn) {
+                            isTapped = true
+                        }
+                    }
+                } onCommit: {
+                    if text == "" {
+                        withAnimation(.easeOut) {
+                            isTapped = false
+                        }
+                    }
+                }
+                .padding(.top, isTapped ? 15 : 0)
+                .background(alignment: .leading) {
+                    Text(placeHolder)
+                        .scaleEffect(isTapped ? 0.8 : 1)
+                        .offset(x: isTapped ? -7 : 0, y: isTapped ? -15 : 0)
+                }
+            }
+            .padding(.vertical, 12)
+            .padding(.horizontal)
+            .background(.gray.opacity(0.5))
+            .clipShape(RoundedRectangle(cornerRadius: 15))
+        }
+        .padding()
     }
 }
 
 #Preview {
-    CustomTextFieldUIView()
+
+    CustomTextFieldUIView(text: .constant("Name"))
 }

@@ -26,29 +26,19 @@ struct AddTechnicUIView: View {
                 .ignoresSafeArea()
                 .opacity(0.5)
             VStack {
-                Text("Введите данные о новой технике")
+                Text("Введите данные о технике")
                     .font(.largeTitle)
                     .multilineTextAlignment(.center)
                     .shadow(color: .blue, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                 //MARK: - TextField group
-                TextField(text: $typeTehnic) {
-                    Text("Тип:").foregroundStyle(.blue)
-                        .bold()
-                }
-                    .customStyle()
+                CustomTextFieldUIView(text: $typeTehnic, placeHolder: "Тип")
                     .focused($nameIsFocused)
                 
-                TextField(text: $titleTehnic) {
-                    Text("Название:").foregroundStyle(.blue)
-                        .bold()
-                }
-                    .customStyle()
+                CustomTextFieldUIView(text: $titleTehnic, placeHolder: "Название")
                     .focused($nameIsFocused)
                 
-                TextField(text: $noteTehnic) {
-                    Text("Примечание:").foregroundStyle(.blue)
-                        .bold()
-                }.customStyle()
+                CustomTextFieldUIView(text: $noteTehnic, placeHolder: "Примечание")
+                    .focused($nameIsFocused)
                 
                 //MARK: - Add Button
                 ButtonView(action: {

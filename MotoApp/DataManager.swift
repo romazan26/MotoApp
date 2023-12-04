@@ -27,4 +27,22 @@ final class DataManager {
         return user
        
     }
+    
+    func createTempDataTechic() -> Technic {
+       
+        let moto = Technic()
+        moto.type = "motocycle"
+        moto.title = "KTM"
+        moto.note = "250cc"
+        
+        let work = Work()
+        work.nameWork = "change Oil"
+        work.odometr = 100
+        work.price = 1200
+        work.date = Date.now
+        
+        moto.works.append(work)
+        return moto
+       
+    }
 }
