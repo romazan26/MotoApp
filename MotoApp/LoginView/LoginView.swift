@@ -36,15 +36,9 @@ struct LoginView: View {
                     .font(.largeTitle)
                     .multilineTextAlignment(.center)
                     .shadow(color: .blue, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/) ///Сделать моргающию надпись
-                
                 //MARK: - TextFieldGroup
-                TextField("Login...", text: $viewModel.simpleUserName)
-                    .customStyle()
-                    .focused($nameIsFocused)
-                SecureField("Pasword...", text: $viewModel.simplePassword)
-                    .customStyle()
-                    .focused($nameIsFocused)
-                
+                CustomTextFieldUIView(text: $viewModel.simpleUserName, placeHolder: "Login...", isSecuriti: false)
+                CustomTextFieldUIView(text: $viewModel.simplePassword, placeHolder: "Pasword...", isSecuriti: true)
                 
                 HStack {
                     
@@ -73,7 +67,7 @@ struct LoginView: View {
                     .background(LinearGradient(
                         colors: viewModel.isLoginButtonDisable
                         ?[.gray.opacity(0.6)]
-                        :[.black, .blue.opacity(0.5)],
+                        :[.orange, .blue.opacity(0.9)],
                         startPoint: .bottomLeading,
                         endPoint: .topTrailing))
                     .clipShape(RoundedRectangle(cornerRadius: 15))
