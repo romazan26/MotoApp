@@ -136,7 +136,7 @@ struct ButtonView: View {
         })
         .frame(width: 160, height: 60)
         .background(LinearGradient(
-            colors: [.black, .blue.opacity(0.5)],
+            colors: [.orange, .blue.opacity(0.9)],
             startPoint: .bottomLeading,
             endPoint: .topTrailing))
         .clipShape(RoundedRectangle(cornerRadius: 15))

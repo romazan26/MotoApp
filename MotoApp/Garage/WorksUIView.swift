@@ -12,6 +12,7 @@ struct WorksUIView: View {
     //MARK: - Propety
     @ObservedRealmObject var technis: Technic
 
+    private let screenSize = UIScreen.main.bounds
     
     @State private var nameWork = ""
     @State private var odonetr = ""
@@ -24,8 +25,6 @@ struct WorksUIView: View {
     //MARK: - Body
     var body: some View {
         ZStack {
-            
-            VStack {
                 if technis.works.isEmpty {
                     Text("Нет выполненных работ")
                 }
@@ -72,15 +71,22 @@ struct WorksUIView: View {
                             startPoint: .bottomLeading,
                             endPoint: .topTrailing).opacity(0.4))
                         
+                        
                     }.onDelete(perform: $technis.works.remove)
                         
                 }
+                .background(LinearGradient(
+                    colors: [.orange, .blue.opacity(0.8)],
+                    startPoint: .bottomLeading,
+                    endPoint: .topTrailing).opacity(0.6))
+                .scrollContentBackground(.hidden)
                 
                 //MARK: - Add Button
                 ButtonView(action: {
                     isPresentedAlert.toggle()
                 }, label: "Добавить работу")
-            }
+                .offset(x: screenSize.width - 300, y: screenSize.height - 550)
+            
             
             //MARK: - Show Alert add
             AddAertUIVuew(
