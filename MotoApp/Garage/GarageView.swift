@@ -13,10 +13,13 @@ struct GarageView: View {
     @State private var isPresented = false
     var body: some View {
         ZStack {
-            Image("serii-kirpich-fon")
-                .resizable()
-                .ignoresSafeArea()
-                .opacity(0.5)
+            LinearGradient(
+                colors: [.black, .blue.opacity(0.7)],
+                startPoint: .bottomLeading,
+                endPoint: .topTrailing)
+            .opacity(0.7)
+            .ignoresSafeArea()
+            
             VStack {
                     if user.technics.isEmpty {
                         Text("Список техники пуст. Нажмите + чтобы добавить технику" )
@@ -29,8 +32,6 @@ struct GarageView: View {
                             } label: {
                                 technicUIViewCell(technic: technic)
                             }
-
-                            
                         }.onDelete(perform: $user.technics.remove)
                         
                         ButtonView(action: {

@@ -22,15 +22,25 @@ final class User: Object, ObjectKeyIdentifiable {
     }
 }
 final class Technic: Object, ObjectKeyIdentifiable {
+    @Persisted(primaryKey: true) var id: ObjectId
     @Persisted var type = ""
     @Persisted var title = ""
     @Persisted var note = ""
     @Persisted var works = List<Work>()
+    
+    override class func primaryKey() -> String? {
+        "id"
+    }
 }
 
 final class Work: Object, ObjectKeyIdentifiable {
+    @Persisted(primaryKey: true) var id: ObjectId
     @Persisted var nameWork = ""
     @Persisted var odometr = 0
     @Persisted var price = 0
     @Persisted var date = Date.now
+    
+    override class func primaryKey() -> String? {
+        "id"
+    }
 }

@@ -15,16 +15,19 @@ struct AddTechnicUIView: View {
     @State private var typeTehnic = ""
     @State private var titleTehnic = ""
     @State private var noteTehnic = ""
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) private var dismiss
     @FocusState private var nameIsFocused: Bool
     
     //MARK: - Body
     var body: some View {
         ZStack {
-            Image("serii-kirpich-fon")
-                .resizable()
-                .ignoresSafeArea()
-                .opacity(0.5)
+            LinearGradient(
+                colors: [.black, .blue.opacity(0.7)],
+                startPoint: .bottomLeading,
+                endPoint: .topTrailing)
+            .opacity(0.7)
+            .ignoresSafeArea()
+            
             VStack {
                 Text("Введите данные о технике")
                     .font(.largeTitle)

@@ -37,7 +37,7 @@ struct CustomTextFieldUIView: View {
             }
             .padding(.vertical, 12)
             .padding(.horizontal)
-            .background(.gray.opacity(0.5))
+            .background(.orange.opacity(0.3))
             .clipShape(RoundedRectangle(cornerRadius: 15))
         }
         .padding()

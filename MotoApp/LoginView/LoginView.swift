@@ -18,10 +18,13 @@ struct LoginView: View {
     var body: some View {
         
         ZStack {
-            Image("serii-kirpich-fon")
-                .resizable()
-                .ignoresSafeArea()
-                .opacity(0.5)
+            LinearGradient(
+                colors: [.orange.opacity(0.7), .blue.opacity(0.7)],
+                startPoint: .bottomLeading,
+                endPoint: .topTrailing)
+            .opacity(0.7)
+            .ignoresSafeArea()
+            
             VStack (spacing: 20){
                 
                 //MARK: - Hellow Label

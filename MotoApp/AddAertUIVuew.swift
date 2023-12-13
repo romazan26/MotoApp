@@ -9,6 +9,7 @@ import SwiftUI
 
 
 struct AddAertUIVuew: View {
+
     
     let screenSize = UIScreen.main.bounds
     @Binding var isShow: Bool
@@ -46,22 +47,22 @@ struct AddAertUIVuew: View {
                 
                 Spacer()
                 
-                Button("Добавть") {
+                Button("Сохранить") {
                     self.isShow = false
                     self.onAdd(self.text)
+                    
                 }.buttonStyle(.borderedProminent)
             }).padding()
         }
         .padding()
         .frame(width: screenSize.width * 0.7, height: screenSize.height * 0.4)
-        .background(.gray.opacity(0.2))
+        .background(.gray.opacity(0.4))
         .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
         .offset(y: isShow ? 0 : screenSize.height)
-        .animation(.spring(), value: screenSize)
-        .shadow(color: .gray, radius: 6, x: -9, y: -9)
+        .animation(.spring(), value: isShow)
     }
 }
 
-//#Preview {
-//    AddAertUIVuew(isShow: .constant(true), text: .constant(""), text2: .constant(""), text3: .constant(""))
-//}
+#Preview {
+    AddAertUIVuew(isShow: .constant(true), text: .constant("Change"), text2: .constant(""), text3: .constant(""), place: "", place2: "odometr", place3: "price")
+}
