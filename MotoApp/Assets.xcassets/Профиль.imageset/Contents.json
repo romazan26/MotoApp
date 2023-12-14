@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "garage.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "garage 1.png",
+      "filename" : "figure.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "garage 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
