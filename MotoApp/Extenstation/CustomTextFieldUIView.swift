@@ -68,7 +68,6 @@ struct CustomTextFieldUIView: View {
             .background(.orange.opacity(0.3))
             .clipShape(RoundedRectangle(cornerRadius: 15))
         }
-        //.padding()
     }
 }
 
