@@ -12,6 +12,7 @@ import RealmSwift
 
 final class LoginViewModel: ObservableObject {
     @ObservedResults(User.self) var users
+    
     @Published var authenticated = false
     @Published var simpleUserName = ""
     @Published var simplePassword = ""

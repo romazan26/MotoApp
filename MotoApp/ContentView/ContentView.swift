@@ -22,7 +22,7 @@ struct ContentView: View {
                 TabView(selection: $selectedTab) {
                     GarageView(user: user)
                         .tag("Гараж")
-                    ProfileView(user: user)
+                    ProfileView(viewModel: ProfileViewModel(user: user))
                         .tag("Профиль")
                     
                     EventsView()

@@ -9,12 +9,10 @@ import SwiftUI
 import RealmSwift
 
 struct ProfileView: View {
-    @ObservedRealmObject var user: User
-    @State var simpleUserName = ""
-    @State var simpleUserSerName = ""
-    @State private var garageName = ""
+    @StateObject var viewModel: ProfileViewModel
+    
     @FocusState private var isFocused: Bool
-
+    
     var body: some View {
         
         ZStack {
@@ -23,56 +21,35 @@ struct ProfileView: View {
                 .ignoresSafeArea()
                 .opacity(0.5)
             VStack {
-                Text(user.garageName)
+                Text(viewModel.garage)
                     .font(.largeTitle)
                     .multilineTextAlignment(.center)
                     .shadow(color: .blue, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                     .bold()
-                Text("\(user.name) \(user.serName)")
+                Text("\(viewModel.userName) \(viewModel.userSerName)")
                     .font(.largeTitle)
                     .bold()
                 Image(systemName: "person")
                     .resizable()
                     .frame(width: 100, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
-               
-                CustomTextFieldUIView(text: $simpleUserName, placeHolder: "Имя")
+                
+                CustomTextFieldUIView(text: $viewModel.simpleUserName, placeHolder: "Имя")
                     .focused($isFocused)
-                CustomTextFieldUIView(text: $simpleUserSerName, placeHolder: "Фамилия")
+                CustomTextFieldUIView(text: $viewModel.simpleUserSerName, placeHolder: "Фамилия")
                     .focused($isFocused)
-                CustomTextFieldUIView(text: $garageName , placeHolder: "Название гаража")
+                CustomTextFieldUIView(text: $viewModel.simplegarageName , placeHolder: "Название гаража")
                     .focused($isFocused)
                 
                 ButtonView(action: {
-                    update()
+                    viewModel.update()
                 }, label: "Изменить данные")
             }.padding()
         }.onTapGesture {
             isFocused = false
         }
-        
-    }
-//MARK: - update fnction
-    func update() {
-        do{
-            let realm = try Realm()
-            guard let objecttoupdate = realm.object(ofType: User.self, forPrimaryKey: user.id) else {
-                return
-            }
-            try realm.write {
-                if !simpleUserName.isEmpty
-                {objecttoupdate.name = simpleUserName}
-                if !simpleUserSerName.isEmpty
-                {objecttoupdate.serName = simpleUserSerName}
-                if !garageName.isEmpty
-                {objecttoupdate.garageName = garageName}
-            }
-        }catch{print(error)}
-        simpleUserName = ""
-        simpleUserSerName = ""
-        garageName = ""
     }
 }
 
 #Preview {
-    ProfileView( user: DataManager.shared.createTempData())
+    ProfileView(viewModel: ProfileViewModel(user: DataManager.shared.createTempData()))
 }
