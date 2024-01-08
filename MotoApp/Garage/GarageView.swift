@@ -9,42 +9,42 @@ import SwiftUI
 import RealmSwift
 
 struct GarageView: View {
-    @ObservedRealmObject var user: User
+    @StateObject var viewmodel: GarageViewModel
+    
     @State private var isPresented = false
     private let screenSize = UIScreen.main.bounds
     
     var body: some View {
         ZStack {
-                    if user.technics.isEmpty {
-                        Text("Список техники пуст. Нажмите + чтобы добавить технику" )
+            if viewmodel.technics.isEmpty {
+                Text("Список техники пуст. Нажмите + чтобы добавить технику" )
+            }
+            List{
+                ForEach(viewmodel.technics) { technic in
+                    NavigationLink {
+                        WorksUIView(technis: technic)
+                    } label: {
+                        technicUIViewCell(technic: technic).bold()
                     }
-                    Text("Garage: \(user.garageName)")
-                    List{
-                        ForEach(user.technics) { technic in
-                            NavigationLink {
-                                WorksUIView(technis: technic)
-                            } label: {
-                                technicUIViewCell(technic: technic).bold()
-                            }
-                        }.onDelete(perform: $user.technics.remove)
-                            .listRowBackground( LinearGradient(
-                            colors: [.orange, .blue.opacity(0.9)],
-                            startPoint: .bottomLeading,
-                            endPoint: .topTrailing).opacity(0.8))
-                        
-                    }
-                    .background(LinearGradient(
-                        colors: [.orange, .blue.opacity(0.8)],
-                        startPoint: .bottomLeading,
-                        endPoint: .topTrailing).opacity(0.6))
-                    .scrollContentBackground(.hidden)
-                    
-                ButtonView(action: {
-                    isPresented.toggle()
-                }, label: "Добавить")
-                .sheet(isPresented: $isPresented, content: {
-                    AddTechnicUIView(user: user)
-                }).offset(x: screenSize.width - 300, y: screenSize.height - 550)
+                }.onDelete(perform: $viewmodel.user.technics.remove)
+                .listRowBackground( LinearGradient(
+                    colors: [.orange, .blue.opacity(0.9)],
+                    startPoint: .bottomLeading,
+                    endPoint: .topTrailing).opacity(0.8))
+                
+            }
+            .background(LinearGradient(
+                colors: [.orange, .blue.opacity(0.8)],
+                startPoint: .bottomLeading,
+                endPoint: .topTrailing).opacity(0.6))
+            .scrollContentBackground(.hidden)
+            
+            ButtonView(action: {
+                isPresented.toggle()
+            }, label: "Добавить")
+            .sheet(isPresented: $isPresented, content: {
+                AddTechnicUIView(viewmodel: viewmodel)
+            }).offset(x: screenSize.width - 300, y: screenSize.height - 550)
             
         }
         
@@ -52,5 +52,5 @@ struct GarageView: View {
 }
 
 #Preview {
-    GarageView(user: DataManager.shared.createTempData())
+    GarageView(viewmodel: GarageViewModel(user: DataManager.shared.createTempData()))
 }

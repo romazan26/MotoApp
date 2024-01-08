@@ -11,10 +11,8 @@ import RealmSwift
 struct AddTechnicUIView: View {
     
     //MARK: - Propertys
-    @ObservedRealmObject var user: User
-    @State private var typeTehnic = ""
-    @State private var titleTehnic = ""
-    @State private var noteTehnic = ""
+    @StateObject var viewmodel: GarageViewModel
+    
     @Environment(\.dismiss) private var dismiss
     @FocusState private var nameIsFocused: Bool
     
@@ -33,19 +31,20 @@ struct AddTechnicUIView: View {
                     .font(.largeTitle)
                     .multilineTextAlignment(.center)
                     .shadow(color: .blue, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                
                 //MARK: - TextField group
-                CustomTextFieldUIView(text: $typeTehnic, placeHolder: "Тип")
+                CustomTextFieldUIView(text: $viewmodel.typeTehnic, placeHolder: "Тип")
                     .focused($nameIsFocused)
                 
-                CustomTextFieldUIView(text: $titleTehnic, placeHolder: "Название")
+                CustomTextFieldUIView(text: $viewmodel.titleTehnic, placeHolder: "Название")
                     .focused($nameIsFocused)
                 
-                CustomTextFieldUIView(text: $noteTehnic, placeHolder: "Примечание")
+                CustomTextFieldUIView(text: $viewmodel.noteTehnic, placeHolder: "Примечание")
                     .focused($nameIsFocused)
                 
                 //MARK: - Add Button
                 ButtonView(action: {
-                    addTehnic()
+                    viewmodel.addTehnic()
                     dismiss()
                 }, label: "Добавить технику")
                 .offset(y: 40)
@@ -55,19 +54,9 @@ struct AddTechnicUIView: View {
         }
     }
     
-    //MARK: - add function
-    private func addTehnic() {
-        let tehnic = Technic()
-        tehnic.type = typeTehnic
-        tehnic.title = titleTehnic
-        tehnic.note = noteTehnic
-        $user.technics.append(tehnic)
-        typeTehnic = ""
-        titleTehnic = ""
-        
-    }
+    
 }
 //MARK: - Preview
 #Preview {
-    AddTechnicUIView(user: DataManager.shared.createTempData())
+    AddTechnicUIView(viewmodel: GarageViewModel(user: DataManager.shared.createTempData()))
 }

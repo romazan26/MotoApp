@@ -20,7 +20,7 @@ struct ContentView: View {
         ZStack(alignment: .bottom) {
             NavigationStack {
                 TabView(selection: $selectedTab) {
-                    GarageView(user: user)
+                    GarageView(viewmodel: GarageViewModel(user: user))
                         .tag("Гараж")
                     ProfileView(viewModel: ProfileViewModel(user: user))
                         .tag("Профиль")
