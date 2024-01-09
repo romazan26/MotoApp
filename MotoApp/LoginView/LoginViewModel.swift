@@ -17,6 +17,8 @@ final class LoginViewModel: ObservableObject {
     @Published var simpleUserName = ""
     @Published var simplePassword = ""
     @Published var currentUser: User!
+    @Published var ispresented = false
+    @Published var showAlert = false
     
     var isLoginButtonDisable: Bool {
         simpleUserName.isEmpty || simplePassword.isEmpty
@@ -35,6 +37,7 @@ final class LoginViewModel: ObservableObject {
         toggleAuthentication()
         simplePassword = ""
         simpleUserName = ""
+        currentUser = nil
     }
     
     private func toggleAuthentication() {

@@ -9,10 +9,9 @@ import SwiftUI
 import RealmSwift
 
 struct LoginView: View {
+    //MARK: Propertys
     @ObservedObject var viewModel = LoginViewModel()
     @FocusState private var nameIsFocused: Bool
-    @State private var ispresented = false
-    @State private var showAlert = false
     
     //MARK: - Body
     var body: some View {
@@ -36,16 +35,16 @@ struct LoginView: View {
                     .font(.largeTitle)
                     .multilineTextAlignment(.center)
                     .shadow(color: .blue, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/) ///Сделать моргающию надпись
+                
                 //MARK: - TextFieldGroup
                 CustomTextFieldUIView(text: $viewModel.simpleUserName, placeHolder: "Login...", isSecuriti: false)
                 CustomTextFieldUIView(text: $viewModel.simplePassword, placeHolder: "Pasword...", isSecuriti: true)
                 
+                //MARK: - LoginButton
                 HStack {
-                    
-                    //MARK: - LoginButton
                     Button(action: {
                         viewModel.login()
-                        if !viewModel.authenticated {showAlert.toggle()}
+                        if !viewModel.authenticated {viewModel.showAlert.toggle()}
                     },
                            label: {
                         Text("Вход")
@@ -53,7 +52,7 @@ struct LoginView: View {
                             .font(.title2)
                             .bold()
                     })
-                    .alert(isPresented: $showAlert, content: {
+                    .alert(isPresented: $viewModel.showAlert, content: {
                         Alert(title: Text("Неправильный ПАРОЛЬ или ЛОГИН"), dismissButton: .cancel({
                             viewModel.simplePassword = ""
                             viewModel.simpleUserName = ""
@@ -82,9 +81,9 @@ struct LoginView: View {
                 }
                 //MARK: - ShowUsersButton
                 Button("Show users") {
-                    ispresented.toggle()
+                    viewModel.ispresented.toggle()
                 }
-                .sheet(isPresented: $ispresented) {
+                .sheet(isPresented: $viewModel.ispresented) {
                     UsersListView()
                 }
                 .shadow(color: .blue, radius: 10)

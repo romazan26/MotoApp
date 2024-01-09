@@ -26,6 +26,7 @@ final class GarageViewModel: ObservableObject {
     @Published var typeTehnic = ""
     @Published var titleTehnic = ""
     @Published var noteTehnic = ""
+    @Published var isPresented = false
     
     
     //MARK: - addTechnic function

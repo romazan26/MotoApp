@@ -94,7 +94,6 @@
 			children = (
 				30C75F4A2AC459B300B9D445 /* ProfileView.swift */,
 				308FF5932AF428DA0066D5F9 /* ProfileViewModel.swift */,
-				30F8771D2B4C3BC6002EC497 /* Extenstation */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -118,6 +117,7 @@
 		30C75F392AC452AB00B9D445 /* MotoApp */ = {
 			isa = PBXGroup;
 			children = (
+				30F8771D2B4C3BC6002EC497 /* Extenstation */,
 				30D5A5EC2B4C832B00744B5A /* Works */,
 				30F8771A2B4C3B90002EC497 /* ContentView */,
 				303A61AE2ADF1A4E00CCDBEE /* DataManager.swift */,

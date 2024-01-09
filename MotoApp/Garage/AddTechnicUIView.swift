@@ -20,12 +20,13 @@ struct AddTechnicUIView: View {
     var body: some View {
         ZStack {
             LinearGradient(
-                colors: [.black, .blue.opacity(0.7)],
+                colors: [.orange.opacity(0.7), .blue.opacity(0.7)],
                 startPoint: .bottomLeading,
                 endPoint: .topTrailing)
             .opacity(0.7)
+            .opacity(0.7)
             .ignoresSafeArea()
-            
+                
             VStack {
                 Text("Введите данные о технике")
                     .font(.largeTitle)

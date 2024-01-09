@@ -52,6 +52,7 @@ struct WorksUIView: View {
                                         .resizable()
                                         .frame(width: 50, height: 50)
                                 }
+                                .offset(x: screenSize.width - 300, y: screenSize.height - 550)
                             }
                         }
                         .listRowBackground( LinearGradient(

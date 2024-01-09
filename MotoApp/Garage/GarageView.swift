@@ -11,7 +11,7 @@ import RealmSwift
 struct GarageView: View {
     @StateObject var viewmodel: GarageViewModel
     
-    @State private var isPresented = false
+    
     private let screenSize = UIScreen.main.bounds
     
     var body: some View {
@@ -40,9 +40,9 @@ struct GarageView: View {
             .scrollContentBackground(.hidden)
             
             ButtonView(action: {
-                isPresented.toggle()
+                viewmodel.isPresented.toggle()
             }, label: "Добавить")
-            .sheet(isPresented: $isPresented, content: {
+            .sheet(isPresented: $viewmodel.isPresented, content: {
                 AddTechnicUIView(viewmodel: viewmodel)
             }).offset(x: screenSize.width - 300, y: screenSize.height - 550)
             

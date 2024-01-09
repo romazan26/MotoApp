@@ -14,6 +14,7 @@ struct ContentView: View {
     @Environment(\.dismiss) var dismiss
     
     @State var selectedTab = "Гараж"
+    
     let tabs = ["Гараж", "Профиль", "События"]
     
     var body: some View {
@@ -27,21 +28,17 @@ struct ContentView: View {
                     
                     EventsView()
                         .tag("События")
-                    
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button(action: {
                             dismiss()
-                            viewModel.currentUser = nil
-                            viewModel.simplePassword = ""
-                            viewModel.simpleUserName = ""
+                            viewModel.logout()
                         }, label: {
-                            Text("LogOut")
+                            Text("Выход")
                         })
                     }
                 }
-                
             }
             HStack{
                 ForEach(tabs, id: \.self) { tab in
@@ -69,7 +66,7 @@ struct TabBarItem: View{
                     Text(tab)
                         .foregroundStyle(.black)
                 }
-                
+                    
             })
         }
         .opacity(selected == tab ? 1 : 0.8)
