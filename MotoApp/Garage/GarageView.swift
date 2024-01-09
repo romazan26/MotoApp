@@ -22,7 +22,7 @@ struct GarageView: View {
             List{
                 ForEach(viewmodel.technics) { technic in
                     NavigationLink {
-                        WorksUIView(technis: technic)
+                        WorksUIView(viewModel: WorksViewModel(technic: technic))
                     } label: {
                         technicUIViewCell(technic: technic).bold()
                     }

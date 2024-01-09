@@ -6,31 +6,22 @@
 //
 
 import SwiftUI
-import RealmSwift
 
 struct WorksUIView: View {
     //MARK: - Propety
-    @ObservedRealmObject var technis: Technic
+    @ObservedObject var viewModel: WorksViewModel
 
     private let screenSize = UIScreen.main.bounds
-    
-    @State private var nameWork = ""
-    @State private var odonetr = ""
-    @State private var price = ""
-    @State private var isPresentedAlert = false
-    @State private var isPresentedAlertEdite = false
-    @State private var workToEdite = Work()
-    
     
     //MARK: - Body
     var body: some View {
         ZStack {
-                if technis.works.isEmpty {
+            if viewModel.technic.works.isEmpty {
                     Text("Нет выполненных работ")
                 }
                 //MARK: - Works name
                 List {
-                    ForEach(technis.works) { work in
+                    ForEach(viewModel.technic.works) { work in
                         Group {
                             HStack {
                                 VStack(alignment: .leading) {
@@ -54,10 +45,8 @@ struct WorksUIView: View {
                                 Spacer()
                                
                                 Button(action: {
-                                    workToEdite = work
-                                    isPresentedAlertEdite.toggle()
-                                    
-                                        
+                                    viewModel.workToEdite = work
+                                    viewModel.isPresentedAlertEdite.toggle()
                                 }) {
                                     Image(systemName: "pencil.line")
                                         .resizable()
@@ -65,15 +54,11 @@ struct WorksUIView: View {
                                 }
                             }
                         }
-
                         .listRowBackground( LinearGradient(
                             colors: [.orange, .blue.opacity(0.7)],
                             startPoint: .bottomLeading,
                             endPoint: .topTrailing).opacity(0.4))
-                        
-                        
-                    }.onDelete(perform: $technis.works.remove)
-                        
+                    }.onDelete(perform: $viewModel.technic.works.remove)
                 }
                 .background(LinearGradient(
                     colors: [.orange, .blue.opacity(0.8)],
@@ -83,78 +68,46 @@ struct WorksUIView: View {
                 
                 //MARK: - Add Button
                 ButtonView(action: {
-                    isPresentedAlert.toggle()
+                    viewModel.isPresentedAlert.toggle()
                 }, label: "Добавить работу")
                 .offset(x: screenSize.width - 300, y: screenSize.height - 550)
             
             
             //MARK: - Show Alert add
             AddAertUIVuew(
-                isShow: $isPresentedAlert,
-                text: $nameWork,
-                text2: $odonetr,
-                text3: $price,
+                isShow: $viewModel.isPresentedAlert,
+                text: $viewModel.nameWork,
+                text2: $viewModel.odonetr,
+                text3: $viewModel.price,
                 place: "Название работы",
                 place2: "Одометр",
                 place3: "Цена",
                 title: "Новая работа") { text in
-                nameWork = text
-                addWork()
+                    viewModel.nameWork = text
+                    viewModel.addWork()
             }
             
             //MARK: - Show Alert edite
             AddAertUIVuew(
-                isShow: $isPresentedAlertEdite,
-                text: $nameWork,
-                text2: $odonetr,
-                text3: $price,
+                isShow: $viewModel.isPresentedAlertEdite,
+                text: $viewModel.nameWork,
+                text2: $viewModel.odonetr,
+                text3: $viewModel.price,
                 place: "Название работы",
                 place2: "Одометр",
                 place3: "Цена",
                 title: "Редактировать") { text in
-                nameWork = text
-                upDateWork()
+                    viewModel.nameWork = text
+                    viewModel.upDateWork()
             }
         }
     }
-    //MARK: - Add function
-    func addWork() {
-        if !nameWork.isEmpty{
-            let work = Work()
-            work.nameWork = nameWork
-            work.odometr = Int(odonetr) ?? 0
-            work.price = Int(price) ?? 0
-            work.date = Date.now
-            $technis.works.append(work)
-        }
-        nameWork = ""
-        odonetr = ""
-        price = ""
-    }
+   
     
-    //MARK: - Update work function
-    func upDateWork() {
-        print(nameWork)
-            do {
-                let realm = try Realm()
-                guard let objectToUpdate = realm.object(ofType: Work.self, forPrimaryKey: workToEdite.id) else {
-                    return}
-                try realm.write {
-                    objectToUpdate.nameWork = nameWork
-                    objectToUpdate.odometr = Int(odonetr) ?? 0
-                    objectToUpdate.price = Int(price) ?? 0
-                    
-                }
-            }
-            catch {
-                print("error update")
-            }
-            
-            
-        }
+   
     
 }
 //MARK: - Preview
 #Preview {
-    WorksUIView(technis: DataManager.shared.createTempDataTechic())
+    WorksUIView(viewModel: WorksViewModel(technic: DataManager.shared.createTempDataTechic()))
 }

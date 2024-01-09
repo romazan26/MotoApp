@@ -13,6 +13,7 @@
 		303A61AC2ADF172A00CCDBEE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 303A61AB2ADF172A00CCDBEE /* RealmSwift */; };
 		303A61AF2ADF1A4E00CCDBEE /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A61AE2ADF1A4E00CCDBEE /* DataManager.swift */; };
 		303F000A2B1A5DBA005F4FC4 /* WorksUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303F00092B1A5DB9005F4FC4 /* WorksUIView.swift */; };
+		307F12972B4D881B0078A8F4 /* WorksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F12962B4D881B0078A8F4 /* WorksViewModel.swift */; };
 		308FF5942AF428DA0066D5F9 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308FF5932AF428DA0066D5F9 /* ProfileViewModel.swift */; };
 		30A045062B17AB17000FD446 /* UsersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A045052B17AB17000FD446 /* UsersListView.swift */; };
 		30C75F3B2AC452AB00B9D445 /* MotoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C75F3A2AC452AB00B9D445 /* MotoAppApp.swift */; };
@@ -36,6 +37,7 @@
 		301279282B186EEA00C201CF /* AddTechnicUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTechnicUIView.swift; sourceTree = "<group>"; };
 		303A61AE2ADF1A4E00CCDBEE /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		303F00092B1A5DB9005F4FC4 /* WorksUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorksUIView.swift; sourceTree = "<group>"; };
+		307F12962B4D881B0078A8F4 /* WorksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorksViewModel.swift; sourceTree = "<group>"; };
 		308FF5932AF428DA0066D5F9 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		30A045052B17AB17000FD446 /* UsersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListView.swift; sourceTree = "<group>"; };
 		30C75F372AC452AB00B9D445 /* MotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				303F00092B1A5DB9005F4FC4 /* WorksUIView.swift */,
+				307F12962B4D881B0078A8F4 /* WorksViewModel.swift */,
 			);
 			path = Works;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				30C75F4D2AC45A1600B9D445 /* EventsView.swift in Sources */,
 				30F8771C2B4C3B90002EC497 /* ContentView.swift in Sources */,
 				30F877232B4C3BC6002EC497 /* BlurUIView.swift in Sources */,
+				307F12972B4D881B0078A8F4 /* WorksViewModel.swift in Sources */,
 				30D5A5EB2B4C6BBD00744B5A /* GarageViewModel.swift in Sources */,
 				301279292B186EEA00C201CF /* AddTechnicUIView.swift in Sources */,
 				303F000A2B1A5DBA005F4FC4 /* WorksUIView.swift in Sources */,
