@@ -13,6 +13,10 @@ import RealmSwift
 final class LoginViewModel: ObservableObject {
     @ObservedResults(User.self) var users
     
+    @AppStorage("isLogin") var isLogin: Bool?
+    @AppStorage("userName") var name: String?
+    @AppStorage("userPassword") var password: String?
+    
     @Published var authenticated = false
     @Published var simpleUserName = ""
     @Published var simplePassword = ""
@@ -20,23 +24,42 @@ final class LoginViewModel: ObservableObject {
     @Published var ispresented = false
     @Published var showAlert = false
     
+    init() {
+        if ((name?.isEmpty) != nil){
+            simpleUserName = name ?? ""
+        }
+        if ((password?.isEmpty) != nil) {
+            simplePassword = password ?? ""
+        }
+        if isLogin == false {
+            authenticated = isLogin ?? false
+        }
+    }
+    
     var isLoginButtonDisable: Bool {
         simpleUserName.isEmpty || simplePassword.isEmpty
     }
+    
 //MARK: - Login
     func login() {
         for user in users {
             if user.login == simpleUserName && user.password == simplePassword {
                 currentUser = user
                 toggleAuthentication()
+                name = simpleUserName
+                password = simplePassword
+                isLogin = true
             }
         }
     }
 //MARK: - Logout
     func logout() {
         toggleAuthentication()
+        isLogin = false
         simplePassword = ""
         simpleUserName = ""
+        name = ""
+        password = ""
         currentUser = nil
     }
     

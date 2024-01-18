@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct MotoAppApp: App {
+    
+    @AppStorage("isLogin") var isLogin: Bool = false
+
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            if isLogin {
+                HellowView()
+            }else {
+                LoginView()
+            }
         }
     }
 }

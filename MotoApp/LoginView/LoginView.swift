@@ -59,9 +59,6 @@ struct LoginView: View {
                         }))
                         
                     })
-                    .fullScreenCover(isPresented: $viewModel.authenticated, content: {
-                        ContentView(user: viewModel.currentUser)
-                    })
                     .frame(width: 160, height: 60)
                     .background(LinearGradient(
                         colors: viewModel.isLoginButtonDisable

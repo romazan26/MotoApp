@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		301279272B18664C00C201CF /* technicUIViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301279262B18664C00C201CF /* technicUIViewCell.swift */; };
 		301279292B186EEA00C201CF /* AddTechnicUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301279282B186EEA00C201CF /* AddTechnicUIView.swift */; };
+		30321AC02B59B411009AAA35 /* HellowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30321ABF2B59B411009AAA35 /* HellowView.swift */; };
 		303A61AA2ADF172A00CCDBEE /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 303A61A92ADF172A00CCDBEE /* Realm */; };
 		303A61AC2ADF172A00CCDBEE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 303A61AB2ADF172A00CCDBEE /* RealmSwift */; };
 		303A61AF2ADF1A4E00CCDBEE /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A61AE2ADF1A4E00CCDBEE /* DataManager.swift */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		301279262B18664C00C201CF /* technicUIViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = technicUIViewCell.swift; sourceTree = "<group>"; };
 		301279282B186EEA00C201CF /* AddTechnicUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTechnicUIView.swift; sourceTree = "<group>"; };
+		30321ABF2B59B411009AAA35 /* HellowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HellowView.swift; sourceTree = "<group>"; };
 		303A61AE2ADF1A4E00CCDBEE /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		303F00092B1A5DB9005F4FC4 /* WorksUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorksUIView.swift; sourceTree = "<group>"; };
 		307F12962B4D881B0078A8F4 /* WorksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorksViewModel.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				303A61AD2ADF1A2E00CCDBEE /* Model */,
 				30C75F402AC452AD00B9D445 /* Preview Content */,
 				308FF5922AF428820066D5F9 /* Profile */,
+				30321ABF2B59B411009AAA35 /* HellowView.swift */,
 			);
 			path = MotoApp;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				30D5A5EB2B4C6BBD00744B5A /* GarageViewModel.swift in Sources */,
 				301279292B186EEA00C201CF /* AddTechnicUIView.swift in Sources */,
 				303F000A2B1A5DBA005F4FC4 /* WorksUIView.swift in Sources */,
+				30321AC02B59B411009AAA35 /* HellowView.swift in Sources */,
 				308FF5942AF428DA0066D5F9 /* ProfileViewModel.swift in Sources */,
 				30EE52082ADC65C200BCAD86 /* LoginViewModel.swift in Sources */,
 				30C75F492AC4531E00B9D445 /* GarageView.swift in Sources */,
