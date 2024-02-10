@@ -13,14 +13,23 @@ struct HellowView: View {
     
     var body: some View {
         VStack{
+            Image(.moto)
+                .resizable()
+                .frame(width: 380, height: 220)
+                .offset(y: -30)
+                .shadow(color: .orange, radius: 5)
+            
             Text("Добро пожаловать в гараж!").font(.title)
-                .onAppear(perform: {
-                    viewModel.login()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        self.isPresent = true
-                    }
-                })
-        }.fullScreenCover(isPresented: $isPresent, content: {
+                .shadow(color: .orange, radius: 1)
+               
+        }
+        .onAppear(perform: {
+            viewModel.login()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.isPresent = true
+            }
+        })
+        .fullScreenCover(isPresented: $isPresent, content: {
             ContentView(user: viewModel.currentUser)
         })
     }
