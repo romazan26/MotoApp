@@ -39,7 +39,7 @@ struct AddAertUIVuew: View {
                 Text(title)
                     .font(.title)
                     .multilineTextAlignment(.center)
-                    .shadow(color: .blue, radius: 10)
+                    .shadow(color: .gray, radius: 10)
                 
                 TextField(place, text: $text)
                     .textFieldStyle(.roundedBorder)

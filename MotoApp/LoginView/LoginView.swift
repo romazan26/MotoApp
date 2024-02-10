@@ -57,7 +57,6 @@ struct LoginView: View {
                             viewModel.simplePassword = ""
                             viewModel.simpleUserName = ""
                         }))
-                        
                     })
                     .frame(width: 160, height: 60)
                     .background(LinearGradient(
@@ -69,13 +68,12 @@ struct LoginView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 15))
                     .disabled(viewModel.isLoginButtonDisable)
                     
-                    
                     //MARK: - AddUserButton
                     ButtonView(action: {
                         viewModel.addNewUser()
-                        
                     }, label: "Новый гараж")
                 }
+                
                 //MARK: - ShowUsersButton
                 Button("Show users") {
                     viewModel.ispresented.toggle()
@@ -83,7 +81,6 @@ struct LoginView: View {
                 .sheet(isPresented: $viewModel.ispresented) {
                     UsersListView()
                 }
-                .shadow(color: .blue, radius: 10)
             }
             .padding()
             .onTapGesture {
@@ -98,37 +95,6 @@ struct LoginView: View {
     LoginView(viewModel: LoginViewModel())
 }
 
-struct TFStyleViewModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .padding()
-            .frame(width: 320)
-            .background(.gray.opacity(0.8))
-            .clipShape(RoundedRectangle(cornerRadius: 15))
-    }
-}
 
-extension View {
-    func customStyle() -> some View {
-        modifier(TFStyleViewModifier())
-    }
-}
 
-struct ButtonView: View {
-    let action: () -> Void
-    let label: String
-    var body: some View {
-        Button(action: action, label: {
-            Text(label)
-                .foregroundStyle(.white)
-                .font(.title2)
-                .bold()
-        })
-        .frame(width: 160, height: 60)
-        .background(LinearGradient(
-            colors: [.orange, .blue.opacity(0.9)],
-            startPoint: .bottomLeading,
-            endPoint: .topTrailing))
-        .clipShape(RoundedRectangle(cornerRadius: 15))
-    }
-}
+

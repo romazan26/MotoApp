@@ -17,7 +17,8 @@
 		307F12972B4D881B0078A8F4 /* WorksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F12962B4D881B0078A8F4 /* WorksViewModel.swift */; };
 		308FF5942AF428DA0066D5F9 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308FF5932AF428DA0066D5F9 /* ProfileViewModel.swift */; };
 		30A045062B17AB17000FD446 /* UsersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A045052B17AB17000FD446 /* UsersListView.swift */; };
-		30C75F3B2AC452AB00B9D445 /* MotoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C75F3A2AC452AB00B9D445 /* MotoAppApp.swift */; };
+		30BBB6422B77AC2600448494 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BBB6412B77AC2600448494 /* ButtonView.swift */; };
+		30C75F3B2AC452AB00B9D445 /* GarageAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C75F3A2AC452AB00B9D445 /* GarageAppApp.swift */; };
 		30C75F3F2AC452AD00B9D445 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30C75F3E2AC452AD00B9D445 /* Assets.xcassets */; };
 		30C75F422AC452AD00B9D445 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30C75F412AC452AD00B9D445 /* Preview Assets.xcassets */; };
 		30C75F492AC4531E00B9D445 /* GarageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C75F482AC4531E00B9D445 /* GarageView.swift */; };
@@ -42,8 +43,9 @@
 		307F12962B4D881B0078A8F4 /* WorksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorksViewModel.swift; sourceTree = "<group>"; };
 		308FF5932AF428DA0066D5F9 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		30A045052B17AB17000FD446 /* UsersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListView.swift; sourceTree = "<group>"; };
+		30BBB6412B77AC2600448494 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		30C75F372AC452AB00B9D445 /* MotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		30C75F3A2AC452AB00B9D445 /* MotoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotoAppApp.swift; sourceTree = "<group>"; };
+		30C75F3A2AC452AB00B9D445 /* GarageAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageAppApp.swift; sourceTree = "<group>"; };
 		30C75F3E2AC452AD00B9D445 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30C75F412AC452AD00B9D445 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		30C75F482AC4531E00B9D445 /* GarageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageView.swift; sourceTree = "<group>"; };
@@ -124,7 +126,7 @@
 				30F8771A2B4C3B90002EC497 /* ContentView */,
 				303A61AE2ADF1A4E00CCDBEE /* DataManager.swift */,
 				30C75F4C2AC45A1600B9D445 /* EventsView.swift */,
-				30C75F3A2AC452AB00B9D445 /* MotoAppApp.swift */,
+				30C75F3A2AC452AB00B9D445 /* GarageAppApp.swift */,
 				30C75F3E2AC452AD00B9D445 /* Assets.xcassets */,
 				301279252B18661B00C201CF /* Garage */,
 				30EE52092ADC729600BCAD86 /* LoginView */,
@@ -177,6 +179,7 @@
 				30F8771E2B4C3BC6002EC497 /* CustomTextFieldUIView.swift */,
 				30F8771F2B4C3BC6002EC497 /* AddAertUIVuew.swift */,
 				30F877202B4C3BC6002EC497 /* BlurUIView.swift */,
+				30BBB6412B77AC2600448494 /* ButtonView.swift */,
 			);
 			name = Extenstation;
 			path = MotoApp/Extenstation;
@@ -276,9 +279,10 @@
 				308FF5942AF428DA0066D5F9 /* ProfileViewModel.swift in Sources */,
 				30EE52082ADC65C200BCAD86 /* LoginViewModel.swift in Sources */,
 				30C75F492AC4531E00B9D445 /* GarageView.swift in Sources */,
-				30C75F3B2AC452AB00B9D445 /* MotoAppApp.swift in Sources */,
+				30C75F3B2AC452AB00B9D445 /* GarageAppApp.swift in Sources */,
 				303A61AF2ADF1A4E00CCDBEE /* DataManager.swift in Sources */,
 				30EE52062ADC655C00BCAD86 /* User.swift in Sources */,
+				30BBB6422B77AC2600448494 /* ButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

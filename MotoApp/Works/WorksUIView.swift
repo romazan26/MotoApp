@@ -55,23 +55,26 @@ struct WorksUIView: View {
                                 .offset(x: screenSize.width - 300, y: screenSize.height - 550)
                             }
                         }
-                        .listRowBackground( LinearGradient(
-                            colors: [.orange, .blue.opacity(0.7)],
-                            startPoint: .bottomLeading,
-                            endPoint: .topTrailing).opacity(0.4))
+                        .listRowBackground( BlurUIView(style: .light).opacity(0.8))
                     }.onDelete(perform: $viewModel.technic.works.remove)
                 }
-                .background(LinearGradient(
-                    colors: [.orange, .blue.opacity(0.8)],
-                    startPoint: .bottomLeading,
-                    endPoint: .topTrailing).opacity(0.6))
+                .background( ZStack{
+                    Image(.moto)
+                        .resizable()
+                        .frame(width: 380, height: 220)
+                        .offset(y: -30)
+
+                    BlurUIView(style: .light)
+                        .ignoresSafeArea()
+                        .opacity(0.9)
+                })
                 .scrollContentBackground(.hidden)
                 
                 //MARK: - Add Button
                 ButtonView(action: {
                     viewModel.isPresentedAlert.toggle()
                 }, label: "Добавить работу")
-                .offset(x: screenSize.width - 300, y: screenSize.height - 550)
+                .offset(x: screenSize.width - 300, y: screenSize.height - 575)
             
             
             //MARK: - Show Alert add

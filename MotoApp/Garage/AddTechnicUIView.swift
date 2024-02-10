@@ -19,19 +19,24 @@ struct AddTechnicUIView: View {
     //MARK: - Body
     var body: some View {
         ZStack {
-            LinearGradient(
-                colors: [.orange.opacity(0.7), .blue.opacity(0.7)],
-                startPoint: .bottomLeading,
-                endPoint: .topTrailing)
-            .opacity(0.7)
-            .opacity(0.7)
-            .ignoresSafeArea()
-                
+            //MARK: - Background
+            ZStack{
+                Image(.moto)
+                    .resizable()
+                    .frame(width: 380, height: 220)
+                    .offset(y: -30)
+
+                BlurUIView(style: .light)
+                    .ignoresSafeArea()
+                    .opacity(0.9)
+            }
             VStack {
                 Text("Введите данные о технике")
                     .font(.largeTitle)
                     .multilineTextAlignment(.center)
                     .shadow(color: .blue, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                
+                 Spacer()
                 
                 //MARK: - TextField group
                 CustomTextFieldUIView(text: $viewmodel.typeTehnic, placeHolder: "Тип")
@@ -49,9 +54,14 @@ struct AddTechnicUIView: View {
                     dismiss()
                 }, label: "Добавить технику")
                 .offset(y: 40)
+                
+                Spacer()
+                
             }.padding()
+            
         }.onTapGesture {
             nameIsFocused = false
+        
         }
     }
     

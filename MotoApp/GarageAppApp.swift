@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct MotoAppApp: App {
+struct GarageAppApp: App {
     
     @AppStorage("isLogin") var isLogin: Bool = false
 
