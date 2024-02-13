@@ -20,9 +20,11 @@ final class LoginViewModel: ObservableObject {
     @Published var authenticated = false
     @Published var simpleUserName = ""
     @Published var simplePassword = ""
+    @Published var garageName = ""
     @Published var currentUser: User!
     @Published var ispresented = false
     @Published var showAlert = false
+    @Published var isPresentedAlert = false
     
     init() {
         if ((name?.isEmpty) != nil){
@@ -74,6 +76,7 @@ final class LoginViewModel: ObservableObject {
         let user = User()
         user.login = simpleUserName
         user.password = simplePassword
+        user.garageName = garageName
         
         $users.append(user)
     }

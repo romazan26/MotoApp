@@ -70,7 +70,7 @@ struct LoginView: View {
                     
                     //MARK: - AddUserButton
                     ButtonView(action: {
-                        viewModel.addNewUser()
+                        viewModel.isPresentedAlert.toggle()
                     }, label: "Новый гараж")
                 }
                 
@@ -85,6 +85,20 @@ struct LoginView: View {
             .padding()
             .onTapGesture {
                 nameIsFocused = false
+            }
+            
+            //MARK: - AddAlertNewGarage
+            AddAertUIVuew(
+                isShow: $viewModel.isPresentedAlert,
+                text: $viewModel.simpleUserName,
+                text2: $viewModel.simplePassword,
+                text3: $viewModel.garageName,
+                place: "Login",
+                place2: "Password",
+                place3: "Название гаража",
+                title: "создайте новый гараж") { text in
+                    viewModel.simpleUserName = text
+                    viewModel.addNewUser()
             }
         }
     }
