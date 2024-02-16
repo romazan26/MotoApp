@@ -29,6 +29,13 @@ struct GarageView: View {
                 }.onDelete(perform: $viewmodel.user.technics.remove)
                     .listRowBackground( BlurUIView(style: .light).opacity(0.8))
                 
+                //MARK: - Button Add
+                ButtonView(action: {
+                    viewmodel.isPresented.toggle()
+                }, label: "Добавить")
+                .sheet(isPresented: $viewmodel.isPresented, content: {
+                    AddTechnicUIView(viewmodel: viewmodel)
+                })
             }
             .background(ZStack{
                 Image(.moto)
@@ -42,12 +49,13 @@ struct GarageView: View {
             })
             .scrollContentBackground(.hidden)
             
-            ButtonView(action: {
-                viewmodel.isPresented.toggle()
-            }, label: "Добавить")
-            .sheet(isPresented: $viewmodel.isPresented, content: {
-                AddTechnicUIView(viewmodel: viewmodel)
-            }).offset(x: screenSize.width - 300, y: screenSize.height - 550)
+//            //MARK: - Button Add
+//            ButtonView(action: {
+//                viewmodel.isPresented.toggle()
+//            }, label: "Добавить")
+//            .sheet(isPresented: $viewmodel.isPresented, content: {
+//                AddTechnicUIView(viewmodel: viewmodel)
+//            }).offset(x: screenSize.width - 300, y: screenSize.height - 550)
             
         }
         

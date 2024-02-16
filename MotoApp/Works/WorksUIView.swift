@@ -10,9 +10,7 @@ import SwiftUI
 struct WorksUIView: View {
     //MARK: - Propety
     @ObservedObject var viewModel: WorksViewModel
-
-    private let screenSize = UIScreen.main.bounds
-    
+   
     //MARK: - Body
     var body: some View {
         ZStack {
@@ -23,41 +21,45 @@ struct WorksUIView: View {
                 List {
                     ForEach(viewModel.technic.works) { work in
                         Group {
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    HStack {
-                                        Text("название: ")
-                                        Text(work.nameWork).bold()
+                            Button(action: {
+                                viewModel.workToEdite = work
+                                viewModel.isPresentedAlertEdite.toggle()
+                            }) {
+                                HStack {
+                                    VStack(alignment: .leading) {
+                                        HStack {
+                                            Text("название: ")
+                                            Text(work.nameWork).bold()
+                                        }
+                                        HStack {
+                                            Text("Одометр: ")
+                                            Text(String(work.odometr)).bold()
+                                        }
+                                        HStack {
+                                            Text("Цена:        ")
+                                            Text(String(work.price)).bold()
+                                        }
+                                        HStack {
+                                            Text("Дата:        ")
+                                            Text(String(work.date.formatted(date: .numeric, time: .shortened)))
+                                        }
                                     }
-                                    HStack {
-                                        Text("Одометр: ")
-                                        Text(String(work.odometr)).bold()
-                                    }
-                                    HStack {
-                                        Text("Цена:        ")
-                                        Text(String(work.price)).bold()
-                                    }
-                                    HStack {
-                                        Text("Дата:        ")
-                                        Text(String(work.date.formatted(date: .numeric, time: .shortened)))
-                                    }
-                                }
-                                Spacer()
-                               
-                                Button(action: {
-                                    viewModel.workToEdite = work
-                                    viewModel.isPresentedAlertEdite.toggle()
-                                }) {
+                                    Spacer()
                                     Image(systemName: "pencil.line")
                                         .resizable()
                                         .frame(width: 50, height: 50)
-                                }
-                                .offset(x: screenSize.width - 300, y: screenSize.height - 550)
+                                }.foregroundStyle(.black)
                             }
                         }
                         .listRowBackground( BlurUIView(style: .light).opacity(0.8))
                     }.onDelete(perform: $viewModel.technic.works.remove)
+                    
+                    //MARK: - Add Button
+                    ButtonView(action: {
+                        viewModel.isPresentedAlert.toggle()
+                    }, label: "Добавить работу")
                 }
+            //MARK: - Background
                 .background( ZStack{
                     Image(.moto)
                         .resizable()
@@ -69,13 +71,6 @@ struct WorksUIView: View {
                         .opacity(0.9)
                 })
                 .scrollContentBackground(.hidden)
-                
-                //MARK: - Add Button
-                ButtonView(action: {
-                    viewModel.isPresentedAlert.toggle()
-                }, label: "Добавить работу")
-                .offset(x: screenSize.width - 300, y: screenSize.height - 575)
-            
             
             //MARK: - Show Alert add
             AddAertUIVuew(
@@ -106,11 +101,8 @@ struct WorksUIView: View {
             }
         }
     }
-   
-    
-   
-    
 }
+
 //MARK: - Preview
 #Preview {
     WorksUIView(viewModel: WorksViewModel(technic: DataManager.shared.createTempDataTechic()))
