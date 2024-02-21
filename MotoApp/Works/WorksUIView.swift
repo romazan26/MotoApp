@@ -34,7 +34,7 @@ struct WorksUIView: View {
                     .onChange(of: viewModel.lastWorkId, perform: { id in
                         proxy.scrollTo(id, anchor: .bottom)
                     })
-                        .background(BackgroundCustom())
+                        
                     .scrollContentBackground(.hidden)
                 }
                 
@@ -71,6 +71,8 @@ struct WorksUIView: View {
                     viewModel.upDateWork()
             }
         }
+        .background(BackgroundCustom())
+        .navigationTitle(viewModel.technic.title)
     }
 }
 

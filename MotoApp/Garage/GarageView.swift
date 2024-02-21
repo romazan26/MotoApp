@@ -20,7 +20,8 @@ struct GarageView: View {
         NavigationStack {
             ZStack {
                 if viewmodel.technics.isEmpty {
-                    Text("Список техники пуст. Добавте технику в гараж" ).font(.title3)
+                        Text("Список техники пуст. Добавте технику в гараж" )
+                            .font(.title3)
                 }
                 VStack {
                     
@@ -55,8 +56,9 @@ struct GarageView: View {
                     .sheet(isPresented: $viewmodel.isPresented, content: {
                         AddTechnicUIView(viewmodel: viewmodel)
                     })
-                }.background(BackgroundCustom())
-            }
+                }
+                    
+            }.background(BackgroundCustom())
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
