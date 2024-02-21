@@ -30,7 +30,8 @@ struct HellowView: View {
             }
         })
         .fullScreenCover(isPresented: $isPresent, content: {
-            ContentView(user: viewModel.currentUser)
+            GarageView(viewmodel: GarageViewModel(user: viewModel.currentUser), viewModelLogin: viewModel)
+            //ContentView(user: viewModel.currentUser)
         })
     }
 }

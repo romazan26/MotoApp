@@ -42,7 +42,6 @@ struct WorksUIView: View {
                 ButtonView(action: {
                     viewModel.isPresentedAlert.toggle()
                 }, label: "Добавить работу")
-                .padding(.bottom, 55)
             }
             //MARK: - Show Alert add
             AddAertUIVuew(
