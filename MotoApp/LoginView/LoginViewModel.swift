@@ -11,6 +11,7 @@ import RealmSwift
 
 
 final class LoginViewModel: ObservableObject {
+    
     @ObservedResults(User.self) var users
     
     @AppStorage("isLogin") var isLogin: Bool?

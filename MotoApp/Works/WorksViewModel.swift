@@ -23,6 +23,10 @@ final class WorksViewModel: ObservableObject {
         self.technic = technic
     }
     
+    var lastWorkId: ObjectId {
+        guard let id = technic.works.last?.id else {return ObjectId()}
+        return id
+    }
     //MARK: - Add function
     func addWork() {
         if !nameWork.isEmpty{

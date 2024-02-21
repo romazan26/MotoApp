@@ -17,61 +17,33 @@ struct WorksUIView: View {
             if viewModel.technic.works.isEmpty {
                     Text("Нет выполненных работ")
                 }
-                //MARK: - Works name
-                List {
-                    ForEach(viewModel.technic.works) { work in
-                        Group {
-                            Button(action: {
-                                viewModel.workToEdite = work
-                                viewModel.isPresentedAlertEdite.toggle()
-                            }) {
-                                HStack {
-                                    VStack(alignment: .leading) {
-                                        HStack {
-                                            Text("название: ")
-                                            Text(work.nameWork).bold()
-                                        }
-                                        HStack {
-                                            Text("Одометр: ")
-                                            Text(String(work.odometr)).bold()
-                                        }
-                                        HStack {
-                                            Text("Цена:        ")
-                                            Text(String(work.price)).bold()
-                                        }
-                                        HStack {
-                                            Text("Дата:        ")
-                                            Text(String(work.date.formatted(date: .numeric, time: .shortened)))
-                                        }
+            VStack {
+            //MARK: - works List
+                ScrollViewReader { proxy in
+                    List {
+                            ForEach(viewModel.technic.works) { work in
+                                    Button(action: {
+                                        viewModel.workToEdite = work
+                                        viewModel.isPresentedAlertEdite.toggle()
+                                    }) {
+                                        WorkCellView(work: work).padding(.horizontal, -10)
                                     }
-                                    Spacer()
-                                    Image(systemName: "pencil.line")
-                                        .resizable()
-                                        .frame(width: 50, height: 50)
-                                }.foregroundStyle(.black)
-                            }
+                                .listRowBackground( BlurUIView(style: .light).opacity(0.7))
+                            }.onDelete(perform: $viewModel.technic.works.remove)
                         }
-                        .listRowBackground( BlurUIView(style: .light).opacity(0.8))
-                    }.onDelete(perform: $viewModel.technic.works.remove)
-                    
-                    //MARK: - Add Button
-                    ButtonView(action: {
-                        viewModel.isPresentedAlert.toggle()
-                    }, label: "Добавить работу")
+                    .onChange(of: viewModel.lastWorkId, perform: { id in
+                        proxy.scrollTo(id, anchor: .bottom)
+                    })
+                        .background(BackgroundCustom())
+                    .scrollContentBackground(.hidden)
                 }
-            //MARK: - Background
-                .background( ZStack{
-                    Image(.moto)
-                        .resizable()
-                        .frame(width: 380, height: 220)
-                        .offset(y: -30)
-
-                    BlurUIView(style: .light)
-                        .ignoresSafeArea()
-                        .opacity(0.9)
-                })
-                .scrollContentBackground(.hidden)
-            
+                
+                //MARK: - Add Button
+                ButtonView(action: {
+                    viewModel.isPresentedAlert.toggle()
+                }, label: "Добавить работу")
+                .padding(.bottom, 55)
+            }
             //MARK: - Show Alert add
             AddAertUIVuew(
                 isShow: $viewModel.isPresentedAlert,

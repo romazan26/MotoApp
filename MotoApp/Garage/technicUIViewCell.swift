@@ -16,7 +16,8 @@ struct technicUIViewCell: View {
             Text("Название: \(technic.title)")
             Text("Примечание: \(technic.note)")
             Divider()
-        }.font(.title3)
+        }
+        .font(.title3)
     }
 }
 

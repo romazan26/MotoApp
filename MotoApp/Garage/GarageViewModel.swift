@@ -22,11 +22,16 @@ final class GarageViewModel: ObservableObject {
     var garage: String {
         user.garageName
     }
+    var lastTechnicId: ObjectId {
+        guard let id = user.technics.last?.id else {return ObjectId()}
+        return id
+    }
     
     @Published var typeTehnic = ""
     @Published var titleTehnic = ""
     @Published var noteTehnic = ""
     @Published var isPresented = false
+    
     
     
     //MARK: - addTechnic function

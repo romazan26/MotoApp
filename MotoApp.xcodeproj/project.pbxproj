@@ -26,6 +26,8 @@
 		30C75F4D2AC45A1600B9D445 /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C75F4C2AC45A1600B9D445 /* EventsView.swift */; };
 		30C75F542AC4B9FD00B9D445 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C75F532AC4B9FD00B9D445 /* LoginView.swift */; };
 		30D5A5EB2B4C6BBD00744B5A /* GarageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D5A5EA2B4C6BBD00744B5A /* GarageViewModel.swift */; };
+		30EB0A752B862C9B006FF732 /* BackgroundCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB0A742B862C9B006FF732 /* BackgroundCustom.swift */; };
+		30EB0A772B8659CC006FF732 /* WorkCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB0A762B8659CC006FF732 /* WorkCellView.swift */; };
 		30EE52062ADC655C00BCAD86 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EE52052ADC655C00BCAD86 /* User.swift */; };
 		30EE52082ADC65C200BCAD86 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EE52072ADC65C200BCAD86 /* LoginViewModel.swift */; };
 		30F8771C2B4C3B90002EC497 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F8771B2B4C3B90002EC497 /* ContentView.swift */; };
@@ -53,6 +55,8 @@
 		30C75F4C2AC45A1600B9D445 /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
 		30C75F532AC4B9FD00B9D445 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		30D5A5EA2B4C6BBD00744B5A /* GarageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageViewModel.swift; sourceTree = "<group>"; };
+		30EB0A742B862C9B006FF732 /* BackgroundCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCustom.swift; sourceTree = "<group>"; };
+		30EB0A762B8659CC006FF732 /* WorkCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkCellView.swift; sourceTree = "<group>"; };
 		30EE52052ADC655C00BCAD86 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		30EE52072ADC65C200BCAD86 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		30F8771B2B4C3B90002EC497 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 			children = (
 				303F00092B1A5DB9005F4FC4 /* WorksUIView.swift */,
 				307F12962B4D881B0078A8F4 /* WorksViewModel.swift */,
+				30EB0A762B8659CC006FF732 /* WorkCellView.swift */,
 			);
 			path = Works;
 			sourceTree = "<group>";
@@ -180,6 +185,7 @@
 				30F8771F2B4C3BC6002EC497 /* AddAertUIVuew.swift */,
 				30F877202B4C3BC6002EC497 /* BlurUIView.swift */,
 				30BBB6412B77AC2600448494 /* ButtonView.swift */,
+				30EB0A742B862C9B006FF732 /* BackgroundCustom.swift */,
 			);
 			name = Extenstation;
 			path = MotoApp/Extenstation;
@@ -272,6 +278,7 @@
 				30F8771C2B4C3B90002EC497 /* ContentView.swift in Sources */,
 				30F877232B4C3BC6002EC497 /* BlurUIView.swift in Sources */,
 				307F12972B4D881B0078A8F4 /* WorksViewModel.swift in Sources */,
+				30EB0A752B862C9B006FF732 /* BackgroundCustom.swift in Sources */,
 				30D5A5EB2B4C6BBD00744B5A /* GarageViewModel.swift in Sources */,
 				301279292B186EEA00C201CF /* AddTechnicUIView.swift in Sources */,
 				303F000A2B1A5DBA005F4FC4 /* WorksUIView.swift in Sources */,
@@ -279,6 +286,7 @@
 				308FF5942AF428DA0066D5F9 /* ProfileViewModel.swift in Sources */,
 				30EE52082ADC65C200BCAD86 /* LoginViewModel.swift in Sources */,
 				30C75F492AC4531E00B9D445 /* GarageView.swift in Sources */,
+				30EB0A772B8659CC006FF732 /* WorkCellView.swift in Sources */,
 				30C75F3B2AC452AB00B9D445 /* GarageAppApp.swift in Sources */,
 				303A61AF2ADF1A4E00CCDBEE /* DataManager.swift in Sources */,
 				30EE52062ADC655C00BCAD86 /* User.swift in Sources */,
