@@ -15,6 +15,7 @@
 		303A61AF2ADF1A4E00CCDBEE /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A61AE2ADF1A4E00CCDBEE /* DataManager.swift */; };
 		303F000A2B1A5DBA005F4FC4 /* WorksUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303F00092B1A5DB9005F4FC4 /* WorksUIView.swift */; };
 		307F12972B4D881B0078A8F4 /* WorksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F12962B4D881B0078A8F4 /* WorksViewModel.swift */; };
+		30838B682B9E3DF400634A17 /* sortFuncExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30838B672B9E3DF400634A17 /* sortFuncExtention.swift */; };
 		30A045062B17AB17000FD446 /* UsersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A045052B17AB17000FD446 /* UsersListView.swift */; };
 		30BBB6422B77AC2600448494 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BBB6412B77AC2600448494 /* ButtonView.swift */; };
 		30C75F3B2AC452AB00B9D445 /* GarageAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C75F3A2AC452AB00B9D445 /* GarageAppApp.swift */; };
@@ -39,6 +40,7 @@
 		303A61AE2ADF1A4E00CCDBEE /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		303F00092B1A5DB9005F4FC4 /* WorksUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorksUIView.swift; sourceTree = "<group>"; };
 		307F12962B4D881B0078A8F4 /* WorksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorksViewModel.swift; sourceTree = "<group>"; };
+		30838B672B9E3DF400634A17 /* sortFuncExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sortFuncExtention.swift; sourceTree = "<group>"; };
 		30A045052B17AB17000FD446 /* UsersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListView.swift; sourceTree = "<group>"; };
 		30BBB6412B77AC2600448494 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		30C75F372AC452AB00B9D445 /* MotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,6 +160,7 @@
 				30F877202B4C3BC6002EC497 /* BlurUIView.swift */,
 				30BBB6412B77AC2600448494 /* ButtonView.swift */,
 				30EB0A742B862C9B006FF732 /* BackgroundCustom.swift */,
+				30838B672B9E3DF400634A17 /* sortFuncExtention.swift */,
 			);
 			name = Extenstation;
 			path = MotoApp/Extenstation;
@@ -252,6 +255,7 @@
 				301279292B186EEA00C201CF /* AddTechnicUIView.swift in Sources */,
 				303F000A2B1A5DBA005F4FC4 /* WorksUIView.swift in Sources */,
 				30321AC02B59B411009AAA35 /* HellowView.swift in Sources */,
+				30838B682B9E3DF400634A17 /* sortFuncExtention.swift in Sources */,
 				30EE52082ADC65C200BCAD86 /* LoginViewModel.swift in Sources */,
 				30C75F492AC4531E00B9D445 /* GarageView.swift in Sources */,
 				30EB0A772B8659CC006FF732 /* WorkCellView.swift in Sources */,

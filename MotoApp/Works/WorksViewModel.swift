@@ -18,6 +18,7 @@ final class WorksViewModel: ObservableObject {
     @Published var isPresentedAlert = false
     @Published var isPresentedAlertEdite = false
     @Published var workToEdite = Work()
+    @Published var selectedSortOption = SortOption.allCases.first
     
     init(technic: Technic) {
         self.technic = technic

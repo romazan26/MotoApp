@@ -21,7 +21,7 @@ struct WorksUIView: View {
             //MARK: - works List
                 ScrollViewReader { proxy in
                     List {
-                            ForEach(viewModel.technic.works) { work in
+                        ForEach(viewModel.technic.works) { work in
                                     Button(action: {
                                         viewModel.workToEdite = work
                                         viewModel.isPresentedAlertEdite.toggle()
@@ -71,6 +71,19 @@ struct WorksUIView: View {
                     viewModel.upDateWork()
             }
         }
+        .toolbar(content: {
+            ToolbarItem(placement: .topBarTrailing) {
+                Menu("Sort") {
+                    Picker("", selection: $viewModel.selectedSortOption) {
+                        ForEach(SortOption.allCases, id: \.rawValue) { option in
+                            Text(option.rawValue)
+                                .tag(option)
+                        }
+                    }
+                    .labelsHidden()
+                }
+            }
+        })
         .background(BackgroundCustom())
         .navigationTitle(viewModel.technic.title)
     }

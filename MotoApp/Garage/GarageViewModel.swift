@@ -31,6 +31,7 @@ final class GarageViewModel: ObservableObject {
     @Published var titleTehnic = ""
     @Published var noteTehnic = ""
     @Published var isPresented = false
+ 
     
     
     

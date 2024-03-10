@@ -8,6 +8,8 @@
 import SwiftUI
 import RealmSwift
 
+
+
 struct GarageView: View {
     
     @StateObject var viewmodel: GarageViewModel
@@ -68,6 +70,8 @@ struct GarageView: View {
                         Text("Выход")
                     })
                 }
+                
+               
             }
         }
     }
