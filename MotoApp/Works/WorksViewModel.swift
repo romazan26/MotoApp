@@ -18,8 +18,13 @@ final class WorksViewModel: ObservableObject {
     @Published var isPresentedAlert = false
     @Published var isPresentedAlertEdite = false
     @Published var workToEdite = Work()
-    @Published var selectedSortOption = SortOption.price
-    @Published var sortWork = []
+    @Published var selectedSortOption = SortOptionWork.calendar
+   // @Published var sortWork: [Work] = []
+    
+    var sortWork: [Work] {
+        sortedWorks()
+        
+    }
     
     init(technic: Technic) {
         self.technic = technic
@@ -64,25 +69,19 @@ final class WorksViewModel: ObservableObject {
         }
     
     //MARK: - SortesFunction
-    func sortedWorks() {
+    func sortedWorks() -> [Work] {
+        var sortedarray: [Work] = []
         switch selectedSortOption {
-            
-        case .title:
-            sortWork = self.technic.works.sorted { work1, work2 in
-                work1.nameWork > work2.nameWork
-            }
-            print(sortWork)
-        case .date:
-            sortWork = self.technic.works.sorted { work1, work2 in
-                work1.date > work2.date
-            }
-            print(sortWork)
-        case .price:
-            sortWork = self.technic.works.sorted { work1, work2 in
-                work1.price > work2.price
-            }
-            print(sortWork)
+         
+        case .doc:
+            sortedarray = self.technic.works.sorted(by: {$0.nameWork < $1.nameWork})
+        case .calendar:
+            sortedarray = self.technic.works.sorted(by: {$0.date < $1.date})
+        case .dollarsign:
+            sortedarray = self.technic.works.sorted(by: {$0.price < $1.price})
+        case .speedometer:
+            sortedarray = self.technic.works.sorted(by: {$0.odometr < $1.odometr})
         }
-        print("srted func")
+        return sortedarray
     }
 }

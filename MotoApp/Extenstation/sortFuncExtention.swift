@@ -6,13 +6,12 @@
 //
 
 import Foundation
-import SwiftUI
 
-enum SortOption: String, CaseIterable{
-    case title
-    case date
-    case price
-    
+enum SortOptionWork: String, CaseIterable{
+    case doc = "Название"
+    case calendar = "Дата"
+    case dollarsign = "Цена"
+    case speedometer = "Одометр"
 }
 
 
