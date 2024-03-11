@@ -18,7 +18,8 @@ final class WorksViewModel: ObservableObject {
     @Published var isPresentedAlert = false
     @Published var isPresentedAlertEdite = false
     @Published var workToEdite = Work()
-    @Published var selectedSortOption = SortOption.allCases.first
+    @Published var selectedSortOption = SortOption.price
+    @Published var sortWork = []
     
     init(technic: Technic) {
         self.technic = technic
@@ -28,6 +29,7 @@ final class WorksViewModel: ObservableObject {
         guard let id = technic.works.last?.id else {return ObjectId()}
         return id
     }
+    
     //MARK: - Add function
     func addWork() {
         if !nameWork.isEmpty{
@@ -42,6 +44,7 @@ final class WorksViewModel: ObservableObject {
         odonetr = ""
         price = ""
     }
+    
     //MARK: - Update work function
     func upDateWork() {
             do {
@@ -58,7 +61,28 @@ final class WorksViewModel: ObservableObject {
             catch {
                 print("error update")
             }
-            
-            
         }
+    
+    //MARK: - SortesFunction
+    func sortedWorks() {
+        switch selectedSortOption {
+            
+        case .title:
+            sortWork = self.technic.works.sorted { work1, work2 in
+                work1.nameWork > work2.nameWork
+            }
+            print(sortWork)
+        case .date:
+            sortWork = self.technic.works.sorted { work1, work2 in
+                work1.date > work2.date
+            }
+            print(sortWork)
+        case .price:
+            sortWork = self.technic.works.sorted { work1, work2 in
+                work1.price > work2.price
+            }
+            print(sortWork)
+        }
+        print("srted func")
+    }
 }

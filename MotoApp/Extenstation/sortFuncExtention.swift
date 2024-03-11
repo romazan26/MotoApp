@@ -15,16 +15,4 @@ enum SortOption: String, CaseIterable{
     
 }
 
-extension [Work] {
-    func sort(option: SortOption) -> [Work] {
-        switch option {
-            
-        case .title:
-            self.sorted(by: {$0.nameWork < $1.nameWork})
-        case .date:
-            self.sorted(by: {$0.date < $1.date})
-        case .price:
-            self.sorted(by: {$0.price < $1.price})
-        }
-    }
-}
+

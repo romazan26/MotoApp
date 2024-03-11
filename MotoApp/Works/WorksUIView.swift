@@ -73,15 +73,17 @@ struct WorksUIView: View {
         }
         .toolbar(content: {
             ToolbarItem(placement: .topBarTrailing) {
-                Menu("Sort") {
-                    Picker("", selection: $viewModel.selectedSortOption) {
-                        ForEach(SortOption.allCases, id: \.rawValue) { option in
-                            Text(option.rawValue)
-                                .tag(option)
-                        }
-                    }
-                    .labelsHidden()
-                }
+//                Menu("Sort") {
+//                    Picker("", selection: $viewModel.selectedSortOption) {
+//                        ForEach(SortOption.allCases, id: \.rawValue) { option in
+//                            Button(option.rawValue, 
+//                                   action: viewModel.sortedWorks)
+//                                .tag(option)
+//                        }
+//                    }
+//                    .labelsHidden()
+//                }
+                Button("Sort", action: viewModel.sortedWorks)
             }
         })
         .background(BackgroundCustom())
