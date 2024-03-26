@@ -26,9 +26,15 @@ struct WorksUIView: View {
                                         viewModel.workToEdite = work
                                         viewModel.isPresentedAlertEdite.toggle()
                                     }) {
-                                        WorkCellView(work: work).padding(.horizontal, -10)
+                                        WorkCellView(work: work)
+                                            .cornerRadius(10)
+                                            .padding(.horizontal, -10)
                                     }
-                                .listRowBackground( BlurUIView(style: .light).opacity(0.7))
+                                    
+                                    .listRowBackground( BlurUIView(style: .light)
+                                        .shadow(radius: 10)
+                                        .opacity(0.7))
+                                    
                             }.onDelete(perform: $viewModel.technic.works.remove)
                         }
                     .onChange(of: viewModel.lastWorkId, perform: { id in
@@ -71,6 +77,7 @@ struct WorksUIView: View {
                     viewModel.upDateWork()
             }
         }
+        //MARK: - ToolBar
         .toolbar(content: {
             ToolbarItem(placement: .topBarTrailing) {
                 Menu("Сортировать") {
