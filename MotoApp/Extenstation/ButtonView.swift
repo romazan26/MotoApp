@@ -16,6 +16,8 @@ struct ButtonView: View {
                 .foregroundStyle(.white)
                 .font(.title2)
                 .bold()
+                .minimumScaleFactor(0.5)
+                .padding(8)
         })
         .frame(width: 160, height: 60)
         .background(LinearGradient(

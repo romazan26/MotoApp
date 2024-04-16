@@ -7,6 +7,7 @@
 
 import Foundation
 import RealmSwift
+import SwiftUI
 
 final class WorksViewModel: ObservableObject {
     
@@ -83,5 +84,25 @@ final class WorksViewModel: ObservableObject {
             sortedarray = self.technic.works.sorted(by: {$0.odometr < $1.odometr})
         }
         return sortedarray
+    }
+    
+    //MARK: Final Price
+    func finalPrice() -> Int {
+        var finalPrice = 0
+        for work in sortWork {
+            finalPrice += work.price
+        }
+        return finalPrice
+    }
+    
+    //MARK: Find Odometr
+    func findOdometr() -> Int {
+        var odomet = 0
+        for work in sortWork {
+            if work.odometr > odomet {
+                odomet = work.odometr
+            }
+        }
+        return odomet
     }
 }

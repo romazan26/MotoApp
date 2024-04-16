@@ -16,37 +16,36 @@ struct WorkCellView: View {
         VStack {
             HStack {
                 VStack(alignment: .leading) {
-                    HStack {
-                        Text("Название: ")
                         Text(work.nameWork).bold()
-                    }
+                    .lineLimit(2)
                     Divider()
                     HStack {
-                        Text("Одометр: ")
+                        Text("Одометр:")
+                        Spacer()
                         Text(String(work.odometr)).bold()
-                    }
+                    }.lineLimit(1)
                     Divider()
                     HStack {
-                        Text("Цена:        ")
+                        Text("Цена:")
+                        Spacer()
                         Text(String(work.price)).bold()
-                    }
+                            
+                    }.lineLimit(1)
                     Divider()
                     HStack {
-                        Text("Дата:        ")
+                        Text("Дата:")
+                        Spacer()
                         Text(String(work.date.formatted(date: .numeric, time: .shortened)))
-                    }
+                    }.lineLimit(1)
                     
                 }
-                Spacer()
-                Image(systemName: "pencil.line")
-                    .resizable()
-                    .frame(width: 50, height: 50)
                     
             }
             .padding(3)
         .foregroundStyle(.black)
             Divider().background(.red).shadow(color: .red, radius: 0.9)
         }
+        .minimumScaleFactor(0.5)
     }
 }
 

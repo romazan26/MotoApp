@@ -40,6 +40,7 @@ struct AddAertUIVuew: View {
                     .font(.title)
                     .multilineTextAlignment(.center)
                     .shadow(color: .gray, radius: 10)
+                    .padding()
                 
                 TextField(place, text: $text)
                     .textFieldStyle(.roundedBorder)
@@ -69,11 +70,12 @@ struct AddAertUIVuew: View {
                         keyboardIsFocused = false
                         
                     }.buttonStyle(.borderedProminent)
-                }).padding()
+                }).padding(.vertical)
             }
+            .minimumScaleFactor(0.5)
             .padding()
             .frame(width: screenSize.width * 0.7, height: screenSize.height * 0.4)
-            .background(.gray)
+            .background(BlurUIView(style: .light))
             .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
             .offset(y: isShow ? 0 : screenSize.height)
             .animation(.spring(), value: isShow)

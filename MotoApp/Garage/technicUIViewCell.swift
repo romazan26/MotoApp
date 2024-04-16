@@ -12,17 +12,17 @@ struct technicUIViewCell: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Тип: \(technic.type)")
-            Text("Название: \(technic.title)")
-            Text("Примечание: \(technic.note)")
+            Text("\(technic.title) \(technic.note)").font(.largeTitle)
             Divider()
             Text("Колличество работ: \(technic.works.count)").font(.footnote)
             Divider()
         }
-        .font(.title3)
+        .lineLimit(1)
+        .minimumScaleFactor(0.5)
+        .bold()
     }
 }
 
 #Preview {
-    technicUIViewCell(technic: Technic())
+    technicUIViewCell(technic: DataManager.shared.createTempDataTechic())
 }

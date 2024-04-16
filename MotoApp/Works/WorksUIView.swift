@@ -10,44 +10,60 @@ import SwiftUI
 struct WorksUIView: View {
     //MARK: - Propety
     @ObservedObject var viewModel: WorksViewModel
-   
+    
     //MARK: - Body
     var body: some View {
         ZStack {
             if viewModel.technic.works.isEmpty {
-                    Text("Нет выполненных работ")
-                }
+                Text("Нет выполненных работ")
+            }
             VStack {
-            //MARK: - works List
+                HStack {
+                    Image(.works)
+                        .resizable()
+                        .frame(width: 130, height: 100)
+                    VStack(alignment: .leading) {
+                        Text("\(viewModel.technic.title) \(viewModel.technic.note)")
+                        Text("Одометр: \(viewModel.findOdometr())")
+                        Text("Колличество работ: \(viewModel.technic.works.count)")
+                        Text("Потрачено: \(viewModel.finalPrice())")
+                    }
+                Spacer()
+                }
+                .padding(10)
+                .minimumScaleFactor(0.5)
+                    .lineLimit(1)
+                
+                //MARK: - works List
                 ScrollViewReader { proxy in
                     List {
                         ForEach(viewModel.sortWork) { work in
-                                    Button(action: {
-                                        viewModel.workToEdite = work
-                                        viewModel.isPresentedAlertEdite.toggle()
-                                    }) {
-                                        WorkCellView(work: work)
-                                            .cornerRadius(10)
-                                            .padding(.horizontal, -10)
-                                    }
-                                    
-                                    .listRowBackground( BlurUIView(style: .light)
-                                        .shadow(radius: 10)
-                                        .opacity(0.7))
-                                    
-                            }.onDelete(perform: $viewModel.technic.works.remove)
-                        }
+                            
+                            Button(action: {
+                                viewModel.workToEdite = work
+                                viewModel.isPresentedAlertEdite.toggle()
+                            }) {
+                                WorkCellView(work: work)
+                                    .cornerRadius(10)
+                                    .padding(.horizontal, -10)
+                            }
+                            .listRowBackground( BlurUIView(style: .systemUltraThinMaterialDark)
+                                .shadow(radius: 10)
+                                .opacity(0.55))
+                            
+                        }.onDelete(perform: $viewModel.technic.works.remove)
+                    }
+                    .listRowSpacing(10)
                     .onChange(of: viewModel.lastWorkId, perform: { id in
                         proxy.scrollTo(id, anchor: .bottom)
                     })
-                        
                     .scrollContentBackground(.hidden)
                 }
                 
                 //MARK: - Add Button
                 ButtonView(action: {
                     viewModel.isPresentedAlert.toggle()
-                }, label: "Добавить работу")
+                }, label: "Добавить")
             }
             //MARK: - Show Alert add
             AddAertUIVuew(
@@ -61,7 +77,7 @@ struct WorksUIView: View {
                 title: "Новая работа") { text in
                     viewModel.nameWork = text
                     viewModel.addWork()
-            }
+                }
             
             //MARK: - Show Alert edite
             AddAertUIVuew(
@@ -75,7 +91,7 @@ struct WorksUIView: View {
                 title: "Редактировать") { text in
                     viewModel.nameWork = text
                     viewModel.upDateWork()
-            }
+                }
         }
         //MARK: - ToolBar
         .toolbar(content: {
@@ -83,7 +99,7 @@ struct WorksUIView: View {
                 Menu("Сортировать") {
                     Picker("", selection: $viewModel.selectedSortOption) {
                         ForEach(SortOptionWork.allCases, id: \.rawValue) { option in
-                           Label(option.rawValue, systemImage: "\(option)")
+                            Label(option.rawValue, systemImage: "\(option)")
                                 .tag(option)
                         }
                     }
@@ -92,7 +108,7 @@ struct WorksUIView: View {
             }
         })
         .background(BackgroundCustom())
-        .navigationTitle(viewModel.technic.title)
+        .navigationTitle(viewModel.technic.type)
         .animation(.easeIn, value: viewModel.sortWork)
     }
 }

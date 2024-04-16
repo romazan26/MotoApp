@@ -35,9 +35,7 @@ struct GarageView: View {
                                     WorksUIView(viewModel: WorksViewModel(technic: technic))
                                 } label: {
                                     technicUIViewCell(technic: technic)
-                                        .bold()
                                         .cornerRadius(10)
-                                        .padding(.horizontal, -10)
                                 }
                             }
                             .onDelete(perform: $viewmodel.user.technics.remove)
@@ -45,6 +43,7 @@ struct GarageView: View {
                                 .opacity(0.7)
                                 .shadow(radius: 10))
                         }
+                        .listRowSpacing(10)
                         .onChange(of: viewmodel.lastTechnicId, perform: { id in
                             proxy.scrollTo(id, anchor: .bottom)
                         })
@@ -55,6 +54,8 @@ struct GarageView: View {
                     ButtonView(action: {
                         viewmodel.isPresented.toggle()
                     }, label: "Добавить")
+                    
+                    
                     .sheet(isPresented: $viewmodel.isPresented, content: {
                         AddTechnicUIView(viewmodel: viewmodel)
                     })
