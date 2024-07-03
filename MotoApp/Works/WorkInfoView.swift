@@ -37,10 +37,11 @@ struct WorkInfoView: View {
                     dismiss()
                 }, label: "Изменить")
             }.padding()
+                .navigationTitle("Редактирование работы")
         }
+        .minimumScaleFactor(0.5)
         .onAppear(perform: {
             vm.fillData(id: work.id)
-            print(vm.simpleNamework)
         })
     }
 }

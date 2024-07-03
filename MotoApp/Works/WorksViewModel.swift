@@ -17,14 +17,9 @@ final class WorksViewModel: ObservableObject {
     @Published var simpleOdometr = ""
     @Published var simplePrice = ""
     
-    @Published var nameWork = ""
-    @Published var odonetr = ""
-    @Published var price = ""
-    @Published var isPresentedAlert = false
-    @Published var isPresentedAlertEdite = false
-    @Published var workToEdite = Work()
+    @Published var isPresentedNewWorkView = false
+
     @Published var selectedSortOption = SortOptionWork.calendar
-   // @Published var sortWork: [Work] = []
     
     var sortWork: [Work] {
         sortedWorks()
@@ -65,36 +60,19 @@ final class WorksViewModel: ObservableObject {
     
     //MARK: - Add function
     func addWork() {
-        if !nameWork.isEmpty{
+        if !simpleNamework.isEmpty{
             let work = Work()
-            work.nameWork = nameWork
-            work.odometr = Int(odonetr) ?? 0
-            work.price = Int(price) ?? 0
+            work.nameWork = simpleNamework
+            work.odometr = Int(simpleOdometr) ?? 0
+            work.price = Int(simplePrice) ?? 0
             work.date = Date.now
             $technic.works.append(work)
         }
-        nameWork = ""
-        odonetr = ""
-        price = ""
+        clear()
     }
     
     //MARK: - Update work function
-    func upDateWork() {
-            do {
-                let realm = try Realm()
-                guard let objectToUpdate = realm.object(ofType: Work.self, forPrimaryKey: workToEdite.id) else {
-                    return}
-                try realm.write {
-                    objectToUpdate.nameWork = nameWork
-                    objectToUpdate.odometr = Int(odonetr) ?? 0
-                    objectToUpdate.price = Int(price) ?? 0
-                    
-                }
-            }
-            catch {
-                print("error update")
-            }
-        }
+    
     
     func upDataWork(id: ObjectId) {
         print("name: \(simpleNamework)")

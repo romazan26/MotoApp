@@ -38,14 +38,6 @@ struct WorksUIView: View {
                 ScrollViewReader { proxy in
                     List {
                         ForEach(viewModel.sortWork) { work in
-                            
-//                            Button(action: {
-//                                viewModel.workToEdite = work
-//                                viewModel.isPresentedAlertEdite.toggle()
-//                            }) {
-//                                WorkCellView(work: work)
-//                                   
-//                            }
                             NavigationLink(destination: {
                                 WorkInfoView(vm: viewModel, work: work)
                             }, label: {
@@ -64,22 +56,15 @@ struct WorksUIView: View {
                 
                 //MARK: - Add Button
                 ButtonView(action: {
-                    viewModel.isPresentedAlert.toggle()
+                    viewModel.isPresentedNewWorkView.toggle()
                 }, label: "Добавить")
             }
-            //MARK: - Show Alert add
-            AddAertUIVuew(
-                isShow: $viewModel.isPresentedAlert,
-                text: $viewModel.nameWork,
-                text2: $viewModel.odonetr,
-                text3: $viewModel.price,
-                place: "Название работы",
-                place2: "Одометр",
-                place3: "Цена",
-                title: "Новая работа") { text in
-                    viewModel.nameWork = text
-                    viewModel.addWork()
-                }
+            .sheet(isPresented: $viewModel.isPresentedNewWorkView, content: {
+                NewWorkView(vm: viewModel)
+            })
+            .onAppear(perform: {
+                viewModel.clear()
+            })
             
            
         }
