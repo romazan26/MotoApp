@@ -14,6 +14,7 @@
 		303A61AC2ADF172A00CCDBEE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 303A61AB2ADF172A00CCDBEE /* RealmSwift */; };
 		303A61AF2ADF1A4E00CCDBEE /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303A61AE2ADF1A4E00CCDBEE /* DataManager.swift */; };
 		303F000A2B1A5DBA005F4FC4 /* WorksUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303F00092B1A5DB9005F4FC4 /* WorksUIView.swift */; };
+		3067469C2C35CD0400304E0C /* WorkInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3067469B2C35CD0400304E0C /* WorkInfoView.swift */; };
 		307F12972B4D881B0078A8F4 /* WorksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F12962B4D881B0078A8F4 /* WorksViewModel.swift */; };
 		30838B682B9E3DF400634A17 /* sortFuncExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30838B672B9E3DF400634A17 /* sortFuncExtention.swift */; };
 		30A045062B17AB17000FD446 /* UsersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A045052B17AB17000FD446 /* UsersListView.swift */; };
@@ -39,6 +40,7 @@
 		30321ABF2B59B411009AAA35 /* HellowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HellowView.swift; sourceTree = "<group>"; };
 		303A61AE2ADF1A4E00CCDBEE /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		303F00092B1A5DB9005F4FC4 /* WorksUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorksUIView.swift; sourceTree = "<group>"; };
+		3067469B2C35CD0400304E0C /* WorkInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkInfoView.swift; sourceTree = "<group>"; };
 		307F12962B4D881B0078A8F4 /* WorksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorksViewModel.swift; sourceTree = "<group>"; };
 		30838B672B9E3DF400634A17 /* sortFuncExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sortFuncExtention.swift; sourceTree = "<group>"; };
 		30A045052B17AB17000FD446 /* UsersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListView.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				303F00092B1A5DB9005F4FC4 /* WorksUIView.swift */,
 				307F12962B4D881B0078A8F4 /* WorksViewModel.swift */,
 				30EB0A762B8659CC006FF732 /* WorkCellView.swift */,
+				3067469B2C35CD0400304E0C /* WorkInfoView.swift */,
 			);
 			path = Works;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				30A045062B17AB17000FD446 /* UsersListView.swift in Sources */,
 				301279272B18664C00C201CF /* technicUIViewCell.swift in Sources */,
 				30C75F542AC4B9FD00B9D445 /* LoginView.swift in Sources */,
+				3067469C2C35CD0400304E0C /* WorkInfoView.swift in Sources */,
 				30F877212B4C3BC6002EC497 /* CustomTextFieldUIView.swift in Sources */,
 				30F877222B4C3BC6002EC497 /* AddAertUIVuew.swift in Sources */,
 				30F877232B4C3BC6002EC497 /* BlurUIView.swift in Sources */,

@@ -39,13 +39,18 @@ struct WorksUIView: View {
                     List {
                         ForEach(viewModel.sortWork) { work in
                             
-                            Button(action: {
-                                viewModel.workToEdite = work
-                                viewModel.isPresentedAlertEdite.toggle()
-                            }) {
+//                            Button(action: {
+//                                viewModel.workToEdite = work
+//                                viewModel.isPresentedAlertEdite.toggle()
+//                            }) {
+//                                WorkCellView(work: work)
+//                                   
+//                            }
+                            NavigationLink(destination: {
+                                WorkInfoView(vm: viewModel, work: work)
+                            }, label: {
                                 WorkCellView(work: work)
-                                   
-                            }
+                            })
                             .listRowBackground( Color.clear)
                             
                         }.onDelete(perform: $viewModel.technic.works.remove)
@@ -76,19 +81,7 @@ struct WorksUIView: View {
                     viewModel.addWork()
                 }
             
-            //MARK: - Show Alert edite
-            AddAertUIVuew(
-                isShow: $viewModel.isPresentedAlertEdite,
-                text: $viewModel.nameWork,
-                text2: $viewModel.odonetr,
-                text3: $viewModel.price,
-                place: "Название работы",
-                place2: "Одометр",
-                place3: "Цена",
-                title: "Редактировать") { text in
-                    viewModel.nameWork = text
-                    viewModel.upDateWork()
-                }
+           
         }
         //MARK: - ToolBar
         .toolbar(content: {

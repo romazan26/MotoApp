@@ -13,6 +13,10 @@ final class WorksViewModel: ObservableObject {
     
     @ObservedRealmObject var technic: Technic
     
+    @Published var simpleNamework = ""
+    @Published var simpleOdometr = ""
+    @Published var simplePrice = ""
+    
     @Published var nameWork = ""
     @Published var odonetr = ""
     @Published var price = ""
@@ -34,6 +38,29 @@ final class WorksViewModel: ObservableObject {
     var lastWorkId: ObjectId {
         guard let id = technic.works.last?.id else {return ObjectId()}
         return id
+    }
+    
+    //MARK: Fill in the data
+    func fillData(id: ObjectId) {
+        
+        do {
+            let realm = try Realm()
+            guard let objectToUpdate = realm.object(ofType: Work.self, forPrimaryKey: id) else {return}
+                 simpleNamework = objectToUpdate.nameWork
+                 simpleOdometr = String(objectToUpdate.odometr)
+                 simplePrice = String(objectToUpdate.price)
+        }
+        catch {
+            print("error update")
+        }
+    
+    }
+    
+    //MARK: - Clear data
+    func clear(){
+        simpleNamework = ""
+        simpleOdometr = ""
+        simplePrice = ""
     }
     
     //MARK: - Add function
@@ -67,6 +94,25 @@ final class WorksViewModel: ObservableObject {
             catch {
                 print("error update")
             }
+        }
+    
+    func upDataWork(id: ObjectId) {
+        print("name: \(simpleNamework)")
+            do {
+                let realm = try Realm()
+                guard let objectToUpdate = realm.object(ofType: Work.self, forPrimaryKey: id) else {
+                    return}
+                try realm.write {
+
+                        objectToUpdate.nameWork = simpleNamework
+                        objectToUpdate.odometr = Int(simpleOdometr) ?? 0
+                        objectToUpdate.price = Int(simplePrice) ?? 0
+                }
+            }
+            catch {
+                print("error update")
+            }
+        clear()
         }
     
     //MARK: - SortesFunction
