@@ -44,12 +44,9 @@ struct WorksUIView: View {
                                 viewModel.isPresentedAlertEdite.toggle()
                             }) {
                                 WorkCellView(work: work)
-                                    .cornerRadius(10)
-                                    .padding(.horizontal, -10)
+                                   
                             }
-                            .listRowBackground( BlurUIView(style: .systemUltraThinMaterialDark)
-                                .shadow(radius: 10)
-                                .opacity(0.55))
+                            .listRowBackground( Color.clear)
                             
                         }.onDelete(perform: $viewModel.technic.works.remove)
                     }

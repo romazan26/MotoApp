@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct ButtonView: View {
+    @Environment(\.colorScheme) var colorScheme
     let action: () -> Void
     let label: String
     var body: some View {
         Button(action: action, label: {
             Text(label)
-                .foregroundStyle(.white)
+                .foregroundStyle(colorScheme == .dark ? .black : .white)
                 .font(.title2)
                 .bold()
                 .minimumScaleFactor(0.5)
@@ -21,7 +22,7 @@ struct ButtonView: View {
         })
         .frame(width: 160, height: 60)
         .background(LinearGradient(
-            colors: [.black.opacity(0.7), .gray.opacity(0.9)],
+            colors: [colorScheme == .dark ? .white.opacity(0.8) : .black.opacity(0.7), .gray.opacity(0.9)],
             startPoint: .bottomLeading,
             endPoint: .topTrailing))
         .clipShape(RoundedRectangle(cornerRadius: 15))
