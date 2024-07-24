@@ -25,7 +25,7 @@ struct AddTechnicUIView: View {
                     .resizable()
                     .frame(width: 380, height: 220)
                     .offset(y: -30)
-
+                
                 BlurUIView(style: .light)
                     .ignoresSafeArea()
                     .opacity(0.9)
@@ -36,7 +36,7 @@ struct AddTechnicUIView: View {
                     .multilineTextAlignment(.center)
                     .shadow(color: .blue, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                 
-                 Spacer()
+                Spacer()
                 
                 //MARK: - TextField group
                 CustomTextFieldUIView(text: $viewmodel.typeTehnic, placeHolder: "Тип")
@@ -59,9 +59,12 @@ struct AddTechnicUIView: View {
                 
             }.padding()
             
-        }.onTapGesture {
+        }
+        .onAppear(perform: {
+            viewmodel.clear()
+        })
+        .onTapGesture {
             nameIsFocused = false
-        
         }
     }
     

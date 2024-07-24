@@ -39,9 +39,7 @@ struct GarageView: View {
                                 }
                             }
                             .onDelete(perform: $viewmodel.user.technics.remove)
-                            .listRowBackground( BlurUIView(style: .light)
-                                .opacity(0.7)
-                                .shadow(radius: 10))
+                            .listRowBackground( Color.clear)
                         }
                         .listRowSpacing(10)
                         .onChange(of: viewmodel.lastTechnicId, perform: { id in

@@ -8,47 +8,38 @@
 import SwiftUI
 
 struct WorkCellView: View {
-    
+    @Environment(\.colorScheme) var colorScheme
     let work: Work
     
     var body: some View {
-        
-        VStack {
-            HStack {
-                VStack(alignment: .leading) {
-                        Text(work.nameWork).bold()
-                    .lineLimit(2)
-                    Divider()
-                    HStack {
-                        Text("Одометр:")
-                        Spacer()
-                        Text(String(work.odometr)).bold()
-                    }.lineLimit(1)
-                    Divider()
-                    HStack {
-                        Text("Цена:")
-                        Spacer()
-                        Text(String(work.price)).bold()
-                            
-                    }.lineLimit(1)
-                    Divider()
-                    HStack {
-                        Text("Дата:")
-                        Spacer()
-                        Text(String(work.date.formatted(date: .numeric, time: .shortened)))
-                    }.lineLimit(1)
-                    
-                }
-                    
+        HStack {
+            VStack(alignment: .leading) {
+                Text(work.nameWork)
+                    .font(.system(size: 30, weight: .heavy, design: .serif))
+                Text("одометр: \(String(work.odometr))").bold()
+                Text("Цена: \(String(work.price))").bold()
+                Text("Дата: \(String(work.date.formatted()))")
             }
-            .padding(3)
-        .foregroundStyle(.black)
-            Divider().background(.red).shadow(color: .red, radius: 0.9)
+            .foregroundStyle(colorScheme == .dark ? .black : .white)
+            .padding()
+            Spacer()
         }
         .minimumScaleFactor(0.5)
+        .background(
+            LinearGradient(
+                colors:  [colorScheme == .dark ? .white.opacity(0.8) : .black.opacity(0.7), .gray.opacity(0.9)],
+                startPoint: .bottomLeading,
+                endPoint: .topTrailing).cornerRadius(26))
+        
+        .overlay {
+            RoundedRectangle(cornerRadius: 26)
+                .stroke(colorScheme == .dark ? .black : .white, lineWidth: 2.0)
+        }
+        
+        
+        
     }
 }
-
 
 #Preview {
     WorkCellView(work: Work())

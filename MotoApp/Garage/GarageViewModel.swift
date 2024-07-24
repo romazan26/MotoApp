@@ -33,7 +33,12 @@ final class GarageViewModel: ObservableObject {
     @Published var isPresented = false
  
     
-    
+    //MARK: - Clear data
+    func clear(){
+        typeTehnic = ""
+        titleTehnic = ""
+        noteTehnic = ""
+    }
     
     //MARK: - addTechnic function
      func addTehnic() {
