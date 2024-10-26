@@ -63,10 +63,15 @@ struct CustomTextFieldUIView: View {
                     
                 }
             }
-            .padding(.vertical, 12)
-            .padding(.horizontal)
-            .background(.gray.opacity(0.5))
-            .clipShape(RoundedRectangle(cornerRadius: 15))
+//            .padding(.vertical, 12)
+//            .padding(.horizontal)
+//            .background(.gray.opacity(0.5))
+//            .clipShape(RoundedRectangle(cornerRadius: 15))
+            .padding()
+            .background(Color.back)
+            .clipShape(RoundedRectangle(cornerRadius: 10,style: .continuous))
+            .shadow(color: .gray, radius: 8, x: 8, y: 8)
+            .shadow(color: .back, radius: 8, x: -8, y: -8)
         }
     }
 }

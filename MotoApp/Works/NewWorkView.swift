@@ -18,14 +18,21 @@ struct NewWorkView: View {
             VStack{
                 
                 //MARK: - Text field group
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .center, spacing: 20) {
                 //MARK: - Title
-                Text("Введите название")
+                Text("Введите данные о работе")
+                    .font(.system(size: 32, weight: .heavy))
+                    .multilineTextAlignment(.center)
                 
                 //MARK: - work name
                 TextField("Название работы", text: $vm.simpleNamework, axis: .vertical)
                     .font(.system(size: 30, weight: .heavy, design: .serif))
                     .focused($keyboardIsFocused)
+                    .padding()
+                    .background(Color.back)
+                    .clipShape(RoundedRectangle(cornerRadius: 10,style: .continuous))
+                    .shadow(color: .gray, radius: 8, x: 8, y: 8)
+                    .shadow(color: .back, radius: 8, x: -8, y: -8)
                 
                 //MARK: - mileage
                 CustomTextFieldUIView(text: $vm.simpleOdometr, placeHolder: "одометр")
@@ -37,7 +44,11 @@ struct NewWorkView: View {
                     .focused($keyboardIsFocused)
                     .keyboardType(.numberPad)
                 
-                Text("Дата: \(String(Date.now.formatted()))")
+                //MARK: - Date
+                DatePicker("Дата:", selection: $vm.simpleDate, displayedComponents: .date)
+                    .padding(.horizontal, 10)
+                    .font(.title)
+                
             }
                 Spacer()
                 

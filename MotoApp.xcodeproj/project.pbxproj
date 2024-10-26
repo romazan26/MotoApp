@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -33,6 +33,7 @@
 		30F877212B4C3BC6002EC497 /* CustomTextFieldUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F8771E2B4C3BC6002EC497 /* CustomTextFieldUIView.swift */; };
 		30F877222B4C3BC6002EC497 /* AddAertUIVuew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F8771F2B4C3BC6002EC497 /* AddAertUIVuew.swift */; };
 		30F877232B4C3BC6002EC497 /* BlurUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F877202B4C3BC6002EC497 /* BlurUIView.swift */; };
+		30F8C40C2CCD82880047A87C /* ListCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F8C40B2CCD82880047A87C /* ListCoreData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,7 +62,12 @@
 		30F8771E2B4C3BC6002EC497 /* CustomTextFieldUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextFieldUIView.swift; sourceTree = "<group>"; };
 		30F8771F2B4C3BC6002EC497 /* AddAertUIVuew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAertUIVuew.swift; sourceTree = "<group>"; };
 		30F877202B4C3BC6002EC497 /* BlurUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurUIView.swift; sourceTree = "<group>"; };
+		30F8C40B2CCD82880047A87C /* ListCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoreData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		30F8C3F72CCD773E0047A87C /* CoreData */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = CoreData; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		30C75F342AC452AB00B9D445 /* Frameworks */ = {
@@ -83,6 +89,7 @@
 				301279282B186EEA00C201CF /* AddTechnicUIView.swift */,
 				301279262B18664C00C201CF /* technicUIViewCell.swift */,
 				30D5A5EA2B4C6BBD00744B5A /* GarageViewModel.swift */,
+				30F8C40B2CCD82880047A87C /* ListCoreData.swift */,
 			);
 			path = Garage;
 			sourceTree = "<group>";
@@ -114,6 +121,7 @@
 		30C75F392AC452AB00B9D445 /* MotoApp */ = {
 			isa = PBXGroup;
 			children = (
+				30F8C3F72CCD773E0047A87C /* CoreData */,
 				303A61AE2ADF1A4E00CCDBEE /* DataManager.swift */,
 				30C75F3A2AC452AB00B9D445 /* GarageAppApp.swift */,
 				30321ABF2B59B411009AAA35 /* HellowView.swift */,
@@ -187,6 +195,9 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				30F8C3F72CCD773E0047A87C /* CoreData */,
+			);
 			name = MotoApp;
 			packageProductDependencies = (
 				303A61A92ADF172A00CCDBEE /* Realm */,
@@ -259,6 +270,7 @@
 				30F877232B4C3BC6002EC497 /* BlurUIView.swift in Sources */,
 				307F12972B4D881B0078A8F4 /* WorksViewModel.swift in Sources */,
 				30EB0A752B862C9B006FF732 /* BackgroundCustom.swift in Sources */,
+				30F8C40C2CCD82880047A87C /* ListCoreData.swift in Sources */,
 				30D5A5EB2B4C6BBD00744B5A /* GarageViewModel.swift in Sources */,
 				301279292B186EEA00C201CF /* AddTechnicUIView.swift in Sources */,
 				303F000A2B1A5DBA005F4FC4 /* WorksUIView.swift in Sources */,
@@ -418,12 +430,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = home.MotoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -452,12 +465,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = home.MotoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

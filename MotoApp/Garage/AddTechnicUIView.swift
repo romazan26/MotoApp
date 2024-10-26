@@ -20,21 +20,21 @@ struct AddTechnicUIView: View {
     var body: some View {
         ZStack {
             //MARK: - Background
-            ZStack{
-                Image(.moto)
-                    .resizable()
-                    .frame(width: 380, height: 220)
-                    .offset(y: -30)
-                
-                BlurUIView(style: .light)
-                    .ignoresSafeArea()
-                    .opacity(0.9)
-            }
+  
             VStack {
-                Text("Введите данные о технике")
-                    .font(.largeTitle)
-                    .multilineTextAlignment(.center)
-                    .shadow(color: .blue, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                VStack{
+                    Image(.moto)
+                        .resizable()
+                        .frame(width: 300, height: 140)
+                        
+                    Text("Введите данные о технике")
+                        .font(.largeTitle)
+                        .multilineTextAlignment(.center)
+                }.padding()
+                    .background(Color.back)
+                    .clipShape(RoundedRectangle(cornerRadius: 10,style: .continuous))
+                    .shadow(color: .gray, radius: 8, x: 8, y: 8)
+                    .shadow(color: .back, radius: 8, x: -8, y: -8)
                 
                 Spacer()
                 

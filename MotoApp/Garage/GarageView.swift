@@ -70,6 +70,34 @@ struct GarageView: View {
                     })
                 }
                 
+                ToolbarItem {
+                    Button {
+                        viewmodel.deleteAll()
+                    } label: {
+                        Text("delete all")
+                    }
+
+                }
+                
+                ToolbarItem {
+                    NavigationLink("List") {
+                        ListCoreData(vm: viewmodel)
+                    }
+                }
+                
+                ToolbarItem {
+                    Button {
+                        if !viewmodel.technicsCD.isEmpty {
+                            print("Full data base ")
+                        }else{
+                            viewmodel.loadData()
+                        }
+                        
+                    } label: {
+                        Text("get new data base")
+                    }
+
+                }
                
             }
         }

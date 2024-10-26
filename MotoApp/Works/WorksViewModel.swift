@@ -16,6 +16,7 @@ final class WorksViewModel: ObservableObject {
     @Published var simpleNamework = ""
     @Published var simpleOdometr = ""
     @Published var simplePrice = ""
+    @Published var simpleDate = Date()
     
     @Published var isPresentedNewWorkView = false
 
@@ -65,7 +66,7 @@ final class WorksViewModel: ObservableObject {
             work.nameWork = simpleNamework
             work.odometr = Int(simpleOdometr) ?? 0
             work.price = Int(simplePrice) ?? 0
-            work.date = Date.now
+            work.date = simpleDate
             $technic.works.append(work)
         }
         clear()
