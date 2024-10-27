@@ -14,6 +14,7 @@ struct GarageView: View {
     
     @StateObject var viewmodel: GarageViewModel
     @StateObject var viewModelLogin: LoginViewModel
+    @StateObject var vm = CoreDataViewModel()
     @Environment(\.dismiss) var dismiss
         
     private let screenSize = UIScreen.main.bounds
@@ -71,6 +72,11 @@ struct GarageView: View {
                 }
                 
                 ToolbarItem {
+                    Text(viewmodel.coreDataActive ? "true" : "false")
+                        .foregroundStyle(viewmodel.coreDataActive ? .green : .red)
+                }
+                
+                ToolbarItem {
                     Button {
                         viewmodel.deleteAll()
                     } label: {
@@ -81,7 +87,7 @@ struct GarageView: View {
                 
                 ToolbarItem {
                     NavigationLink("List") {
-                        ListCoreData(vm: viewmodel)
+                        ListCoreData(vm: vm)
                     }
                 }
                 
@@ -94,7 +100,7 @@ struct GarageView: View {
                         }
                         
                     } label: {
-                        Text("get new data base")
+                        Text("get data")
                     }
 
                 }

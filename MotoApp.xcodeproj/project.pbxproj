@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,13 @@
 		3067469C2C35CD0400304E0C /* WorkInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3067469B2C35CD0400304E0C /* WorkInfoView.swift */; };
 		3067469E2C35DAEF00304E0C /* NewWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3067469D2C35DAEF00304E0C /* NewWorkView.swift */; };
 		307F12972B4D881B0078A8F4 /* WorksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F12962B4D881B0078A8F4 /* WorksViewModel.swift */; };
+		3081956C2CCE9E3600EE26C0 /* TechnicCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3081956B2CCE9E3600EE26C0 /* TechnicCellView.swift */; };
+		3081956F2CCEA0F500EE26C0 /* AddTechnicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3081956E2CCEA0F500EE26C0 /* AddTechnicView.swift */; };
+		308195712CCEAE2000EE26C0 /* CoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308195702CCEAE1700EE26C0 /* CoreDataViewModel.swift */; };
+		308195782CCEB25700EE26C0 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308195742CCEB25700EE26C0 /* CoreDataManager.swift */; };
+		308195792CCEB25700EE26C0 /* Garage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 308195752CCEB25700EE26C0 /* Garage.xcdatamodeld */; };
+		3081957B2CCEB2C900EE26C0 /* TehnicWorksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3081957A2CCEB2C900EE26C0 /* TehnicWorksView.swift */; };
+		3081957F2CCEBB0900EE26C0 /* WorkCellCDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3081957E2CCEBB0900EE26C0 /* WorkCellCDView.swift */; };
 		30838B682B9E3DF400634A17 /* sortFuncExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30838B672B9E3DF400634A17 /* sortFuncExtention.swift */; };
 		30A045062B17AB17000FD446 /* UsersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A045052B17AB17000FD446 /* UsersListView.swift */; };
 		30BBB6422B77AC2600448494 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BBB6412B77AC2600448494 /* ButtonView.swift */; };
@@ -45,6 +52,13 @@
 		3067469B2C35CD0400304E0C /* WorkInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkInfoView.swift; sourceTree = "<group>"; };
 		3067469D2C35DAEF00304E0C /* NewWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkView.swift; sourceTree = "<group>"; };
 		307F12962B4D881B0078A8F4 /* WorksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorksViewModel.swift; sourceTree = "<group>"; };
+		3081956B2CCE9E3600EE26C0 /* TechnicCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnicCellView.swift; sourceTree = "<group>"; };
+		3081956E2CCEA0F500EE26C0 /* AddTechnicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTechnicView.swift; sourceTree = "<group>"; };
+		308195702CCEAE1700EE26C0 /* CoreDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataViewModel.swift; sourceTree = "<group>"; };
+		308195742CCEB25700EE26C0 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		308195772CCEB25700EE26C0 /* Garage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Garage.xcdatamodel; sourceTree = "<group>"; };
+		3081957A2CCEB2C900EE26C0 /* TehnicWorksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TehnicWorksView.swift; sourceTree = "<group>"; };
+		3081957E2CCEBB0900EE26C0 /* WorkCellCDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkCellCDView.swift; sourceTree = "<group>"; };
 		30838B672B9E3DF400634A17 /* sortFuncExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sortFuncExtention.swift; sourceTree = "<group>"; };
 		30A045052B17AB17000FD446 /* UsersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListView.swift; sourceTree = "<group>"; };
 		30BBB6412B77AC2600448494 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
@@ -65,10 +79,6 @@
 		30F8C40B2CCD82880047A87C /* ListCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoreData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		30F8C3F72CCD773E0047A87C /* CoreData */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = CoreData; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
-
 /* Begin PBXFrameworksBuildPhase section */
 		30C75F342AC452AB00B9D445 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -85,11 +95,11 @@
 		301279252B18661B00C201CF /* Garage */ = {
 			isa = PBXGroup;
 			children = (
+				3081956D2CCEA0D200EE26C0 /* GarageCD */,
 				30C75F482AC4531E00B9D445 /* GarageView.swift */,
 				301279282B186EEA00C201CF /* AddTechnicUIView.swift */,
 				301279262B18664C00C201CF /* technicUIViewCell.swift */,
 				30D5A5EA2B4C6BBD00744B5A /* GarageViewModel.swift */,
-				30F8C40B2CCD82880047A87C /* ListCoreData.swift */,
 			);
 			path = Garage;
 			sourceTree = "<group>";
@@ -100,6 +110,44 @@
 				30EE52052ADC655C00BCAD86 /* User.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		3081956D2CCEA0D200EE26C0 /* GarageCD */ = {
+			isa = PBXGroup;
+			children = (
+				3081957D2CCEB40700EE26C0 /* WorksCD */,
+				3081957C2CCEB39D00EE26C0 /* Tehnic */,
+				308195702CCEAE1700EE26C0 /* CoreDataViewModel.swift */,
+			);
+			path = GarageCD;
+			sourceTree = "<group>";
+		};
+		308195762CCEB25700EE26C0 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				308195742CCEB25700EE26C0 /* CoreDataManager.swift */,
+				308195752CCEB25700EE26C0 /* Garage.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		3081957C2CCEB39D00EE26C0 /* Tehnic */ = {
+			isa = PBXGroup;
+			children = (
+				30F8C40B2CCD82880047A87C /* ListCoreData.swift */,
+				3081956B2CCE9E3600EE26C0 /* TechnicCellView.swift */,
+				3081956E2CCEA0F500EE26C0 /* AddTechnicView.swift */,
+			);
+			path = Tehnic;
+			sourceTree = "<group>";
+		};
+		3081957D2CCEB40700EE26C0 /* WorksCD */ = {
+			isa = PBXGroup;
+			children = (
+				3081957A2CCEB2C900EE26C0 /* TehnicWorksView.swift */,
+				3081957E2CCEBB0900EE26C0 /* WorkCellCDView.swift */,
+			);
+			path = WorksCD;
 			sourceTree = "<group>";
 		};
 		30C75F2E2AC452AB00B9D445 = {
@@ -121,7 +169,7 @@
 		30C75F392AC452AB00B9D445 /* MotoApp */ = {
 			isa = PBXGroup;
 			children = (
-				30F8C3F72CCD773E0047A87C /* CoreData */,
+				308195762CCEB25700EE26C0 /* CoreData */,
 				303A61AE2ADF1A4E00CCDBEE /* DataManager.swift */,
 				30C75F3A2AC452AB00B9D445 /* GarageAppApp.swift */,
 				30321ABF2B59B411009AAA35 /* HellowView.swift */,
@@ -195,9 +243,6 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				30F8C3F72CCD773E0047A87C /* CoreData */,
-			);
 			name = MotoApp;
 			packageProductDependencies = (
 				303A61A92ADF172A00CCDBEE /* Realm */,
@@ -262,14 +307,20 @@
 			files = (
 				30A045062B17AB17000FD446 /* UsersListView.swift in Sources */,
 				301279272B18664C00C201CF /* technicUIViewCell.swift in Sources */,
+				3081957F2CCEBB0900EE26C0 /* WorkCellCDView.swift in Sources */,
 				30C75F542AC4B9FD00B9D445 /* LoginView.swift in Sources */,
 				3067469C2C35CD0400304E0C /* WorkInfoView.swift in Sources */,
 				30F877212B4C3BC6002EC497 /* CustomTextFieldUIView.swift in Sources */,
 				30F877222B4C3BC6002EC497 /* AddAertUIVuew.swift in Sources */,
 				3067469E2C35DAEF00304E0C /* NewWorkView.swift in Sources */,
 				30F877232B4C3BC6002EC497 /* BlurUIView.swift in Sources */,
+				308195782CCEB25700EE26C0 /* CoreDataManager.swift in Sources */,
+				308195792CCEB25700EE26C0 /* Garage.xcdatamodeld in Sources */,
 				307F12972B4D881B0078A8F4 /* WorksViewModel.swift in Sources */,
+				308195712CCEAE2000EE26C0 /* CoreDataViewModel.swift in Sources */,
 				30EB0A752B862C9B006FF732 /* BackgroundCustom.swift in Sources */,
+				3081956F2CCEA0F500EE26C0 /* AddTechnicView.swift in Sources */,
+				3081957B2CCEB2C900EE26C0 /* TehnicWorksView.swift in Sources */,
 				30F8C40C2CCD82880047A87C /* ListCoreData.swift in Sources */,
 				30D5A5EB2B4C6BBD00744B5A /* GarageViewModel.swift in Sources */,
 				301279292B186EEA00C201CF /* AddTechnicUIView.swift in Sources */,
@@ -283,6 +334,7 @@
 				303A61AF2ADF1A4E00CCDBEE /* DataManager.swift in Sources */,
 				30EE52062ADC655C00BCAD86 /* User.swift in Sources */,
 				30BBB6422B77AC2600448494 /* ButtonView.swift in Sources */,
+				3081956C2CCE9E3600EE26C0 /* TechnicCellView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +576,19 @@
 			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		308195752CCEB25700EE26C0 /* Garage.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				308195772CCEB25700EE26C0 /* Garage.xcdatamodel */,
+			);
+			currentVersion = 308195772CCEB25700EE26C0 /* Garage.xcdatamodel */;
+			path = Garage.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 30C75F2F2AC452AB00B9D445 /* Project object */;
 }

@@ -9,13 +9,21 @@ import Foundation
 import RealmSwift
 import CoreData
 
+
 final class GarageViewModel: ObservableObject {
+    
+   let defaults = UserDefaults.standard
+    
+    
     //MARK: - CoreData
     let manager = CoreDataManager.instance
+    
+    @Published var coreDataActive: Bool = false
     
     @Published var technicsCD: [TechnicCD] = []
     @Published var workCD: [WorkCD] = []
     
+    //MARK: Delete everything from the CoreData
     func deleteAll() {
         for technic in technicsCD {
             if let works = technic.works?.allObjects as? [WorkCD] {
@@ -29,8 +37,11 @@ final class GarageViewModel: ObservableObject {
             saveTechnic()
         }
         print("technicsCD deleted: \(technicsCD)")
+        defaults.set(false, forKey: "coreDataActive")
+        coreDataActive = false
     }
     
+    //MARK: Get CoreData
     func fetchTechnic() {
         let requestT = NSFetchRequest<TechnicCD>(entityName: "TechnicCD")
         do {
@@ -48,6 +59,7 @@ final class GarageViewModel: ObservableObject {
         }
     }
     
+    //MARK: Load in core data
     func addTechnic(note: String, title: String, type: String, workRealm: List<Work>) {
         let newTechnic = TechnicCD(context: manager.context)
         newTechnic.note = note
@@ -69,7 +81,7 @@ final class GarageViewModel: ObservableObject {
         saveWork()
     }
     
-    //MARK: Load in core data
+    
     func loadData() {
         for technic in user.technics {
             let works = technic.works
@@ -77,7 +89,11 @@ final class GarageViewModel: ObservableObject {
         }
         print(technicsCD)
         print("finish load")
+        coreDataActive = true
+        defaults.set(true, forKey: "coreDataActive")
     }
+    
+    //MARK: Save in CoreData
     
     func saveTechnic() {
         technicsCD.removeAll()
@@ -98,6 +114,7 @@ final class GarageViewModel: ObservableObject {
         self.user = user
         fetchWorks()
         fetchTechnic()
+        coreDataActive = defaults.bool(forKey: "coreDataActive")
     }
     var technics: List<Technic> {
         user.technics
