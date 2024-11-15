@@ -17,6 +17,7 @@ final class LoginViewModel: ObservableObject {
     @AppStorage("isLogin") var isLogin: Bool?
     @AppStorage("userName") var name: String?
     @AppStorage("userPassword") var password: String?
+    @AppStorage("coreDataActive") var coreDataActive: Bool?
     
     @Published var authenticated = false
     @Published var simpleUserName = ""
@@ -28,6 +29,9 @@ final class LoginViewModel: ObservableObject {
     @Published var isPresentedAlert = false
     
     init() {
+        if users.isEmpty{
+            coreDataActive = true
+        }
         if ((name?.isEmpty) != nil){
             simpleUserName = name ?? ""
         }

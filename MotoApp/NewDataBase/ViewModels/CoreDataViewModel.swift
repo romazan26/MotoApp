@@ -14,9 +14,16 @@ final class CoreDataViewModel: ObservableObject {
     @Published var technics: [TechnicCD] = []
     @Published var works: [WorkCD] = []
     
+    //MARK: - Technic propertyes
     @Published var titleTehnic: String = ""
     @Published var typeTehnic: String = ""
     @Published var noteTehnic: String = ""
+    
+    //MARK: - Works propertyes
+    @Published var simpleDate = Date()
+    @Published var simpleTitleWork: String = ""
+    @Published var simpleOdometer: String = ""
+    @Published var simplePrice: String = ""
     
     init(){
         fetchWorks()
@@ -31,6 +38,17 @@ final class CoreDataViewModel: ObservableObject {
         newTechnic.note = noteTehnic
         saveTechnic()
         clearTehnic()
+    }
+    
+    func addWork(technic: TechnicCD){
+        let newWork = WorkCD(context: manager.context)
+        newWork.nameWork = simpleTitleWork
+        newWork.odometr = Int64(simpleOdometer) ?? 0
+        newWork.price = Int64(simplePrice) ?? 0
+        newWork.date = simpleDate
+        newWork.techics = technic
+        saveWork()
+        clearWork()
     }
     
     //MARK: - Get Data
@@ -70,6 +88,13 @@ final class CoreDataViewModel: ObservableObject {
         titleTehnic = ""
         typeTehnic = ""
         noteTehnic = ""
+    }
+    
+    func clearWork(){
+        simpleTitleWork = ""
+        simpleOdometer = ""
+        simplePrice = ""
+        simpleDate = Date()
     }
 }
 

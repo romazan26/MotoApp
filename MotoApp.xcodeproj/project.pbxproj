@@ -16,9 +16,10 @@
 		303F000A2B1A5DBA005F4FC4 /* WorksUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303F00092B1A5DB9005F4FC4 /* WorksUIView.swift */; };
 		3067469C2C35CD0400304E0C /* WorkInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3067469B2C35CD0400304E0C /* WorkInfoView.swift */; };
 		3067469E2C35DAEF00304E0C /* NewWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3067469D2C35DAEF00304E0C /* NewWorkView.swift */; };
+		306D1F7C2CE7D26E000E74D4 /* AddWorckForTechnicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306D1F7B2CE7D26E000E74D4 /* AddWorckForTechnicView.swift */; };
 		307F12972B4D881B0078A8F4 /* WorksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F12962B4D881B0078A8F4 /* WorksViewModel.swift */; };
 		3081956C2CCE9E3600EE26C0 /* TechnicCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3081956B2CCE9E3600EE26C0 /* TechnicCellView.swift */; };
-		3081956F2CCEA0F500EE26C0 /* AddTechnicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3081956E2CCEA0F500EE26C0 /* AddTechnicView.swift */; };
+		3081956F2CCEA0F500EE26C0 /* AddTechnicCDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3081956E2CCEA0F500EE26C0 /* AddTechnicCDView.swift */; };
 		308195712CCEAE2000EE26C0 /* CoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308195702CCEAE1700EE26C0 /* CoreDataViewModel.swift */; };
 		308195782CCEB25700EE26C0 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308195742CCEB25700EE26C0 /* CoreDataManager.swift */; };
 		308195792CCEB25700EE26C0 /* Garage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 308195752CCEB25700EE26C0 /* Garage.xcdatamodeld */; };
@@ -51,9 +52,10 @@
 		303F00092B1A5DB9005F4FC4 /* WorksUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorksUIView.swift; sourceTree = "<group>"; };
 		3067469B2C35CD0400304E0C /* WorkInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkInfoView.swift; sourceTree = "<group>"; };
 		3067469D2C35DAEF00304E0C /* NewWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkView.swift; sourceTree = "<group>"; };
+		306D1F7B2CE7D26E000E74D4 /* AddWorckForTechnicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorckForTechnicView.swift; sourceTree = "<group>"; };
 		307F12962B4D881B0078A8F4 /* WorksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorksViewModel.swift; sourceTree = "<group>"; };
 		3081956B2CCE9E3600EE26C0 /* TechnicCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnicCellView.swift; sourceTree = "<group>"; };
-		3081956E2CCEA0F500EE26C0 /* AddTechnicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTechnicView.swift; sourceTree = "<group>"; };
+		3081956E2CCEA0F500EE26C0 /* AddTechnicCDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTechnicCDView.swift; sourceTree = "<group>"; };
 		308195702CCEAE1700EE26C0 /* CoreDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataViewModel.swift; sourceTree = "<group>"; };
 		308195742CCEB25700EE26C0 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		308195772CCEB25700EE26C0 /* Garage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Garage.xcdatamodel; sourceTree = "<group>"; };
@@ -95,7 +97,6 @@
 		301279252B18661B00C201CF /* Garage */ = {
 			isa = PBXGroup;
 			children = (
-				3081956D2CCEA0D200EE26C0 /* GarageCD */,
 				30C75F482AC4531E00B9D445 /* GarageView.swift */,
 				301279282B186EEA00C201CF /* AddTechnicUIView.swift */,
 				301279262B18664C00C201CF /* technicUIViewCell.swift */,
@@ -112,14 +113,30 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		3081956D2CCEA0D200EE26C0 /* GarageCD */ = {
+		306D1F762CE7C151000E74D4 /* NewDataBase */ = {
 			isa = PBXGroup;
 			children = (
-				3081957D2CCEB40700EE26C0 /* WorksCD */,
+				306D1F782CE7C16F000E74D4 /* ViewModels */,
+				306D1F772CE7C166000E74D4 /* Views */,
+			);
+			path = NewDataBase;
+			sourceTree = "<group>";
+		};
+		306D1F772CE7C166000E74D4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				3081957C2CCEB39D00EE26C0 /* Tehnic */,
+				3081957D2CCEB40700EE26C0 /* WorksCD */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		306D1F782CE7C16F000E74D4 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
 				308195702CCEAE1700EE26C0 /* CoreDataViewModel.swift */,
 			);
-			path = GarageCD;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		308195762CCEB25700EE26C0 /* CoreData */ = {
@@ -134,9 +151,9 @@
 		3081957C2CCEB39D00EE26C0 /* Tehnic */ = {
 			isa = PBXGroup;
 			children = (
-				30F8C40B2CCD82880047A87C /* ListCoreData.swift */,
 				3081956B2CCE9E3600EE26C0 /* TechnicCellView.swift */,
-				3081956E2CCEA0F500EE26C0 /* AddTechnicView.swift */,
+				3081956E2CCEA0F500EE26C0 /* AddTechnicCDView.swift */,
+				30F8C40B2CCD82880047A87C /* ListCoreData.swift */,
 			);
 			path = Tehnic;
 			sourceTree = "<group>";
@@ -146,6 +163,7 @@
 			children = (
 				3081957A2CCEB2C900EE26C0 /* TehnicWorksView.swift */,
 				3081957E2CCEBB0900EE26C0 /* WorkCellCDView.swift */,
+				306D1F7B2CE7D26E000E74D4 /* AddWorckForTechnicView.swift */,
 			);
 			path = WorksCD;
 			sourceTree = "<group>";
@@ -169,6 +187,7 @@
 		30C75F392AC452AB00B9D445 /* MotoApp */ = {
 			isa = PBXGroup;
 			children = (
+				306D1F762CE7C151000E74D4 /* NewDataBase */,
 				308195762CCEB25700EE26C0 /* CoreData */,
 				303A61AE2ADF1A4E00CCDBEE /* DataManager.swift */,
 				30C75F3A2AC452AB00B9D445 /* GarageAppApp.swift */,
@@ -319,13 +338,14 @@
 				307F12972B4D881B0078A8F4 /* WorksViewModel.swift in Sources */,
 				308195712CCEAE2000EE26C0 /* CoreDataViewModel.swift in Sources */,
 				30EB0A752B862C9B006FF732 /* BackgroundCustom.swift in Sources */,
-				3081956F2CCEA0F500EE26C0 /* AddTechnicView.swift in Sources */,
+				3081956F2CCEA0F500EE26C0 /* AddTechnicCDView.swift in Sources */,
 				3081957B2CCEB2C900EE26C0 /* TehnicWorksView.swift in Sources */,
 				30F8C40C2CCD82880047A87C /* ListCoreData.swift in Sources */,
 				30D5A5EB2B4C6BBD00744B5A /* GarageViewModel.swift in Sources */,
 				301279292B186EEA00C201CF /* AddTechnicUIView.swift in Sources */,
 				303F000A2B1A5DBA005F4FC4 /* WorksUIView.swift in Sources */,
 				30321AC02B59B411009AAA35 /* HellowView.swift in Sources */,
+				306D1F7C2CE7D26E000E74D4 /* AddWorckForTechnicView.swift in Sources */,
 				30838B682B9E3DF400634A17 /* sortFuncExtention.swift in Sources */,
 				30EE52082ADC65C200BCAD86 /* LoginViewModel.swift in Sources */,
 				30C75F492AC4531E00B9D445 /* GarageView.swift in Sources */,

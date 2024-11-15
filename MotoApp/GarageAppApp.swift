@@ -11,14 +11,31 @@ import SwiftUI
 struct GarageAppApp: App {
     
     @AppStorage("isLogin") var isLogin: Bool = false
+    @AppStorage("coreDataActive") var coreDataActive: Bool?
+    @ObservedObject var viewModel = CoreDataViewModel()
 
     var body: some Scene {
         WindowGroup {
-            if isLogin {
-                HellowView()
-            }else {
-                LoginView()
+            if coreDataActive ?? false{
+                ListCoreData(vm: viewModel)
+                    .onAppear {
+                        print("CoreDataActive: \(coreDataActive)")
+                    }
+                    
+            }else{
+                if isLogin {
+                    HellowView()
+                        .onAppear {
+                            print("CoreDataActive: \(coreDataActive)")
+                        }
+                }else {
+                    LoginView()
+                        .onAppear {
+                            print("CoreDataActive: \(coreDataActive)")
+                        }
+                }
             }
+            
         }
     }
 }
