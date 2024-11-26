@@ -20,7 +20,7 @@ struct ButtonView: View {
                 .minimumScaleFactor(0.5)
                 .padding(8)
         })
-        .frame(width: 160, height: 60)
+        .frame(height: 60)
         .background(LinearGradient(
             colors: [colorScheme == .dark ? .white.opacity(0.8) : .black.opacity(0.7), .gray.opacity(0.9)],
             startPoint: .bottomLeading,

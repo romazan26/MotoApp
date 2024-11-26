@@ -13,10 +13,13 @@ struct TechnicCellView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
+            //MARK: - Название техники
             Text("\(technic.title ?? "") \(technic.note ?? "")").font(.largeTitle)
-            Divider()
+            
+            Spacer()
+            Rectangle()
+                .frame(height: 1)
             Text("Колличество работ: \(technic.works?.count ?? 0)").font(.footnote)
-            Divider()
         }
         .foregroundStyle(colorScheme == .dark ? .black : .white)
         .padding()
@@ -37,6 +40,6 @@ struct TechnicCellView: View {
     
 }
 
-#Preview {
-    TechnicCellView(technic: TechnicCD())
-}
+//#Preview {
+//    TechnicCellView(technic: TechnicCD())
+//}

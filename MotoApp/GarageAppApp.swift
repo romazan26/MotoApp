@@ -12,12 +12,12 @@ struct GarageAppApp: App {
     
     @AppStorage("isLogin") var isLogin: Bool = false
     @AppStorage("coreDataActive") var coreDataActive: Bool?
-    @ObservedObject var viewModel = CoreDataViewModel()
+    
 
     var body: some Scene {
         WindowGroup {
             if coreDataActive ?? false{
-                ListCoreData(vm: viewModel)
+                ListCoreData()
                     .onAppear {
                         print("CoreDataActive: \(coreDataActive)")
                     }

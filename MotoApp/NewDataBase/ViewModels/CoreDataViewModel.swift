@@ -20,14 +20,78 @@ final class CoreDataViewModel: ObservableObject {
     @Published var noteTehnic: String = ""
     
     //MARK: - Works propertyes
+    @Published var simpleWork: WorkCD?
     @Published var simpleDate = Date()
     @Published var simpleTitleWork: String = ""
     @Published var simpleOdometer: String = ""
     @Published var simplePrice: String = ""
+    @Published var isEditorWork: Bool = false
+    @Published var isPresentEditWork: Bool = false
     
     init(){
         fetchWorks()
         fetchTechnic()
+    }
+    
+    //MARK: - Get info data
+    func getFinalOdometry(technic: TechnicCD) -> String{
+        var maxodometr: Int64 = 0
+        if let works = technic.works?.allObjects as? [WorkCD], !works.isEmpty{
+            maxodometr = works.max(by: { $0.odometr < $1.odometr })?.odometr ?? 0
+        }
+        return String(maxodometr)
+    }
+    
+    func getCountWorks(technic: TechnicCD) -> String{
+        var countWorks: Int = 0
+        if let works = technic.works?.allObjects as? [WorkCD], !works.isEmpty{
+            countWorks = works.count
+        }
+        return String(countWorks)
+    }
+    
+    func getFinalPrice(technic: TechnicCD) -> String{
+        var finalPrice: Int64 = 0
+        if let works = technic.works?.allObjects as? [WorkCD], !works.isEmpty{
+            finalPrice = works.reduce(0) { $0 + $1.price }
+        }
+        return String(finalPrice)
+    }
+    
+    //MARK: - Edit data
+    func editWork(){
+        simpleWork?.nameWork = simpleTitleWork
+        simpleWork?.odometr = Int64(simpleOdometer) ?? 0
+        simpleWork?.price = Int64(simplePrice) ?? 0
+        simpleWork?.date = simpleDate
+        saveWork()
+        isEditorWork = false
+    }
+    
+    //MARK: - Feel data
+    func getEditWork(work: WorkCD){
+        simpleWork = work
+        simpleDate = work.date ?? Date()
+        simpleTitleWork = work.nameWork ?? ""
+        simpleOdometer = String(work.odometr)
+        simplePrice = String(work.price)
+        isEditorWork = true
+    }
+    
+    //MARK: - Delete data
+    func deleteWork(work: WorkCD){
+        manager.context.delete(work)
+        saveWork()
+    }
+    
+    func deleteTechnic(technic: TechnicCD){
+        if let works = technic.works?.allObjects as? [WorkCD] {
+            for work in works {
+                deleteWork(work: work)
+            }
+        }
+        manager.context.delete(technic)
+        saveTechnic()
     }
     
     //MARK: - Add data

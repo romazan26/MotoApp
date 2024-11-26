@@ -8,18 +8,19 @@
 import SwiftUI
 
 struct ListCoreData: View {
-    @StateObject var vm: CoreDataViewModel
+    @ObservedObject var vm = CoreDataViewModel()
+    @Environment(\.colorScheme) var colorScheme
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
-                Text("Список техники (Новая база)")
+                Text("Список техники")
                     .font(.title)
                 ZStack(alignment: .bottomTrailing) {
                     //MARK: - List Tehnics
                     ScrollView {
                         ForEach(vm.technics) { technic in
                             NavigationLink {
-                                TehnicWorksView(tehnic: technic, vm: vm)
+                                TehnicWorksView(technic: technic, vm: vm)
                             } label: {
                                 TechnicCellView(technic: technic)
                             }
@@ -32,6 +33,7 @@ struct ListCoreData: View {
                     } label: {
                         Image(systemName: "plus.circle.fill")
                             .resizable()
+                            .foregroundStyle(colorScheme != .dark ? .black : .white)
                     }
                     .frame(width: 45, height: 45)
                 }
@@ -41,12 +43,10 @@ struct ListCoreData: View {
                 vm.fetchWorks()
                 vm.fetchTechnic()
             })
-            
         }
-        
     }
 }
 
 #Preview {
-    ListCoreData(vm: CoreDataViewModel())
+    ListCoreData()
 }

@@ -8,22 +8,24 @@
 import SwiftUI
 
 struct AddWorckForTechnicView: View {
+    
     let tehnic: TechnicCD
-    @StateObject var vm: CoreDataViewModel
+    @ObservedObject var vm: CoreDataViewModel
     @Environment(\.dismiss) private var dismiss
     @FocusState private var nameIsFocused: Bool
+    
     var body: some View {
         VStack {
-            Text("Новая работа")
+            Text(vm.isEditorWork ? "Изменить работу" :  "Новая работа")
                 .font(.title)
-            CustomTextFieldUIView(text: $vm.simpleTitleWork, placeHolder: "Название работы")
+            ResizebleTextFieldView(text: $vm.simpleTitleWork, extraHeight: 40)
                 .focused($nameIsFocused)
-            
-            CustomTextFieldUIView(text: $vm.simpleOdometer, placeHolder: "Одометр")
+                
+            ShadowTextFieldView(placeholder: "Одометр", text: $vm.simpleOdometer)
                 .focused($nameIsFocused)
                 .keyboardType(.numberPad)
             
-            CustomTextFieldUIView(text: $vm.simplePrice, placeHolder: "Стоимость")
+            ShadowTextFieldView(placeholder: "Стоимость", text: $vm.simplePrice)
                 .focused($nameIsFocused)
                 .keyboardType(.numberPad)
             
@@ -38,11 +40,16 @@ struct AddWorckForTechnicView: View {
             
             //MARK: - Add Button
             ButtonView(action: {
-                vm.addWork(technic: tehnic )
+                if vm.isEditorWork {
+                    vm.editWork()
+                }else{
+                    vm.addWork(technic: tehnic )
+                }
                 dismiss()
             }, label: "Сохранить")
             
         }
+        
         .onTapGesture {
             nameIsFocused = false
         }

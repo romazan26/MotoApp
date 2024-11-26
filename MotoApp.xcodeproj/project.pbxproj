@@ -34,6 +34,10 @@
 		30C75F492AC4531E00B9D445 /* GarageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C75F482AC4531E00B9D445 /* GarageView.swift */; };
 		30C75F542AC4B9FD00B9D445 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C75F532AC4B9FD00B9D445 /* LoginView.swift */; };
 		30D5A5EB2B4C6BBD00744B5A /* GarageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D5A5EA2B4C6BBD00744B5A /* GarageViewModel.swift */; };
+		30E75D272CF478EA00A61DFA /* WorkViewCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E75D262CF478EA00A61DFA /* WorkViewCD.swift */; };
+		30E75D302CF6183400A61DFA /* ShadowTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E75D2F2CF6183400A61DFA /* ShadowTextFieldView.swift */; };
+		30E75D322CF61A0500A61DFA /* ResizebleTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E75D312CF61A0500A61DFA /* ResizebleTextFieldView.swift */; };
+		30E75D342CF620B800A61DFA /* GradientButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E75D332CF620B800A61DFA /* GradientButtonView.swift */; };
 		30EB0A752B862C9B006FF732 /* BackgroundCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB0A742B862C9B006FF732 /* BackgroundCustom.swift */; };
 		30EB0A772B8659CC006FF732 /* WorkCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB0A762B8659CC006FF732 /* WorkCellView.swift */; };
 		30EE52062ADC655C00BCAD86 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EE52052ADC655C00BCAD86 /* User.swift */; };
@@ -71,6 +75,10 @@
 		30C75F482AC4531E00B9D445 /* GarageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageView.swift; sourceTree = "<group>"; };
 		30C75F532AC4B9FD00B9D445 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		30D5A5EA2B4C6BBD00744B5A /* GarageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageViewModel.swift; sourceTree = "<group>"; };
+		30E75D262CF478EA00A61DFA /* WorkViewCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkViewCD.swift; sourceTree = "<group>"; };
+		30E75D2F2CF6183400A61DFA /* ShadowTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowTextFieldView.swift; sourceTree = "<group>"; };
+		30E75D312CF61A0500A61DFA /* ResizebleTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizebleTextFieldView.swift; sourceTree = "<group>"; };
+		30E75D332CF620B800A61DFA /* GradientButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButtonView.swift; sourceTree = "<group>"; };
 		30EB0A742B862C9B006FF732 /* BackgroundCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCustom.swift; sourceTree = "<group>"; };
 		30EB0A762B8659CC006FF732 /* WorkCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkCellView.swift; sourceTree = "<group>"; };
 		30EE52052ADC655C00BCAD86 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -116,6 +124,7 @@
 		306D1F762CE7C151000E74D4 /* NewDataBase */ = {
 			isa = PBXGroup;
 			children = (
+				30E75D2E2CF6180800A61DFA /* Helpers */,
 				306D1F782CE7C16F000E74D4 /* ViewModels */,
 				306D1F772CE7C166000E74D4 /* Views */,
 			);
@@ -164,6 +173,7 @@
 				3081957A2CCEB2C900EE26C0 /* TehnicWorksView.swift */,
 				3081957E2CCEBB0900EE26C0 /* WorkCellCDView.swift */,
 				306D1F7B2CE7D26E000E74D4 /* AddWorckForTechnicView.swift */,
+				30E75D262CF478EA00A61DFA /* WorkViewCD.swift */,
 			);
 			path = WorksCD;
 			sourceTree = "<group>";
@@ -221,6 +231,16 @@
 				3067469D2C35DAEF00304E0C /* NewWorkView.swift */,
 			);
 			path = Works;
+			sourceTree = "<group>";
+		};
+		30E75D2E2CF6180800A61DFA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				30E75D2F2CF6183400A61DFA /* ShadowTextFieldView.swift */,
+				30E75D312CF61A0500A61DFA /* ResizebleTextFieldView.swift */,
+				30E75D332CF620B800A61DFA /* GradientButtonView.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		30EE52092ADC729600BCAD86 /* LoginView */ = {
@@ -340,6 +360,8 @@
 				30EB0A752B862C9B006FF732 /* BackgroundCustom.swift in Sources */,
 				3081956F2CCEA0F500EE26C0 /* AddTechnicCDView.swift in Sources */,
 				3081957B2CCEB2C900EE26C0 /* TehnicWorksView.swift in Sources */,
+				30E75D272CF478EA00A61DFA /* WorkViewCD.swift in Sources */,
+				30E75D302CF6183400A61DFA /* ShadowTextFieldView.swift in Sources */,
 				30F8C40C2CCD82880047A87C /* ListCoreData.swift in Sources */,
 				30D5A5EB2B4C6BBD00744B5A /* GarageViewModel.swift in Sources */,
 				301279292B186EEA00C201CF /* AddTechnicUIView.swift in Sources */,
@@ -349,11 +371,13 @@
 				30838B682B9E3DF400634A17 /* sortFuncExtention.swift in Sources */,
 				30EE52082ADC65C200BCAD86 /* LoginViewModel.swift in Sources */,
 				30C75F492AC4531E00B9D445 /* GarageView.swift in Sources */,
+				30E75D342CF620B800A61DFA /* GradientButtonView.swift in Sources */,
 				30EB0A772B8659CC006FF732 /* WorkCellView.swift in Sources */,
 				30C75F3B2AC452AB00B9D445 /* GarageAppApp.swift in Sources */,
 				303A61AF2ADF1A4E00CCDBEE /* DataManager.swift in Sources */,
 				30EE52062ADC655C00BCAD86 /* User.swift in Sources */,
 				30BBB6422B77AC2600448494 /* ButtonView.swift in Sources */,
+				30E75D322CF61A0500A61DFA /* ResizebleTextFieldView.swift in Sources */,
 				3081956C2CCE9E3600EE26C0 /* TechnicCellView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -502,7 +526,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 2;
 				PRODUCT_BUNDLE_IDENTIFIER = home.MotoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -537,7 +561,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 2;
 				PRODUCT_BUNDLE_IDENTIFIER = home.MotoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

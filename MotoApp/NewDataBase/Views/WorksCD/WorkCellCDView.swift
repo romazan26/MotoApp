@@ -16,6 +16,7 @@ struct WorkCellCDView: View {
             VStack(alignment: .leading) {
                 Text(work.nameWork ?? "")
                     .font(.system(size: 30, weight: .heavy, design: .serif))
+                    .multilineTextAlignment(.leading)
                 Text("одометр: \(String(work.odometr))").bold()
                 Text("Дата: \(Dateformatter(date: work.date ?? Date()))")
             }

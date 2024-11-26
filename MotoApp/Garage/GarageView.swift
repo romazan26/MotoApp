@@ -59,8 +59,10 @@ struct GarageView: View {
                         AddTechnicUIView(viewmodel: viewmodel)
                     })
                 }
-                    
-            }.background(BackgroundCustom())
+                .onAppear {
+                    viewmodel.loadData()
+                }
+            
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
@@ -76,36 +78,46 @@ struct GarageView: View {
                         .foregroundStyle(viewmodel.coreDataActive ? .green : .red)
                 }
                 
-                ToolbarItem {
-                    Button {
-                        viewmodel.deleteAll()
-                    } label: {
-                        Text("delete all")
-                    }
-
-                }
-                
-                ToolbarItem {
-                    NavigationLink("List") {
-                        ListCoreData(vm: vm)
-                    }
-                }
+                //                ToolbarItem {
+                //                    Button {
+                //                        viewmodel.deleteAll()
+                //                    } label: {
+                //                        Text("delete all")
+                //                    }
+                //
+                //                }
+                //
+                //                ToolbarItem {
+                //                    NavigationLink("List") {
+                //                        ListCoreData(vm: vm)
+                //                    }
+                //                }
                 
                 ToolbarItem {
                     Button {
                         if !viewmodel.technicsCD.isEmpty {
-                            print("Full data base ")
+                            print("Get data base ")
                         }else{
                             viewmodel.loadData()
                         }
                         
                     } label: {
-                        Text("get data")
+                        Text("Загрузить базу")
                     }
-
+                    
                 }
-               
+                
             }
+                if viewmodel.coreDataActive {
+                    ZStack{
+                        Color.black.opacity(0.5)
+                        Text("База загружена, перезапустите приложение")
+                            .foregroundStyle(.white)
+                            .font(.title)
+                    }
+                }
+            }
+            .background(BackgroundCustom())
         }
     }
 }
