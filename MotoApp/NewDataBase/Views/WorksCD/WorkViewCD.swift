@@ -16,14 +16,14 @@ struct WorkViewCD: View {
     var body: some View {
         VStack {
             LazyVGrid(columns: [GridItem(alignment: .leading), GridItem(alignment: .leading)]) {
-                Text("Название:")
-                Text(work.nameWork ?? "")
-                Text("Описание:")
-                Text(Dateformatter(date: work.date ?? Date()))
-                Text("Цена:")
-                Text("\(work.price)")
-                Text("Одометр:")
-                Text("\(work.odometr)")
+                Text("titleLabel")
+                Text(" : \(work.nameWork ?? "")")
+                Text("noteLabel")
+                Text(" : \(Dateformatter(date: work.date ?? Date()))")
+                Text("priceLabel")
+                Text(" : \(work.price)")
+                Text("odometrLabel")
+                Text(" : \(work.odometr)")
             }
             .padding()
             .background(Color.back)
@@ -39,7 +39,7 @@ struct WorkViewCD: View {
                     vm.deleteWork(work: work)
                     dismiss()
                 } label: {
-                    GradientButtonView(label: "Удалить", color: .red)
+                    GradientButtonView(label: "deleteLabel", color: .red)
                 }
 
                 //MARK: - Edit button
@@ -48,7 +48,7 @@ struct WorkViewCD: View {
                         vm.getEditWork(work: work)
                     }
                 } label: {
-                    GradientButtonView(label: "Редактировать", color: .black)
+                    GradientButtonView(label: "editButtonLabel", color: .black)
                 }
 
 

@@ -19,7 +19,12 @@ struct TechnicCellView: View {
             Spacer()
             Rectangle()
                 .frame(height: 1)
-            Text("Колличество работ: \(technic.works?.count ?? 0)").font(.footnote)
+            //MARK: - Count of work
+            HStack{
+                Text("countOfWorks")
+                Text("\(technic.works?.count ?? 0)")
+            }
+            .font(.footnote)
         }
         .foregroundStyle(colorScheme == .dark ? .black : .white)
         .padding()

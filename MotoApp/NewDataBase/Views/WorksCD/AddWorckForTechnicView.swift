@@ -16,20 +16,20 @@ struct AddWorckForTechnicView: View {
     
     var body: some View {
         VStack {
-            Text(vm.isEditorWork ? "Изменить работу" :  "Новая работа")
+            Text(vm.isEditorWork ? "Change the job" :  "addNewWorkViewLabel")
                 .font(.title)
             ResizebleTextFieldView(text: $vm.simpleTitleWork, extraHeight: 40)
                 .focused($nameIsFocused)
                 
-            ShadowTextFieldView(placeholder: "Одометр", text: $vm.simpleOdometer)
+            ShadowTextFieldView(placeholder: "odometrLabel", text: $vm.simpleOdometer)
                 .focused($nameIsFocused)
                 .keyboardType(.numberPad)
             
-            ShadowTextFieldView(placeholder: "Стоимость", text: $vm.simplePrice)
+            ShadowTextFieldView(placeholder: "priceLabel", text: $vm.simplePrice)
                 .focused($nameIsFocused)
                 .keyboardType(.numberPad)
             
-            DatePicker("Дата:", selection: $vm.simpleDate)
+            DatePicker("dateLabel", selection: $vm.simpleDate)
                 .padding()
                 .background(Color.back)
                 .clipShape(RoundedRectangle(cornerRadius: 10,style: .continuous))
@@ -39,15 +39,17 @@ struct AddWorckForTechnicView: View {
             Spacer()
             
             //MARK: - Add Button
-            ButtonView(action: {
+            
+            Button {
                 if vm.isEditorWork {
                     vm.editWork()
                 }else{
                     vm.addWork(technic: tehnic )
                 }
                 dismiss()
-            }, label: "Сохранить")
-            
+            } label: {
+                GradientButtonView(label: "saveButtonLabel", color: .green)
+            }
         }
         
         .onTapGesture {

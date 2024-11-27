@@ -20,24 +20,12 @@ struct TehnicWorksView: View {
         VStack {
             
             //MARK: - Technic info
-            HStack {
-                Image(.works)
-                    .resizable()
-                    .frame(width: 130, height: 100)
-                VStack(alignment: .leading) {
-                    Text("\(technic.title ?? "")")
-                    Text("Одометр: \(vm.getFinalOdometry(technic: technic))")
-                    Text("Колличество работ: \(vm.getCountWorks(technic: technic))")
-                    Text("Потрачено: \(vm.getFinalPrice(technic: technic))")
-                }
-            Spacer()
-            }
-            .minimumScaleFactor(0.5)
+            TechnicInfoView(vm: vm, technic: technic)
             
             //MARK: - List of works
             if let works = technic.works?.allObjects as? [WorkCD] {
                 if works.isEmpty {
-                    Text("Нет работ")
+                    Text("noWorksLabel")
                     Spacer()
                 }else{
                     ScrollView {
@@ -74,8 +62,11 @@ struct TehnicWorksView: View {
                     vm.deleteTechnic(technic: technic)
                     dismiss()
                 } label: {
-                    Text("Удалить \(technic.title ?? "")")
-                        .foregroundStyle(.red)
+                    HStack {
+                        Text("deleteLabel")
+                        Text("\(technic.title ?? "")")
+                            
+                    }.foregroundStyle(.red)
                 }
 
             }

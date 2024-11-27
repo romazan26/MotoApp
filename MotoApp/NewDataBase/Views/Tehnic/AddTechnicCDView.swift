@@ -11,26 +11,29 @@ struct AddTechnicCDView: View {
     @StateObject var vm: CoreDataViewModel
     @Environment(\.dismiss) private var dismiss
     @FocusState private var nameIsFocused: Bool
+    @State var title = LocalizedStringKey("titleLabel")
     var body: some View {
         VStack {
-            Text("Новая техника")
+            Text("addTechicViewLabel")
                 .font(.title)
-            CustomTextFieldUIView(text: $vm.titleTehnic, placeHolder: "Название")
+            ShadowTextFieldView(placeholder: "titleLabel", text: $vm.titleTehnic)
                 .focused($nameIsFocused)
             
-            CustomTextFieldUIView(text: $vm.typeTehnic, placeHolder: "Тип")
+            ShadowTextFieldView(placeholder: "typeLabel", text: $vm.typeTehnic)
                 .focused($nameIsFocused)
             
-            CustomTextFieldUIView(text: $vm.noteTehnic, placeHolder: "Примечание")
+            ShadowTextFieldView(placeholder: "noteLabel", text: $vm.noteTehnic)
                 .focused($nameIsFocused)
-            
+                    
             Spacer()
             
             //MARK: - Add Button
-            ButtonView(action: {
+            Button {
                 vm.addTehnic()
                 dismiss()
-            }, label: "Добавить технику")
+            } label: {
+                GradientButtonView(label: "addTechinbuttonLabel", color: .back)
+            }
             
         }
         .onTapGesture {

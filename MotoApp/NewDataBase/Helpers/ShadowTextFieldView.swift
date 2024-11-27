@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ShadowTextFieldView: View {
-    var placeholder: String
+    var placeholder: LocalizedStringKey
     @Binding var text: String
     var body: some View {
         TextField(placeholder, text: $text)

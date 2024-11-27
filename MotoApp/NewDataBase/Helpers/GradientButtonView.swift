@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GradientButtonView: View {
-    var label: String = "Button"
+    var label: LocalizedStringKey
     var color: Color = .red
     var body: some View {
         
@@ -29,5 +29,5 @@ struct GradientButtonView: View {
 }
 
 #Preview {
-    GradientButtonView()
+    GradientButtonView(label: "addTechinbuttonLabel")
 }

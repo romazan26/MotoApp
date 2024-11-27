@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  MotoApp
+
+  Created by Роман on 27.11.2024.
+  
+*/
+
+"labelTechnicList" = "Список техники";
+"countOfWorks" = "Колличество работ";
+"deleteLabel" = "Удалить";
+"odometrLabel" = "Одометр";
+"spentLabel" = "Потрачено";
+"dateLabel" = "Дата";
+"titleLabel" = "Название";
+"priceLabel" = "Цена";
+"typeLabel" = "Тип";
+"noteLabel" = "Примечание";
+
+"editViewLabel" = "Изменить работу";
+"addTechicViewLabel" = "Новая техника";
+"addNewWorkViewLabel" = "Новая работа";
+
+"saveButtonLabel" = "Сохранить";
+"editButtonLabel" = "Изменить";
+"addTechinbuttonLabel" = "Добавить технику";
+
+"noWorksLabel" = "Нет работ";

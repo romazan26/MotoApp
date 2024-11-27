@@ -13,8 +13,8 @@ struct ListCoreData: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Text("Список техники")
-                    .font(.title)
+                Text("labelTechnicList")
+                    .font(.largeTitle)
                 ZStack(alignment: .bottomTrailing) {
                     //MARK: - List Tehnics
                     ScrollView {
