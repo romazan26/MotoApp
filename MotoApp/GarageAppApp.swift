@@ -17,7 +17,7 @@ struct GarageAppApp: App {
     var body: some Scene {
         WindowGroup {
             if coreDataActive ?? false{
-                ListCoreData()
+                LoadingView()
                     .onAppear {
                         print("CoreDataActive: \(coreDataActive)")
                     }
