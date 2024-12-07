@@ -9,7 +9,7 @@ import SwiftUI
 
 final class LoadingViewModel: ObservableObject {
     
-    private var timeLoading: Int = 0
+    @Published var timeLoading: Int = 0
     @Published var isPresent: Bool = false
     
     

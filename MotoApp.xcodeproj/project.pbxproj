@@ -29,14 +29,16 @@
 		308195792CCEB25700EE26C0 /* Garage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 308195752CCEB25700EE26C0 /* Garage.xcdatamodeld */; };
 		3081957B2CCEB2C900EE26C0 /* TehnicWorksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3081957A2CCEB2C900EE26C0 /* TehnicWorksView.swift */; };
 		3081957F2CCEBB0900EE26C0 /* WorkCellCDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3081957E2CCEBB0900EE26C0 /* WorkCellCDView.swift */; };
-		30838B682B9E3DF400634A17 /* sortFuncExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30838B672B9E3DF400634A17 /* sortFuncExtention.swift */; };
 		30A045062B17AB17000FD446 /* UsersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A045052B17AB17000FD446 /* UsersListView.swift */; };
+		30A8AA782D0195290054DC67 /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A8AA772D0195290054DC67 /* LoadingIndicatorView.swift */; };
 		30BBB6422B77AC2600448494 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BBB6412B77AC2600448494 /* ButtonView.swift */; };
 		30C75F3B2AC452AB00B9D445 /* GarageAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C75F3A2AC452AB00B9D445 /* GarageAppApp.swift */; };
 		30C75F3F2AC452AD00B9D445 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30C75F3E2AC452AD00B9D445 /* Assets.xcassets */; };
 		30C75F422AC452AD00B9D445 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30C75F412AC452AD00B9D445 /* Preview Assets.xcassets */; };
 		30C75F492AC4531E00B9D445 /* GarageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C75F482AC4531E00B9D445 /* GarageView.swift */; };
 		30C75F542AC4B9FD00B9D445 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C75F532AC4B9FD00B9D445 /* LoginView.swift */; };
+		30D424DB2D00E08700CF2A5A /* sortFuncExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D424D92D00E08700CF2A5A /* sortFuncExtention.swift */; };
+		30D424DD2D00E80B00CF2A5A /* WorkCDViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D424DC2D00E7F500CF2A5A /* WorkCDViewmodel.swift */; };
 		30D5A5EB2B4C6BBD00744B5A /* GarageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D5A5EA2B4C6BBD00744B5A /* GarageViewModel.swift */; };
 		30E75D272CF478EA00A61DFA /* WorkViewCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E75D262CF478EA00A61DFA /* WorkViewCD.swift */; };
 		30E75D302CF6183400A61DFA /* ShadowTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E75D2F2CF6183400A61DFA /* ShadowTextFieldView.swift */; };
@@ -74,8 +76,8 @@
 		308195772CCEB25700EE26C0 /* Garage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Garage.xcdatamodel; sourceTree = "<group>"; };
 		3081957A2CCEB2C900EE26C0 /* TehnicWorksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TehnicWorksView.swift; sourceTree = "<group>"; };
 		3081957E2CCEBB0900EE26C0 /* WorkCellCDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkCellCDView.swift; sourceTree = "<group>"; };
-		30838B672B9E3DF400634A17 /* sortFuncExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sortFuncExtention.swift; sourceTree = "<group>"; };
 		30A045052B17AB17000FD446 /* UsersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListView.swift; sourceTree = "<group>"; };
+		30A8AA772D0195290054DC67 /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
 		30BBB6412B77AC2600448494 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		30C75F372AC452AB00B9D445 /* MotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30C75F3A2AC452AB00B9D445 /* GarageAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageAppApp.swift; sourceTree = "<group>"; };
@@ -83,6 +85,8 @@
 		30C75F412AC452AD00B9D445 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		30C75F482AC4531E00B9D445 /* GarageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageView.swift; sourceTree = "<group>"; };
 		30C75F532AC4B9FD00B9D445 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		30D424D92D00E08700CF2A5A /* sortFuncExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sortFuncExtention.swift; sourceTree = "<group>"; };
+		30D424DC2D00E7F500CF2A5A /* WorkCDViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkCDViewmodel.swift; sourceTree = "<group>"; };
 		30D5A5EA2B4C6BBD00744B5A /* GarageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageViewModel.swift; sourceTree = "<group>"; };
 		30E75D262CF478EA00A61DFA /* WorkViewCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkViewCD.swift; sourceTree = "<group>"; };
 		30E75D2F2CF6183400A61DFA /* ShadowTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowTextFieldView.swift; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 		306D1F762CE7C151000E74D4 /* NewDataBase */ = {
 			isa = PBXGroup;
 			children = (
+				30D424DA2D00E08700CF2A5A /* Enums */,
 				30E75D2E2CF6180800A61DFA /* Helpers */,
 				306D1F782CE7C16F000E74D4 /* ViewModels */,
 				306D1F772CE7C166000E74D4 /* Views */,
@@ -161,6 +166,7 @@
 		306D1F782CE7C16F000E74D4 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				30D424DC2D00E7F500CF2A5A /* WorkCDViewmodel.swift */,
 				300424872CFE2338007E5A4D /* LoadingViewModel.swift */,
 				308195702CCEAE1700EE26C0 /* CoreDataViewModel.swift */,
 			);
@@ -241,6 +247,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		30D424DA2D00E08700CF2A5A /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				30D424D92D00E08700CF2A5A /* sortFuncExtention.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		30D5A5EC2B4C832B00744B5A /* Works */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +274,7 @@
 				30E75D312CF61A0500A61DFA /* ResizebleTextFieldView.swift */,
 				30E75D332CF620B800A61DFA /* GradientButtonView.swift */,
 				3075E0E42CF724A600433CAD /* TechnicInfoView.swift */,
+				30A8AA772D0195290054DC67 /* LoadingIndicatorView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -282,7 +297,6 @@
 				30F877202B4C3BC6002EC497 /* BlurUIView.swift */,
 				30BBB6412B77AC2600448494 /* ButtonView.swift */,
 				30EB0A742B862C9B006FF732 /* BackgroundCustom.swift */,
-				30838B672B9E3DF400634A17 /* sortFuncExtention.swift */,
 			);
 			name = Extenstation;
 			path = MotoApp/Extenstation;
@@ -366,6 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30D424DD2D00E80B00CF2A5A /* WorkCDViewmodel.swift in Sources */,
 				30A045062B17AB17000FD446 /* UsersListView.swift in Sources */,
 				301279272B18664C00C201CF /* technicUIViewCell.swift in Sources */,
 				3081957F2CCEBB0900EE26C0 /* WorkCellCDView.swift in Sources */,
@@ -376,6 +391,7 @@
 				30F877222B4C3BC6002EC497 /* AddAertUIVuew.swift in Sources */,
 				3075E0E52CF724A600433CAD /* TechnicInfoView.swift in Sources */,
 				3067469E2C35DAEF00304E0C /* NewWorkView.swift in Sources */,
+				30A8AA782D0195290054DC67 /* LoadingIndicatorView.swift in Sources */,
 				30F877232B4C3BC6002EC497 /* BlurUIView.swift in Sources */,
 				308195782CCEB25700EE26C0 /* CoreDataManager.swift in Sources */,
 				308195792CCEB25700EE26C0 /* Garage.xcdatamodeld in Sources */,
@@ -384,6 +400,7 @@
 				30EB0A752B862C9B006FF732 /* BackgroundCustom.swift in Sources */,
 				3081956F2CCEA0F500EE26C0 /* AddTechnicCDView.swift in Sources */,
 				3081957B2CCEB2C900EE26C0 /* TehnicWorksView.swift in Sources */,
+				30D424DB2D00E08700CF2A5A /* sortFuncExtention.swift in Sources */,
 				30E75D272CF478EA00A61DFA /* WorkViewCD.swift in Sources */,
 				30E75D302CF6183400A61DFA /* ShadowTextFieldView.swift in Sources */,
 				30F8C40C2CCD82880047A87C /* ListCoreData.swift in Sources */,
@@ -392,7 +409,6 @@
 				303F000A2B1A5DBA005F4FC4 /* WorksUIView.swift in Sources */,
 				30321AC02B59B411009AAA35 /* HellowView.swift in Sources */,
 				306D1F7C2CE7D26E000E74D4 /* AddWorckForTechnicView.swift in Sources */,
-				30838B682B9E3DF400634A17 /* sortFuncExtention.swift in Sources */,
 				30EE52082ADC65C200BCAD86 /* LoginViewModel.swift in Sources */,
 				30C75F492AC4531E00B9D445 /* GarageView.swift in Sources */,
 				30E75D342CF620B800A61DFA /* GradientButtonView.swift in Sources */,
@@ -560,7 +576,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -595,7 +611,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

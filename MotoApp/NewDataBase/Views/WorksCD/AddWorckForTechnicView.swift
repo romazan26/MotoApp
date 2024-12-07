@@ -9,8 +9,7 @@ import SwiftUI
 
 struct AddWorckForTechnicView: View {
     
-    let tehnic: TechnicCD
-    @ObservedObject var vm: CoreDataViewModel
+    @ObservedObject var vm: WorkCDViewmodel
     @Environment(\.dismiss) private var dismiss
     @FocusState private var nameIsFocused: Bool
     
@@ -44,7 +43,7 @@ struct AddWorckForTechnicView: View {
                 if vm.isEditorWork {
                     vm.editWork()
                 }else{
-                    vm.addWork(technic: tehnic )
+                    vm.addWork()
                 }
                 dismiss()
             } label: {
@@ -60,6 +59,4 @@ struct AddWorckForTechnicView: View {
     
 }
 
-#Preview {
-    AddWorckForTechnicView( tehnic: TechnicCD(), vm: CoreDataViewModel())
-}
+

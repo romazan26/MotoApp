@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct TehnicWorksView: View {
-    
-    let technic: TechnicCD
-    @ObservedObject var vm: CoreDataViewModel
+
+    @ObservedObject var vm: WorkCDViewmodel
     @State var isOpen: Bool = false
     @Environment(\.dismiss) var dismiss
     @Environment(\.colorScheme) var colorScheme
@@ -20,26 +19,21 @@ struct TehnicWorksView: View {
         VStack {
             
             //MARK: - Technic info
-            TechnicInfoView(vm: vm, technic: technic)
+            TechnicInfoView(vm: vm)
             
             //MARK: - List of works
-            if let works = technic.works?.allObjects as? [WorkCD] {
-                if works.isEmpty {
-                    Text("noWorksLabel")
-                    Spacer()
-                }else{
+           
                     ScrollView {
-                        ForEach(works) { work in
+                        ForEach(vm.sortedWorks) { work in
                             NavigationLink {
-                                
-                                WorkViewCD(work: work, technic: technic, vm: vm)
+                                WorkViewCD(work: work, vm: vm)
                             } label: {
-                                WorkCellCDView(vm: vm, work: work)
+                                WorkCellCDView(work: work)
                             }   
                         }
                     }
-                }
-            }
+                
+            
         }
             //MARK: - Add tehnic buttom
             Button {
@@ -51,29 +45,41 @@ struct TehnicWorksView: View {
             }
             .frame(width: 45, height: 45)
         }
+        
         .padding()
         .sheet(isPresented: $isOpen) {
-            AddWorckForTechnicView(tehnic: technic, vm: vm)
+            AddWorckForTechnicView(vm: vm)
         }
         .toolbar {
             //MARK: - Delete technic button
             ToolbarItem {
                 Button {
-                    vm.deleteTechnic(technic: technic)
+                    vm.deleteTechnic()
                     dismiss()
                 } label: {
                     HStack {
                         Text("deleteLabel")
-                        Text("\(technic.title ?? "")")
+                        Text("\(vm.technicCD.title ?? "")")
                             
                     }.foregroundStyle(.red)
                 }
 
             }
+            ToolbarItem(placement: .topBarTrailing) {
+                Menu("Сортировать") {
+                    Picker("", selection: $vm.selectedSortOption) {
+                        ForEach(SortOptionWork.allCases, id: \.rawValue) { option in
+                            Label(option.rawValue, systemImage: "\(option)")
+                                .tag(option)
+                        }
+                    }
+                    .labelsHidden()
+                }
+            }
         }
     }
 }
 
-#Preview {
-    TehnicWorksView(technic: TechnicCD(), vm: CoreDataViewModel())
-}
+//#Preview {
+//    TehnicWorksView(technic: TechnicCD(), vm: CoreDataViewModel())
+//}

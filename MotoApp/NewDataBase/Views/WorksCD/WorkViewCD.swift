@@ -9,9 +9,8 @@ import SwiftUI
 
 struct WorkViewCD: View {
     @ObservedObject var work: WorkCD
-    @State private var shouldNavigate = false
-    @ObservedObject var technic: TechnicCD
-    @ObservedObject var vm: CoreDataViewModel
+   // @State private var shouldNavigate = false
+    @ObservedObject var vm: WorkCDViewmodel
     @Environment(\.dismiss) var dismiss
     var body: some View {
         VStack {
@@ -44,7 +43,8 @@ struct WorkViewCD: View {
 
                 //MARK: - Edit button
                 NavigationLink {
-                    AddWorckForTechnicView(tehnic: technic, vm: vm).onAppear {
+                    AddWorckForTechnicView(vm: vm)
+                        .onAppear {
                         vm.getEditWork(work: work)
                     }
                 } label: {

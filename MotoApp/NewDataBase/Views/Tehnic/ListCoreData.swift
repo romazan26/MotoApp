@@ -13,14 +13,22 @@ struct ListCoreData: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Text("labelTechnicList")
-                    .font(.largeTitle)
+                //MARK: - Top tool bar
+                HStack{
+                    Image(.image)
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                    Text("labelTechnicList")
+                        .font(.largeTitle)
+                        .minimumScaleFactor(0.5)
+            
+                }
                 ZStack(alignment: .bottomTrailing) {
                     //MARK: - List Tehnics
                     ScrollView {
                         ForEach(vm.technics) { technic in
                             NavigationLink {
-                                TehnicWorksView(technic: technic, vm: vm)
+                                TehnicWorksView(vm: WorkCDViewmodel(technicCD: technic))
                             } label: {
                                 TechnicCellView(technic: technic)
                             }

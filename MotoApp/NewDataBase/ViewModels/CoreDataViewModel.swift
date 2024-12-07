@@ -19,19 +19,12 @@ final class CoreDataViewModel: ObservableObject {
     @Published var typeTehnic: String = ""
     @Published var noteTehnic: String = ""
     
-    //MARK: - Works propertyes
-    @Published var simpleWork: WorkCD?
-    @Published var simpleDate = Date()
-    @Published var simpleTitleWork: String = ""
-    @Published var simpleOdometer: String = ""
-    @Published var simplePrice: String = ""
-    @Published var isEditorWork: Bool = false
-    @Published var isPresentEditWork: Bool = false
     
     init(){
         fetchWorks()
         fetchTechnic()
     }
+    
     
     //MARK: - Get info data
     func getFinalOdometry(technic: TechnicCD) -> String{
@@ -58,25 +51,6 @@ final class CoreDataViewModel: ObservableObject {
         return String(finalPrice)
     }
     
-    //MARK: - Edit data
-    func editWork(){
-        simpleWork?.nameWork = simpleTitleWork
-        simpleWork?.odometr = Int64(simpleOdometer) ?? 0
-        simpleWork?.price = Int64(simplePrice) ?? 0
-        simpleWork?.date = simpleDate
-        saveWork()
-        isEditorWork = false
-    }
-    
-    //MARK: - Feel data
-    func getEditWork(work: WorkCD){
-        simpleWork = work
-        simpleDate = work.date ?? Date()
-        simpleTitleWork = work.nameWork ?? ""
-        simpleOdometer = String(work.odometr)
-        simplePrice = String(work.price)
-        isEditorWork = true
-    }
     
     //MARK: - Delete data
     func deleteWork(work: WorkCD){
@@ -104,16 +78,6 @@ final class CoreDataViewModel: ObservableObject {
         clearTehnic()
     }
     
-    func addWork(technic: TechnicCD){
-        let newWork = WorkCD(context: manager.context)
-        newWork.nameWork = simpleTitleWork
-        newWork.odometr = Int64(simpleOdometer) ?? 0
-        newWork.price = Int64(simplePrice) ?? 0
-        newWork.date = simpleDate
-        newWork.techics = technic
-        saveWork()
-        clearWork()
-    }
     
     //MARK: - Get Data
     func fetchTechnic() {
@@ -154,11 +118,4 @@ final class CoreDataViewModel: ObservableObject {
         noteTehnic = ""
     }
     
-    func clearWork(){
-        simpleTitleWork = ""
-        simpleOdometer = ""
-        simplePrice = ""
-        simpleDate = Date()
-    }
 }
-

@@ -24,7 +24,6 @@ final class WorksViewModel: ObservableObject {
     
     var sortWork: [Work] {
         sortedWorks()
-        
     }
     
     init(technic: Technic) {

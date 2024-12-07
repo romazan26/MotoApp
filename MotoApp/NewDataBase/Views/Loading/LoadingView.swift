@@ -14,7 +14,8 @@ struct LoadingView: View {
             Image(.image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-            ProgressView()
+            LoadingIndicatorView(progress: Float(vm.timeLoading) / 100)
+                .frame(width: 100, height: 100)
                 .padding(.top, 80)
         }
         .onAppear(perform: {
