@@ -9,7 +9,6 @@ import SwiftUI
 
 struct WorkViewCD: View {
     @ObservedObject var work: WorkCD
-   // @State private var shouldNavigate = false
     @ObservedObject var vm: WorkCDViewmodel
     @Environment(\.dismiss) var dismiss
     var body: some View {

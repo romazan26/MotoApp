@@ -28,7 +28,7 @@ struct ListCoreData: View {
                     ScrollView {
                         ForEach(vm.technics) { technic in
                             NavigationLink {
-                                TehnicWorksView(vm: WorkCDViewmodel(technicCD: technic))
+                                WorksMainView(vm: WorkCDViewmodel(technicCD: technic))
                             } label: {
                                 TechnicCellView(technic: technic)
                             }

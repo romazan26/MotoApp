@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct TechnicInfoView: View {
-   // @StateObject var vm: CoreDataViewModel
+
     @StateObject var vm: WorkCDViewmodel
-    //@ObservedObject var technic: TechnicCD
     var body: some View {
         HStack {
             Image(.works)
@@ -23,24 +22,13 @@ struct TechnicInfoView: View {
                 //MARK: -Type technic
                 Text("\(vm.technicCD.type ?? "")")
                 
-                //MARK: - Odometr technic
-                HStack{
-                    Text("odometrLabel")
-                    Text(": \(vm.getFinalOdometry())")
-                    Spacer()
-                }
-                 
                 //MARK: - Count works
                 HStack {
                     Text("countOfWorks")
                     Text(": \(vm.getCountWorks())")
                 }
+
                 
-                //MARK: - Spent
-                HStack{
-                    Text("spentLabel")
-                    Text(": \(vm.getFinalPrice())")
-                }
             }
         Spacer()
         }

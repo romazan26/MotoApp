@@ -20,6 +20,7 @@ struct GradientButtonView: View {
             .padding(8)
         
             .frame(height: 60)
+            .frame(maxWidth: .infinity)
             .background(LinearGradient(
                 colors: [color, .gray.opacity(0.9)],
                 startPoint: .bottomLeading,

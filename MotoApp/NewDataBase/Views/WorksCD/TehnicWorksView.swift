@@ -51,20 +51,6 @@ struct TehnicWorksView: View {
             AddWorckForTechnicView(vm: vm)
         }
         .toolbar {
-            //MARK: - Delete technic button
-            ToolbarItem {
-                Button {
-                    vm.deleteTechnic()
-                    dismiss()
-                } label: {
-                    HStack {
-                        Text("deleteLabel")
-                        Text("\(vm.technicCD.title ?? "")")
-                            
-                    }.foregroundStyle(.red)
-                }
-
-            }
             ToolbarItem(placement: .topBarTrailing) {
                 Menu("Сортировать") {
                     Picker("", selection: $vm.selectedSortOption) {

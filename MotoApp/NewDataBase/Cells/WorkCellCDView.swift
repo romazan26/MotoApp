@@ -9,8 +9,7 @@ import SwiftUI
 
 struct WorkCellCDView: View {
     @Environment(\.colorScheme) var colorScheme
-   // @StateObject var vm: CoreDataViewModel
-    let work: WorkCD
+    @ObservedObject var work: WorkCD
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
