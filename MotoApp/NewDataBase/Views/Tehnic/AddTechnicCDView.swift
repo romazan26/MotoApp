@@ -14,7 +14,7 @@ struct AddTechnicCDView: View {
     @State var title = LocalizedStringKey("titleLabel")
     var body: some View {
         VStack {
-            Text("addTechicViewLabel")
+            Text(vm.isEditMode ? "editButtonLabel" : "addTechicViewLabel")
                 .font(.title)
             ShadowTextFieldView(placeholder: "titleLabel", text: $vm.titleTehnic)
                 .focused($nameIsFocused)
@@ -29,10 +29,15 @@ struct AddTechnicCDView: View {
             
             //MARK: - Add Button
             Button {
-                vm.addTehnic()
+                if vm.isEditMode{
+                    vm.saveEdit()
+                }else{
+                    vm.addTehnic()
+                }
+                
                 dismiss()
             } label: {
-                GradientButtonView(label: "addTechinbuttonLabel", color: .back)
+                GradientButtonView(label: vm.isEditMode ? "saveButtonLabel" : "addTechinbuttonLabel", color: .black)
             }
             
         }

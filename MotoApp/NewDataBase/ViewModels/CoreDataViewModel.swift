@@ -18,6 +18,9 @@ final class CoreDataViewModel: ObservableObject {
     @Published var titleTehnic: String = ""
     @Published var typeTehnic: String = ""
     @Published var noteTehnic: String = ""
+    @Published var simpleTechnic: TechnicCD?
+    
+    @Published var isEditMode: Bool = false
     
     
     init(){
@@ -25,6 +28,25 @@ final class CoreDataViewModel: ObservableObject {
         fetchTechnic()
     }
     
+    
+    //MARK: - Edit data
+    
+    func saveEdit(){
+        guard let simpleTechnic else { return }
+        simpleTechnic.title = titleTehnic
+        simpleTechnic.type = typeTehnic
+        simpleTechnic.note = noteTehnic
+        isEditMode = false
+        saveTechnic()
+    }
+    
+    func tapOfEdit(technic: TechnicCD){
+        simpleTechnic = technic
+        titleTehnic = technic.title ?? ""
+        typeTehnic = technic.type ?? ""
+        noteTehnic = technic.note ?? ""
+        isEditMode = true
+    }
     
     //MARK: - Get info data
     func getFinalOdometry(technic: TechnicCD) -> String{

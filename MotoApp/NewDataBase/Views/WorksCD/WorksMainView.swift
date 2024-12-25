@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WorksMainView: View {
     @StateObject var vm: WorkCDViewmodel
+    @StateObject var vmTechnic: CoreDataViewModel
     @Environment(\.colorScheme) var colorScheme
     var body: some View {
         VStack {
@@ -91,7 +92,16 @@ struct WorksMainView: View {
                     GradientButtonView(label: "deleteLabel", color: .red)
                 }
                 
-                GradientButtonView(label: "editButtonLabel", color: .black)
+                NavigationLink {
+                    AddTechnicCDView(vm: vmTechnic)
+                        .onAppear {
+                            vmTechnic.tapOfEdit(technic: vm.technicCD)
+                        }
+                } label: {
+                    GradientButtonView(label: "editButtonLabel", color: .black)
+                }
+
+                
 
             }
             
