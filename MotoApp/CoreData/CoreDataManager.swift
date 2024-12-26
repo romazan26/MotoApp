@@ -15,21 +15,32 @@ final class CoreDataManager {
     let context: NSManagedObjectContext
     
     init() {
+        // Создаем NSPersistentContainer для новой базы данных
         container = NSPersistentContainer(name: "Garage")
-        container.loadPersistentStores { descption, error in
-            if let error = error{
-                print("Error looading core data\(error)")
+        
+        // Добавляем опции для миграции
+        if let storeDescription = container.persistentStoreDescriptions.first {
+            storeDescription.shouldMigrateStoreAutomatically = true
+            storeDescription.shouldInferMappingModelAutomatically = true
+            print("migration good")
+        }
+        
+        // Загружаем хранилище
+        container.loadPersistentStores { description, error in
+            if let error = error {
+                print("Error loading Core Data: \(error.localizedDescription)")
             }
         }
+        
+        // Устанавливаем контекст
         context = container.viewContext
     }
     
     func save() {
         do {
             try context.save()
-        }catch let error {
-            print("Save data erroe \(error.localizedDescription)")
+        } catch let error {
+            print("Save data error: \(error.localizedDescription)")
         }
-        
     }
 }

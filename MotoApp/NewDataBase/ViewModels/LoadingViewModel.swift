@@ -17,7 +17,6 @@ final class LoadingViewModel: ObservableObject {
         Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true) { timer in
             if self.timeLoading < 100{
                 self.timeLoading += 1
-                print(self.timeLoading)
             }else {
                 timer.invalidate()
                 self.isPresent = true

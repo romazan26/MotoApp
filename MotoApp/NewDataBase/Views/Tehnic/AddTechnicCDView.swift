@@ -16,6 +16,26 @@ struct AddTechnicCDView: View {
         VStack {
             Text(vm.isEditMode ? "editButtonLabel" : "addTechicViewLabel")
                 .font(.title)
+            
+            //MARK: - Choose photo button
+            Button {
+                vm.isPresentPhotoPicker = true
+            } label: {
+                if let photo = vm.simplePhoto {
+                    Image(uiImage: photo)
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .aspectRatio(contentMode: .fill)
+                        .cornerRadius(20)
+                }else{
+                    Image(systemName: "photo")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(20)
+                        .foregroundStyle(.gray)
+                }
+            }
+
             ShadowTextFieldView(placeholder: "titleLabel", text: $vm.titleTehnic)
                 .focused($nameIsFocused)
             
@@ -41,6 +61,9 @@ struct AddTechnicCDView: View {
             }
             
         }
+        .sheet(isPresented: $vm.isPresentPhotoPicker, content: {
+            PhotoPicker(configuration: vm.config, pickerResult: $vm.simplePhoto, isPresented: $vm.isPresentPhotoPicker)
+        })
         .onTapGesture {
             nameIsFocused = false
         }

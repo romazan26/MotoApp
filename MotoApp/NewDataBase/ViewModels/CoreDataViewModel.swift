@@ -7,6 +7,8 @@
 
 import CoreData
 import Foundation
+import UIKit
+import PhotosUI
 
 final class CoreDataViewModel: ObservableObject {
     let manager = CoreDataManager.instance
@@ -18,10 +20,20 @@ final class CoreDataViewModel: ObservableObject {
     @Published var titleTehnic: String = ""
     @Published var typeTehnic: String = ""
     @Published var noteTehnic: String = ""
+    @Published var simplePhoto: UIImage?
     @Published var simpleTechnic: TechnicCD?
     
     @Published var isEditMode: Bool = false
+    @Published var isPresentPhotoPicker: Bool = false
     
+    //MARK: - Photo picker configuration
+    var config: PHPickerConfiguration {
+        var config = PHPickerConfiguration(photoLibrary: .shared())
+        config.filter = .images
+        config.selectionLimit = 1
+        
+        return config
+    }
     
     init(){
         fetchWorks()
@@ -36,6 +48,9 @@ final class CoreDataViewModel: ObservableObject {
         simpleTechnic.title = titleTehnic
         simpleTechnic.type = typeTehnic
         simpleTechnic.note = noteTehnic
+        if let photo = simplePhoto {
+            simpleTechnic.photo = convertImageToData(photo)
+        }
         isEditMode = false
         saveTechnic()
     }
@@ -45,7 +60,17 @@ final class CoreDataViewModel: ObservableObject {
         titleTehnic = technic.title ?? ""
         typeTehnic = technic.type ?? ""
         noteTehnic = technic.note ?? ""
+        simplePhoto = convertDataToImage(technic.photo)
         isEditMode = true
+    }
+    
+    //MARK: - Converting data
+    func convertImageToData(_ image: UIImage) -> Data? {
+        return image.jpegData(compressionQuality: 1.0)
+    }
+    func convertDataToImage(_ data: Data?) -> UIImage? {
+        guard let data else { return nil }
+        return UIImage(data: data)
     }
     
     //MARK: - Get info data
@@ -96,6 +121,9 @@ final class CoreDataViewModel: ObservableObject {
         newTechnic.title = titleTehnic
         newTechnic.type = typeTehnic
         newTechnic.note = noteTehnic
+        if let photo = simplePhoto{
+            newTechnic.photo = convertImageToData(photo)
+        }
         saveTechnic()
         clearTehnic()
     }

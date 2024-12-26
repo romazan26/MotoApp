@@ -15,11 +15,20 @@ struct WorksMainView: View {
         VStack {
             
             //MARK: - Image tehcnic
+            if let photo = vmTechnic.convertDataToImage(vm.technicCD.photo){
+                Image(uiImage: photo)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 300, height: 300)
+                    .cornerRadius(20)
+            }else{
                 Image(.works)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 250, height: 250)
                     .cornerRadius(20)
+            }
+                
             
             //MARK: - Infor table for technic
             VStack {

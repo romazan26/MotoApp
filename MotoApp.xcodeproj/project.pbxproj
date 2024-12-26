@@ -55,6 +55,7 @@
 		30F877222B4C3BC6002EC497 /* AddAertUIVuew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F8771F2B4C3BC6002EC497 /* AddAertUIVuew.swift */; };
 		30F877232B4C3BC6002EC497 /* BlurUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F877202B4C3BC6002EC497 /* BlurUIView.swift */; };
 		30F8C40C2CCD82880047A87C /* ListCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F8C40B2CCD82880047A87C /* ListCoreData.swift */; };
+		30FA0C532D1D400B00D2D87A /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FA0C522D1D400B00D2D87A /* PhotoPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +107,8 @@
 		30F8771F2B4C3BC6002EC497 /* AddAertUIVuew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAertUIVuew.swift; sourceTree = "<group>"; };
 		30F877202B4C3BC6002EC497 /* BlurUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurUIView.swift; sourceTree = "<group>"; };
 		30F8C40B2CCD82880047A87C /* ListCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoreData.swift; sourceTree = "<group>"; };
+		30FA0C512D1D3E1D00D2D87A /* Garage_2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Garage_2.xcdatamodel; sourceTree = "<group>"; };
+		30FA0C522D1D400B00D2D87A /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,6 +295,7 @@
 				30E75D332CF620B800A61DFA /* GradientButtonView.swift */,
 				3075E0E42CF724A600433CAD /* TechnicInfoView.swift */,
 				30A8AA772D0195290054DC67 /* LoadingIndicatorView.swift */,
+				30FA0C522D1D400B00D2D87A /* PhotoPicker.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -409,6 +413,7 @@
 				3075E0E52CF724A600433CAD /* TechnicInfoView.swift in Sources */,
 				3067469E2C35DAEF00304E0C /* NewWorkView.swift in Sources */,
 				30A8AA782D0195290054DC67 /* LoadingIndicatorView.swift in Sources */,
+				30FA0C532D1D400B00D2D87A /* PhotoPicker.swift in Sources */,
 				30F877232B4C3BC6002EC497 /* BlurUIView.swift in Sources */,
 				308195782CCEB25700EE26C0 /* CoreDataManager.swift in Sources */,
 				308195792CCEB25700EE26C0 /* Garage.xcdatamodeld in Sources */,
@@ -700,9 +705,10 @@
 		308195752CCEB25700EE26C0 /* Garage.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				30FA0C512D1D3E1D00D2D87A /* Garage_2.xcdatamodel */,
 				308195772CCEB25700EE26C0 /* Garage.xcdatamodel */,
 			);
-			currentVersion = 308195772CCEB25700EE26C0 /* Garage.xcdatamodel */;
+			currentVersion = 30FA0C512D1D3E1D00D2D87A /* Garage_2.xcdatamodel */;
 			path = Garage.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
