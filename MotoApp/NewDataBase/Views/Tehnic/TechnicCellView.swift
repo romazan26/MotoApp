@@ -12,19 +12,34 @@ struct TechnicCellView: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        VStack(alignment: .leading) {
-            //MARK: - Название техники
-            Text("\(technic.title ?? "") \(technic.note ?? "")").font(.largeTitle)
-            
-            Spacer()
-            Rectangle()
-                .frame(height: 1)
-            //MARK: - Count of work
-            HStack{
-                Text("countOfWorks")
-                Text("\(technic.works?.count ?? 0)")
+        HStack{
+            if let image = convertDataToImage(technic.photo) {
+                Image(uiImage: image)
+                    .resizable()
+                    .frame(width: 40, height: 40)
+                    .clipShape(Circle())
+                    .aspectRatio(contentMode: .fit)
+            }else{
+                Image(.works)
+                    .resizable()
+                    .frame(width: 40, height: 40)
+                    .clipShape(Circle())
+                    .aspectRatio(contentMode: .fit)
             }
-            .font(.footnote)
+            VStack(alignment: .leading) {
+                //MARK: - Название техники
+                Text("\(technic.title ?? "") \(technic.note ?? "")").font(.largeTitle)
+                
+                Spacer()
+                Rectangle()
+                    .frame(height: 1)
+                //MARK: - Count of work
+                HStack{
+                    Text("countOfWorks")
+                    Text("\(technic.works?.count ?? 0)")
+                }
+                .font(.footnote)
+            }
         }
         .foregroundStyle(colorScheme == .dark ? .black : .white)
         .padding()
@@ -42,7 +57,10 @@ struct TechnicCellView: View {
         .minimumScaleFactor(0.5)
         .bold()
     }
-    
+    func convertDataToImage(_ data: Data?) -> UIImage? {
+        guard let data else { return nil }
+        return UIImage(data: data)
+    }
 }
 
 //#Preview {
