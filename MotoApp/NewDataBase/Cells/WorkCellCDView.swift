@@ -8,30 +8,36 @@
 import SwiftUI
 
 struct WorkCellCDView: View {
-    @Environment(\.colorScheme) var colorScheme
     @ObservedObject var work: WorkCD
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
                 //MARK: - Name of work
                 Text(work.nameWork ?? "")
-                    .font(.system(size: 30, weight: .heavy, design: .serif))
+                    .font(.system(size: 22, weight: .heavy, design: .serif))
                     .multilineTextAlignment(.leading)
+                    .foregroundStyle(.black)
                 
                 //MARK: - Odometr of work
                 HStack{
                     Text("odometrLabel")
                     Text("\(String(work.odometr))")
-                }.bold()
+                }
+                .font(.system(size: 14, weight: .bold))
+                .foregroundStyle(.black)
+                .opacity(0.6)
                 
                 //MARK: - Date of work
                 HStack{
                     Text("dateLabel")
-                    Text(": \(Dateformatter(date: work.date ?? Date()))")
+                    Text(":  \(Dateformatter(date: work.date ?? Date()))")
                 }
+                .font(.system(size: 14, weight: .bold))
+                .foregroundStyle(.black)
+                .opacity(0.6)
                 
             }
-            .foregroundStyle(colorScheme == .dark ? .black : .white)
+            
             .padding()
             Spacer()
         }
@@ -39,21 +45,24 @@ struct WorkCellCDView: View {
         
         //MARK: - Background of cell work
         .background(
-            LinearGradient(
-                colors:  [colorScheme == .dark ? .white.opacity(0.8) : .black.opacity(0.7), .gray.opacity(0.9)],
-                startPoint: .bottomLeading,
-                endPoint: .topTrailing).cornerRadius(26))
+            Color.grayApp).cornerRadius(26)
         
-        .overlay {
-            RoundedRectangle(cornerRadius: 26)
-                .stroke(colorScheme == .dark ? .black : .white, lineWidth: 2.0)
-        }
+            .overlay {
+                RoundedRectangle(cornerRadius: 26)
+                    .stroke(.white, lineWidth: 2.0)
+            }.shadow(radius: 3)
     }
     //MARK: - Dateformatter
     private func Dateformatter(date: Date) -> String{
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "d.M.yyyy"
+        dateFormatter.dateFormat = "d  MMMM  yyyy"
         return dateFormatter.string(from: date)
     }
 }
 
+#Preview {
+    ZStack {
+        Color.grayApp
+        WorkCellCDView( work: WorkCD(context: CoreDataManager.instance.context)  )
+    }
+}

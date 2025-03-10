@@ -10,115 +10,206 @@ import SwiftUI
 struct WorksMainView: View {
     @StateObject var vm: WorkCDViewmodel
     @StateObject var vmTechnic: CoreDataViewModel
-    @Environment(\.colorScheme) var colorScheme
+    @Environment(\.dismiss) var dismiss
+    @State private var animate = false
     var body: some View {
-        VStack {
-            
-            //MARK: - Image tehcnic
-            if let photo = vmTechnic.convertDataToImage(vm.technicCD.photo){
-                Image(uiImage: photo)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 300, height: 300)
-                    .cornerRadius(20)
-            }else{
-                Image(.works)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 250, height: 250)
-                    .cornerRadius(20)
-            }
-                
-            
-            //MARK: - Infor table for technic
+        
+        ZStack {
+            Color.grayApp.ignoresSafeArea()
             VStack {
+                //MARK: - Top tool bar
                 HStack{
-                    Text(vm.technicCD.title ?? "")
-                    Text(vm.technicCD.note ?? "")
-                }.font(.system(size: 18, weight: .bold))
-                Text(vm.technicCD.type ?? "")
-                HStack{
-                    CellInfoMainWorksView(text: "odometrLabel", value: "\(vm.getFinalOdometry())", image: "speedometer")
-                    CellInfoMainWorksView(text: "spentLabel", value: "\(vm.getFinalPrice())", image: "dollarsign.bank.building")
-                    CellInfoMainWorksView(text: "countOfWorks", value: "\(vm.getCountWorks())", image: "gear")
-                }
-            }
-            .padding(8)
-            .background {
-                Color(colorScheme == .dark ? .white : .black)
-                    .opacity(0.05)
-                    .cornerRadius(20)
-            }
-            
-            //MARK: - Preview works list
-            VStack{
-                HStack{
-                    Text("labelWorksList")
-                    Spacer()
-                    NavigationLink {
-                        TehnicWorksView(vm: vm)
+                    
+                    //MARK: - Back button
+                    Button {
+                        dismiss()
                     } label: {
-                        Text("seeAllButton")
+                        Image(systemName: "chevron.left")
+                            .resizable()
+                            .foregroundColor(.white)
+                            .frame(width: 20, height: 80)
+                            .shadow(radius: 5)
                     }
-                    .padding(.horizontal)
-                }
-                ScrollView(.horizontal) {
-                    HStack{
-                        ForEach(vm.sortedWorks.prefix(3)) { work in
-                            MiniWorkCellView(work: work)
+                    .padding(.trailing, 10)
+
+                    //MARK: - Image technic
+                    if !vm.isEditorWork{
+                        if let imageData = vm.convertDataToImage(vm.technicCD.photo){
+                            Image(uiImage: imageData)
+                                .resizable()
+                                .frame(width: 100, height: 100)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                        }else{
+                            Image(.newLogo)
+                                .resizable()
+                                .frame(width: 100, height: 100)
                         }
-                        NavigationLink {
-                            TehnicWorksView(vm: vm)
-                        } label: {
-                            Text("...")
-                                .minimumScaleFactor(0.5)
-                                .fontWeight(.bold)
-                                .frame(width: 100, height: 60)
-                                .padding(8)
-                                .background {
-                                    Color(colorScheme == .dark ? .white : .black)
-                                        .opacity(0.05)
-                                        .cornerRadius(20)
+                    }else{
+                        Image(.newLogo)
+                            .resizable()
+                            .frame(width: 100, height: 100)
+                    }
+                    
+                    //MARK: - Name Technic
+                    VStack(alignment: .leading){
+                        
+                        Text(vm.technicCD.title ?? "")
+                            .foregroundStyle(.white)
+                            .font(.system(size: 28, weight: .bold, design: .serif))
+                            .minimumScaleFactor(0.5)
+                        Text(vm.technicCD.note ?? "")
+                            .foregroundStyle(.white)
+                            .minimumScaleFactor(0.5)
+                        
+                        Text(vm.technicCD.type ?? "")
+                            .foregroundStyle(.white)
+                            .minimumScaleFactor(0.5)
+                    }
+                    Spacer()
+                    Menu {
+                        VStack {
+                            ForEach(SortOptionWork.allCases , id: \.self) { sort in
+                                Button {
+                                    vm.selectedSortOption = sort
+                                } label: {
+                                    Text(sort.rawValue)
                                 }
+                            }
+                        }
+                    } label: {
+                        VStack{
+                            Image(systemName: "list.bullet.clipboard")
+                                .resizable()
+                                .foregroundStyle(.white)
+                                .frame(width: 30, height: 50)
+                            Text("sortButtonLabel")
+                                .foregroundStyle(.white)
+                                .font(.system(size: 10))
+                                .minimumScaleFactor(0.5)
                         }
                     }
+
+                    
                 }
-            }
-            .padding(8)
-            .background {
-                Color(colorScheme == .dark ? .white : .black)
-                    .opacity(0.05)
-                    .cornerRadius(20)
-            }
-            
-            Spacer()
-            
-            //MARK: - Delete and Edit buttons
-            HStack{
-                Button {
-                    vm.deleteTechnic()
-                } label: {
-                    GradientButtonView(label: "deleteLabel", color: .red)
+                .padding()
+                .background {
+                    LinearGradient(gradient: Gradient(colors: [animate ? Color.grayApp : Color.black.opacity(0.2), animate ? Color.black.opacity(0.1) : Color.grayApp]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                        .edgesIgnoringSafeArea(.all)
+                        .animation(Animation.easeInOut(duration: 2).repeatForever(autoreverses: true), value: animate)
+                }
+                .onAppear {
+                    self.animate = true
                 }
                 
-                NavigationLink {
-                    AddTechnicCDView(vm: vmTechnic)
-                        .onAppear {
-                            vmTechnic.tapOfEdit(technic: vm.technicCD)
+                .shadow(color: .black, radius: 15)
+                VStack{
+                    
+                    
+                    
+                    //MARK: - Infor table for technic
+                    VStack {
+                        HStack{
+                            CellInfoMainWorksView(text: "odometrLabel", value: "\(vm.getFinalOdometry())", image: "speedometer")
+                            CellInfoMainWorksView(text: "spentLabel", value: "\(vm.getFinalPrice())", image: "dollarsign.bank.building")
+                            CellInfoMainWorksView(text: "countOfWorks", value: "\(vm.getCountWorks())", image: "gear")
                         }
-                } label: {
-                    GradientButtonView(label: "editButtonLabel", color: .black)
-                }
+                    }
+                    .padding(8)
+                    .background {
+                        Color(.white)
+                            .opacity(0.05)
+                            .cornerRadius(20)
+                    }
+                    
+                    //MARK: - Preview works list
+                    if vm.sortedWorks.isEmpty {
+                        
+                        Text("noWorksLabel")
+                            .font(.system(size: 20, weight: .bold, design: .default))
+                            .minimumScaleFactor(0.5)
+                            .multilineTextAlignment(.center)
+                            .padding()
+                        
+                    }
+                    ScrollView {
+                        ForEach(vm.sortedWorks) { work in
+                            Button {
+                                vm.isPresentInfoWork = true
+                                vm.simpleWork = work
+                            } label: {
+                                WorkCellCDView(work: work)
+                            }
+                        }
+                    }
+                    
+                    Spacer()
+                    
+                    //MARK: - Delete and Edit buttons
+                    HStack{
+                        //Delete
+                        Button {
+                            vmTechnic.isPresentDeleteAlert = true
+                        } label: {
+                            GradientButtonView(label: "deleteLabel", color: .red)
+                        }
+                        
+                        //Plus
+                        NavigationLink {
+                            AddWorckForTechnicView(vm: vm)
+                        } label: {
+                            ZStack {
+                                Circle()
+                                    .foregroundStyle(.teracot)
+                                    .overlay(
+                                        Circle()
+                                            .stroke(Color.black.opacity(0.3), lineWidth: 5)
+                                            .blur(radius: 5)
+                                            .mask(Circle())
+                                    )
+                                Image(.works)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                            }.frame(width: 100, height: 100)
+                        }
 
+                        //Edit
+                        NavigationLink {
+                            AddTechnicCDView(vm: vmTechnic)
+                                .onAppear {
+                                    vmTechnic.tapOfEdit(technic: vm.technicCD)
+                                }
+                        } label: {
+                            GradientButtonView(label: "editButtonLabel", color: .black)
+                        }
+                        
+                        
+                        
+                    }
+                }.padding()
                 
-
+            }
+            .navigationDestination(isPresented: $vm.isPresentEditWork, destination: {
+                AddWorckForTechnicView(vm: vm)
+                    .onAppear {
+                        vm.getEditWork()
+                    }
+            })
+            .sheet(isPresented: $vm.isPresentInfoWork, content: {
+                WorkFullInfoView(work: vm.simpleWork!, vm: vm)
+                    .presentationDetents([.fraction(0.6)])
+            })
+            .navigationBarBackButtonHidden(true)
+            .alert(isPresented: $vmTechnic.isPresentDeleteAlert) {
+                Alert(title: Text("deleteTechnicMessage"), primaryButton: .destructive(Text("deleteLabel")) {
+                    vm.deleteTechnic()
+                    dismiss()
+                }, secondaryButton: .cancel())
             }
             
-            
-        }.padding()
+        }
     }
 }
 
-//#Preview {
-//    WorksMainView()
-//}
+#Preview {
+    WorksMainView(vm: WorkCDViewmodel(technicCD: TechnicCD(context: CoreDataManager.instance.context)), vmTechnic: CoreDataViewModel())
+}

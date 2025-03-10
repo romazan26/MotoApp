@@ -16,19 +16,23 @@ struct TechnicCellView: View {
             if let image = convertDataToImage(technic.photo) {
                 Image(uiImage: image)
                     .resizable()
-                    .frame(width: 40, height: 40)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 60, height: 60)
                     .clipShape(Circle())
-                    .aspectRatio(contentMode: .fit)
+                    
             }else{
                 Image(.works)
                     .resizable()
-                    .frame(width: 40, height: 40)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 60, height: 60)
                     .clipShape(Circle())
-                    .aspectRatio(contentMode: .fit)
+                    
             }
             VStack(alignment: .leading) {
                 //MARK: - Название техники
-                Text("\(technic.title ?? "") \(technic.note ?? "")").font(.largeTitle)
+                Text("\(technic.title ?? "")")
+                    .font(.system(size: 27, weight: .bold, design: .serif))
+                    .minimumScaleFactor(0.5)
                 
                 Spacer()
                 Rectangle()
@@ -38,20 +42,21 @@ struct TechnicCellView: View {
                     Text("countOfWorks")
                     Text("\(technic.works?.count ?? 0)")
                 }
-                .font(.footnote)
+                .font(.system(size: 16))
+                .minimumScaleFactor(0.5)
             }
         }
-        .foregroundStyle(colorScheme == .dark ? .black : .white)
+        .foregroundStyle(.white)
         .padding()
         .background(
             LinearGradient(
-                colors:  [colorScheme == .dark ? .white.opacity(0.8) : .black.opacity(0.7), .gray.opacity(0.9)],
+                colors:  [.black.opacity(0.7), .gray.opacity(0.9)],
                 startPoint: .bottomLeading,
                 endPoint: .topTrailing).cornerRadius(26))
         
         .overlay {
             RoundedRectangle(cornerRadius: 26)
-                .stroke(colorScheme == .dark ? .black : .white, lineWidth: 2.0)
+                .stroke(.teracot, lineWidth: 1.0)
         }
         .lineLimit(1)
         .minimumScaleFactor(0.5)

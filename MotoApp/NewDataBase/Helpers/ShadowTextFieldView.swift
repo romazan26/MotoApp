@@ -14,13 +14,32 @@ struct ShadowTextFieldView: View {
         TextField(placeholder, text: $text)
             .lineLimit(0)
             .padding()
-            .background(Color.back)
-            .clipShape(RoundedRectangle(cornerRadius: 10,style: .continuous))
-            .shadow(color: .gray, radius: 8, x: 8, y: 8)
-            .shadow(color: .back, radius: 8, x: -8, y: -8)
+            .background(
+                ZStack {
+                    // Внешний градиент для выпуклости
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(
+                            LinearGradient(
+                                gradient: Gradient(colors: [
+                                    Color.white.opacity(0.8),
+                                    Color.gray.opacity(0.2)
+                                ]),
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
+                        .shadow(color: Color.black.opacity(0.2), radius: 5, x: -5, y: -5) // Тень для выпуклости
+                        .shadow(color: Color.black.opacity(0.2), radius: 5, x: 5, y: 5) // Тень для углубления
+                    
+                    // Внутренний фон для TextField
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Color.white)
+                        .padding(2)
+                }
+            )
     }
 }
 
-//#Preview {
-//    ShadowTextFieldView()
-//}
+#Preview {
+    ShadowTextFieldView(placeholder: "Enter name", text: .constant(""))
+}

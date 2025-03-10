@@ -11,63 +11,99 @@ struct AddTechnicCDView: View {
     @StateObject var vm: CoreDataViewModel
     @Environment(\.dismiss) private var dismiss
     @FocusState private var nameIsFocused: Bool
-    @State var title = LocalizedStringKey("titleLabel")
+    @State private var animate = false
+    
     var body: some View {
-        VStack {
-            Text(vm.isEditMode ? "editButtonLabel" : "addTechicViewLabel")
-                .font(.title)
-            
-            //MARK: - Choose photo button
-            Button {
-                vm.isPresentPhotoPicker = true
-            } label: {
-                if let photo = vm.simplePhoto {
-                    Image(uiImage: photo)
-                        .resizable()
-                        .frame(width: 300, height: 300)
-                        .aspectRatio(contentMode: .fill)
-                        .cornerRadius(20)
-                }else{
-                    Image(systemName: "photo")
-                        .resizable()
-                        .frame(width: 300, height: 300)
-                        .cornerRadius(20)
-                        .foregroundStyle(.gray)
-                }
-            }
+        ZStack {
+            Color.grayApp.ignoresSafeArea()
+            VStack(spacing: 15) {
+                //MARK: - Top tool bar
+                HStack{
+                    Button {
+                        dismiss()
+                        vm.clearTehnic()
+                    } label: {
+                        Image(systemName: "chevron.left.circle")
+                            .resizable()
+                            .foregroundStyle(.white)
+                            .frame(width: 35, height: 35)
+                    }
 
-            ShadowTextFieldView(placeholder: "titleLabel", text: $vm.titleTehnic)
-                .focused($nameIsFocused)
-            
-            ShadowTextFieldView(placeholder: "typeLabel", text: $vm.typeTehnic)
-                .focused($nameIsFocused)
-            
-            ShadowTextFieldView(placeholder: "noteLabel", text: $vm.noteTehnic)
-                .focused($nameIsFocused)
+                    Spacer()
+                    Text(vm.isEditMode ? "editButtonLabel" : "addTechicViewLabel")
+                        .foregroundStyle(.white)
+                        .font(.system(size: 30, weight: .bold, design: .serif))
+                        .minimumScaleFactor(0.5)
+                    Spacer()
                     
-            Spacer()
-            
-            //MARK: - Add Button
-            Button {
-                if vm.isEditMode{
-                    vm.saveEdit()
-                }else{
-                    vm.addTehnic()
                 }
+                .padding()
+                .background {
+                    LinearGradient(gradient: Gradient(colors: [animate ? Color.grayApp : Color.black.opacity(0.2), animate ? Color.black.opacity(0.1) : Color.grayApp]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                        .edgesIgnoringSafeArea(.all)
+                        .animation(Animation.easeInOut(duration: 2).repeatForever(autoreverses: true), value: animate)
+                }
+                .onAppear {
+                    self.animate = true
+                }
+                .shadow(color: .black, radius: 15)
                 
-                dismiss()
-            } label: {
-                GradientButtonView(label: vm.isEditMode ? "saveButtonLabel" : "addTechinbuttonLabel", color: .black)
+                VStack(spacing: 20){
+                    //MARK: - Choose photo button
+                    Button {
+                        vm.isPresentPhotoPicker = true
+                    } label: {
+                        if let photo = vm.simplePhoto {
+                            Image(uiImage: photo)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 300, height: 300)
+                                .cornerRadius(20)
+                        }else{
+                            Image(systemName: "photo")
+                                .resizable()
+                                .frame(width: 300, height: 300)
+                                .cornerRadius(20)
+                                .foregroundStyle(.gray)
+                        }
+                    }
+                    CustomTexrFieldStrokeview(title: "titleLabel", text: $vm.titleTehnic)
+                        .focused($nameIsFocused)
+                    
+                    CustomTexrFieldStrokeview(title: "typeLabel", text: $vm.typeTehnic)
+                        .focused($nameIsFocused)
+                    CustomTexrFieldStrokeview(title: "noteLabel", text: $vm.noteTehnic)
+                        .focused($nameIsFocused)
+                    
+                    
+                    Spacer()
+                    
+                    //MARK: - Add Button
+                    Button {
+                        if vm.isEditMode{
+                            vm.saveEdit()
+                        }else{
+                            vm.addTehnic()
+                        }
+                        
+                        dismiss()
+                    } label: {
+                        GradientButtonView(label: vm.isEditMode ? "saveButtonLabel" : "addTechinbuttonLabel",color: .black)
+                            .shadow(color: .black, radius: 10)
+                            .opacity(vm.titleTehnic.isEmpty ? 0.2 : 1)
+                    }.disabled(vm.titleTehnic.isEmpty)
+                    
+                }
+                .sheet(isPresented: $vm.isPresentPhotoPicker, content: {
+                    PhotoPicker(configuration: vm.config, pickerResult: $vm.simplePhoto, isPresented: $vm.isPresentPhotoPicker)
+                })
+                .onTapGesture {
+                    nameIsFocused = false
+                }
+                .padding()
             }
-            
+            .navigationBarBackButtonHidden(true)
         }
-        .sheet(isPresented: $vm.isPresentPhotoPicker, content: {
-            PhotoPicker(configuration: vm.config, pickerResult: $vm.simplePhoto, isPresented: $vm.isPresentPhotoPicker)
-        })
-        .onTapGesture {
-            nameIsFocused = false
-        }
-        .padding()
     }
 }
 

@@ -22,9 +22,12 @@
 "addTechicViewLabel" = "Новая техника";
 "addNewWorkViewLabel" = "Новая работа";
 
+"sortButtonLabel" = "Сортировать";
 "saveButtonLabel" = "Сохранить";
 "editButtonLabel" = "Изменить";
 "addTechinbuttonLabel" = "Добавить технику";
 "seeAllButton" = "Все";
 
-"noWorksLabel" = "Нет работ";
+"deleteTechnicMessage" = "Удалить эту технику?";
+"noWorksLabel" = "Нет работ. Пожалуйста добавте выполненую работу";
+"emptyListLabel" = "Список техники пуст. Пожалуйста добавьте новую технику";

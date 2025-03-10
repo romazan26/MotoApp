@@ -6,6 +6,7 @@
 //
 import Foundation
 import CoreData
+import UIKit
 
 final class WorkCDViewmodel: ObservableObject{
     let technicCD: TechnicCD
@@ -17,6 +18,8 @@ final class WorkCDViewmodel: ObservableObject{
     @Published var simpleTitleWork: String = ""
     @Published var simpleOdometer: String = ""
     @Published var simplePrice: String = ""
+    
+    @Published var isPresentInfoWork: Bool = false
     @Published var isEditorWork: Bool = false
     @Published var isPresentEditWork: Bool = false
     
@@ -31,6 +34,11 @@ final class WorkCDViewmodel: ObservableObject{
         self.technicCD = technicCD
         fetchWorks()
         selectedSortOption = SortOptionWork.calendar
+    }
+    
+    func convertDataToImage(_ data: Data?) -> UIImage? {
+        guard let data else { return nil }
+        return UIImage(data: data)
     }
     
     //MARK: - SortesFunction
@@ -89,13 +97,14 @@ final class WorkCDViewmodel: ObservableObject{
     }
     
     //MARK: - Feel data
-    func getEditWork(work: WorkCD){
-        simpleWork = work
-        simpleDate = work.date ?? Date()
-        simpleTitleWork = work.nameWork ?? ""
-        simpleOdometer = String(work.odometr)
-        simplePrice = String(work.price)
-        isEditorWork = true
+    func getEditWork(){
+        if let editWork = simpleWork{
+            simpleDate = editWork.date ?? Date()
+            simpleTitleWork = editWork.nameWork ?? ""
+            simpleOdometer = String(editWork.odometr)
+            simplePrice = String(editWork.price)
+            isEditorWork = true
+        }
     }
     
     //MARK: - Delete data
@@ -133,6 +142,7 @@ final class WorkCDViewmodel: ObservableObject{
         simpleOdometer = ""
         simplePrice = ""
         simpleDate = Date()
+        isEditorWork = false
     }
     func saveWork() {
         works.removeAll()

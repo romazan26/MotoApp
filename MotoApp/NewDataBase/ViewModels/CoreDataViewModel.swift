@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import PhotosUI
 
+@MainActor
+
 final class CoreDataViewModel: ObservableObject {
     let manager = CoreDataManager.instance
     
@@ -25,6 +27,7 @@ final class CoreDataViewModel: ObservableObject {
     
     @Published var isEditMode: Bool = false
     @Published var isPresentPhotoPicker: Bool = false
+    @Published var isPresentDeleteAlert: Bool = false
     
     //MARK: - Photo picker configuration
     var config: PHPickerConfiguration {
@@ -53,6 +56,7 @@ final class CoreDataViewModel: ObservableObject {
         }
         isEditMode = false
         saveTechnic()
+        clearTehnic()
     }
     
     func tapOfEdit(technic: TechnicCD){
@@ -131,13 +135,22 @@ final class CoreDataViewModel: ObservableObject {
     
     //MARK: - Get Data
     func fetchTechnic() {
-        let request = NSFetchRequest<TechnicCD>(entityName: "TechnicCD")
-        do {
-            technics = try manager.context.fetch(request)
-        } catch {
-            print(error)
+        Task {
+            let request = NSFetchRequest<TechnicCD>(entityName: "TechnicCD")
+            
+            do {
+                let result = try await manager.context.perform {
+                    try self.manager.context.fetch(request)
+                }
+                await MainActor.run {
+                    self.technics = result // Обновляем данные на главном потоке
+                }
+            } catch {
+                print("Ошибка при выполнении запроса: \(error)")
+            }
         }
     }
+    
     func fetchWorks() {
         let request = NSFetchRequest<WorkCD>(entityName: "WorkCD")
         do {
@@ -166,6 +179,8 @@ final class CoreDataViewModel: ObservableObject {
         titleTehnic = ""
         typeTehnic = ""
         noteTehnic = ""
+        simplePhoto = nil
+        isEditMode = false
     }
     
 }

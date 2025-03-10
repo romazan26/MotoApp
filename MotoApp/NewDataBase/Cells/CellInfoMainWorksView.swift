@@ -17,13 +17,17 @@ struct CellInfoMainWorksView: View {
            
                 Text(text)
                 .fontDesign(.monospaced)
+                .font(.system(size: 17))
                     .minimumScaleFactor(0.5)
                 
                 Image(systemName: image)
+                .resizable()
+                .frame(width: 14, height: 14)
             
             Divider()
             Text(value)
                 .font(.system(size: 18, weight: .bold))
+                .minimumScaleFactor(0.5)
         }
         .frame(height: 80)
         .frame(maxWidth: .infinity)

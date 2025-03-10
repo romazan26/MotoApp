@@ -22,11 +22,14 @@
 "addTechicViewLabel" = "New equipment";
 "addNewWorkViewLabel" = "New job";
 
+"sortButtonLabel" = "Sort";
 "editButtonLabel" = "Edit";
 "saveButtonLabel" = "Save";
 "addTechinbuttonLabel" = "Add equipment";
 "seeAllButton" = "See all";
 
+"deleteTechnicMessage" = "Remove this technique?";
 "noWorksLabel" = "No works";
+"emptyListLabel" = "The list of equipment is empty. Please add a new technique";
 
 

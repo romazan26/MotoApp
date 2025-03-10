@@ -6,21 +6,27 @@
 //
 
 import SwiftUI
+import Combine
 
 final class LoadingViewModel: ObservableObject {
-    
-    @Published var timeLoading: Int = 0
+    @Published var timeLoading: Double = 0
     @Published var isPresent: Bool = false
     
+    private var cancellables = Set<AnyCancellable>()
     
-    func starttimer(){
-        Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true) { timer in
-            if self.timeLoading < 100{
-                self.timeLoading += 1
-            }else {
-                timer.invalidate()
-                self.isPresent = true
+    func startTimer() {
+        Timer.publish(every: 0.03, on: .main, in: .common)
+            .autoconnect()
+            .scan(0.0) { (accumulatedTime, _) in
+                min(accumulatedTime + 0.01, 0.88)
             }
-        }
+            .handleEvents(receiveOutput: { [weak self] value in
+                if value >= 0.88 {
+                    self?.isPresent = true
+                    self?.cancellables.removeAll()
+                }
+                
+            })
+            .assign(to: &$timeLoading)
     }
 }
