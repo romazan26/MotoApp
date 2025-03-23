@@ -34,6 +34,7 @@ struct AddWorckForTechnicView: View {
                         if let imageData = vm.convertDataToImage(vm.technicCD.photo){
                             Image(uiImage: imageData)
                                 .resizable()
+                                .aspectRatio(contentMode: .fill)
                                 .frame(width: 100, height: 100)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                         }else{
@@ -57,11 +58,7 @@ struct AddWorckForTechnicView: View {
                     
                 }
                 .padding()
-                .background {
-                    LinearGradient(gradient: Gradient(colors: [animate ? Color.grayApp : Color.black.opacity(0.2), animate ? Color.black.opacity(0.1) : Color.grayApp]), startPoint: .topLeading, endPoint: .bottomTrailing)
-                        .edgesIgnoringSafeArea(.all)
-                        .animation(Animation.easeInOut(duration: 2).repeatForever(autoreverses: true), value: animate)
-                }
+                .background {TopbarBackGroundView(animate: $animate)}
                 .onAppear {
                     self.animate = true
                 }

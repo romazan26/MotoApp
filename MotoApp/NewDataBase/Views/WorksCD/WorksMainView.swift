@@ -11,7 +11,10 @@ struct WorksMainView: View {
     @StateObject var vm: WorkCDViewmodel
     @StateObject var vmTechnic: CoreDataViewModel
     @Environment(\.dismiss) var dismiss
+    
     @State private var animate = false
+    
+    
     var body: some View {
         
         ZStack {
@@ -33,10 +36,10 @@ struct WorksMainView: View {
                     .padding(.trailing, 10)
 
                     //MARK: - Image technic
-                    if !vm.isEditorWork{
                         if let imageData = vm.convertDataToImage(vm.technicCD.photo){
                             Image(uiImage: imageData)
                                 .resizable()
+                                .aspectRatio(contentMode: .fill)
                                 .frame(width: 100, height: 100)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                         }else{
@@ -44,74 +47,109 @@ struct WorksMainView: View {
                                 .resizable()
                                 .frame(width: 100, height: 100)
                         }
-                    }else{
-                        Image(.newLogo)
-                            .resizable()
-                            .frame(width: 100, height: 100)
-                    }
+                    
                     
                     //MARK: - Name Technic
-                    VStack(alignment: .leading){
+                    VStack(alignment: .leading) {
+                       
+                            Text(vm.technicCD.title ?? "")
+                                .foregroundStyle(.white)
+                                .font(.system(size: 28, weight: .bold, design: .serif))
+                                .minimumScaleFactor(0.5)
                         
-                        Text(vm.technicCD.title ?? "")
-                            .foregroundStyle(.white)
-                            .font(.system(size: 28, weight: .bold, design: .serif))
-                            .minimumScaleFactor(0.5)
-                        Text(vm.technicCD.note ?? "")
-                            .foregroundStyle(.white)
-                            .minimumScaleFactor(0.5)
-                        
-                        Text(vm.technicCD.type ?? "")
-                            .foregroundStyle(.white)
-                            .minimumScaleFactor(0.5)
-                    }
-                    Spacer()
-                    Menu {
-                        VStack {
-                            ForEach(SortOptionWork.allCases , id: \.self) { sort in
-                                Button {
-                                    vm.selectedSortOption = sort
-                                } label: {
-                                    Text(sort.rawValue)
+                        Spacer()
+                        HStack {
+                            Text(vm.technicCD.note ?? "")
+                                .foregroundStyle(.white)
+                                .minimumScaleFactor(0.5)
+                            Spacer()
+                            
+                            //MARK: Share button
+                            Button {
+                                vm.tapShareButton()
+                            } label: {
+                                VStack{
+                                    Image(systemName: "square.and.arrow.up")
+                                        .resizable()
+                                        .foregroundStyle(.white)
+                                        .frame(width: 25, height: 35)
+                                    Text("shareButtonLabel")
+                                        .foregroundStyle(.white)
+                                        .font(.system(size: 10))
+                                        .minimumScaleFactor(0.5)
+                                }
+                            }
+
+                            //MARK: Sorting button
+                            Menu {
+                                VStack {
+                                    ForEach(SortOptionWork.allCases , id: \.self) { sort in
+                                        Button {
+                                            vm.selectedSortOption = sort
+                                        } label: {
+                                            Text(sort.rawValue)
+                                        }
+                                    }
+                                }
+                            } label: {
+                                VStack{
+                                    Image(systemName: "list.bullet.clipboard")
+                                        .resizable()
+                                        .foregroundStyle(.white)
+                                        .frame(width: 25, height: 35)
+                                    Text("sortButtonLabel")
+                                        .foregroundStyle(.white)
+                                        .font(.system(size: 10))
+                                        .minimumScaleFactor(0.5)
                                 }
                             }
                         }
-                    } label: {
-                        VStack{
-                            Image(systemName: "list.bullet.clipboard")
-                                .resizable()
-                                .foregroundStyle(.white)
-                                .frame(width: 30, height: 50)
-                            Text("sortButtonLabel")
-                                .foregroundStyle(.white)
-                                .font(.system(size: 10))
-                                .minimumScaleFactor(0.5)
-                        }
                     }
-
+                    .padding(.horizontal, 10)
+                   
                     
                 }
+                .frame(maxWidth: .infinity)
+                .frame(maxHeight: 100)
                 .padding()
-                .background {
-                    LinearGradient(gradient: Gradient(colors: [animate ? Color.grayApp : Color.black.opacity(0.2), animate ? Color.black.opacity(0.1) : Color.grayApp]), startPoint: .topLeading, endPoint: .bottomTrailing)
-                        .edgesIgnoringSafeArea(.all)
-                        .animation(Animation.easeInOut(duration: 2).repeatForever(autoreverses: true), value: animate)
-                }
+                .background {TopbarBackGroundView(animate: $animate)}
                 .onAppear {
                     self.animate = true
                 }
-                
                 .shadow(color: .black, radius: 15)
                 VStack{
-                    
-                    
-                    
                     //MARK: - Infor table for technic
                     VStack {
                         HStack{
-                            CellInfoMainWorksView(text: "odometrLabel", value: "\(vm.getFinalOdometry())", image: "speedometer")
-                            CellInfoMainWorksView(text: "spentLabel", value: "\(vm.getFinalPrice())", image: "dollarsign.bank.building")
-                            CellInfoMainWorksView(text: "countOfWorks", value: "\(vm.getCountWorks())", image: "gear")
+                            CellInfoMainWorksView(text: "odometrLabel",
+                                                  value: "\(vm.getFinalOdometry())",
+                                                  image: "speedometer")
+                            CellInfoMainWorksView(text: "spentLabel",
+                                                  value: "\(vm.getFinalPrice())",
+                                                  image: "dollarsign.bank.building")
+                            Button {
+                                vm.isPresentAllWorks.toggle()
+                            } label: {
+                                VStack {
+                                    if vm.isFliped {
+                                        TextCellInfoMainView(text: "seeAllButton")
+                                            .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
+                                    } else {
+                                        CellInfoMainWorksView(text: "countOfWorks",
+                                                              value: "\(vm.getCountWorks())",
+                                                              image: "gear")
+                                            .transition(.opacity)
+                                    }
+                                }
+                                .foregroundStyle(.black)
+                                .rotation3DEffect(.degrees(vm.isFliped ? 180 : 0), axis: (x: 0, y: 1, z: 0))
+                            }
+                            .onAppear {
+                                vm.toggleAnimation()
+                            }
+                            .onDisappear {
+                                vm.toggleAnimation()
+                            }
                         }
                     }
                     .padding(8)
@@ -130,15 +168,23 @@ struct WorksMainView: View {
                             .multilineTextAlignment(.center)
                             .padding()
                         
-                    }
-                    ScrollView {
-                        ForEach(vm.sortedWorks) { work in
-                            Button {
-                                vm.isPresentInfoWork = true
-                                vm.simpleWork = work
-                            } label: {
+                    }else{
+                        ScrollView {
+                            ForEach(vm.sortedWorks.prefix(3)) { work in
                                 WorkCellCDView(work: work)
                             }
+                            Button {
+                                vm.isPresentAllWorks.toggle()
+                            } label: {
+                                HStack {
+                                    Text("seeAllWorks")
+                                    Text("...")
+                                    Spacer()
+                                }.foregroundStyle(.teracot)
+                                    .font(.system(size: 20, weight: .bold, design: .monospaced))
+                                    .minimumScaleFactor(0.5)
+                            }
+                            
                         }
                     }
                     
@@ -194,9 +240,11 @@ struct WorksMainView: View {
                         vm.getEditWork()
                     }
             })
-            .sheet(isPresented: $vm.isPresentInfoWork, content: {
-                WorkFullInfoView(work: vm.simpleWork!, vm: vm)
-                    .presentationDetents([.fraction(0.6)])
+            .sheet(isPresented: $vm.isPresentShareSheet, content: {
+                ShareSheet(items: vm.simpleShareText!)
+            })
+            .navigationDestination(isPresented: $vm.isPresentAllWorks, destination: {
+                AllWorksView(vm: vm)
             })
             .navigationBarBackButtonHidden(true)
             .alert(isPresented: $vmTechnic.isPresentDeleteAlert) {
@@ -208,6 +256,7 @@ struct WorksMainView: View {
             
         }
     }
+   
 }
 
 #Preview {

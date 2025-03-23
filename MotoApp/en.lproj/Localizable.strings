@@ -17,19 +17,23 @@
 "priceLabel" = "Price";
 "typeLabel" = "Type";
 "noteLabel" = "Note";
+"seachLabel" = "Search";
 
 "editViewLabel" = "Change the job";
 "addTechicViewLabel" = "New equipment";
 "addNewWorkViewLabel" = "New job";
 
+"shareButtonLabel" = "Share";
 "sortButtonLabel" = "Sort";
 "editButtonLabel" = "Edit";
 "saveButtonLabel" = "Save";
 "addTechinbuttonLabel" = "Add equipment";
 "seeAllButton" = "See all";
+"seeAllWorks" = "Show all works";
 
 "deleteTechnicMessage" = "Remove this technique?";
 "noWorksLabel" = "No works";
 "emptyListLabel" = "The list of equipment is empty. Please add a new technique";
+"noSearchWorks" = "No such works have been found.";
 
 

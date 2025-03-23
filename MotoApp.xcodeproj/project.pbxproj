@@ -27,7 +27,6 @@
 		30D424DB2D00E08700CF2A5A /* sortFuncExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D424D92D00E08700CF2A5A /* sortFuncExtention.swift */; };
 		30D424DD2D00E80B00CF2A5A /* WorkCDViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D424DC2D00E7F500CF2A5A /* WorkCDViewmodel.swift */; };
 		30E75D272CF478EA00A61DFA /* WorkFullInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E75D262CF478EA00A61DFA /* WorkFullInfoView.swift */; };
-		30E75D302CF6183400A61DFA /* ShadowTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E75D2F2CF6183400A61DFA /* ShadowTextFieldView.swift */; };
 		30E75D322CF61A0500A61DFA /* ResizebleTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E75D312CF61A0500A61DFA /* ResizebleTextFieldView.swift */; };
 		30E75D342CF620B800A61DFA /* GradientButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E75D332CF620B800A61DFA /* GradientButtonView.swift */; };
 		30EB0A752B862C9B006FF732 /* BackgroundCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB0A742B862C9B006FF732 /* BackgroundCustom.swift */; };
@@ -40,7 +39,12 @@
 		7422E0902D7E27B30099EC11 /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7422E08F2D7E27A60099EC11 /* CustomDatePicker.swift */; };
 		742D4ABA2D6D0A7300B8FE27 /* NewLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742D4AB92D6D0A7300B8FE27 /* NewLoadingView.swift */; };
 		742D4ABC2D6D0ED800B8FE27 /* CastonProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742D4ABB2D6D0ED800B8FE27 /* CastonProgressBarView.swift */; };
+		742E41E62D8ECF79001C0899 /* TextCellInfoMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742E41E52D8ECF79001C0899 /* TextCellInfoMainView.swift */; };
+		742E41E82D8ED1A8001C0899 /* AllWorksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742E41E72D8ED1A8001C0899 /* AllWorksView.swift */; };
+		742E41EA2D8ED24F001C0899 /* TopbarBackGroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742E41E92D8ED24F001C0899 /* TopbarBackGroundView.swift */; };
+		742E41EC2D8F4697001C0899 /* CustomSearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742E41EB2D8F4697001C0899 /* CustomSearchBarView.swift */; };
 		7456FADB2D6E02D700B901E8 /* PlusCircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7456FADA2D6E02D700B901E8 /* PlusCircleButtonView.swift */; };
+		74BBD3CB2D889AD2009E71FD /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BBD3CA2D889AC6009E71FD /* ShareSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,7 +70,6 @@
 		30D424D92D00E08700CF2A5A /* sortFuncExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sortFuncExtention.swift; sourceTree = "<group>"; };
 		30D424DC2D00E7F500CF2A5A /* WorkCDViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkCDViewmodel.swift; sourceTree = "<group>"; };
 		30E75D262CF478EA00A61DFA /* WorkFullInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkFullInfoView.swift; sourceTree = "<group>"; };
-		30E75D2F2CF6183400A61DFA /* ShadowTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowTextFieldView.swift; sourceTree = "<group>"; };
 		30E75D312CF61A0500A61DFA /* ResizebleTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizebleTextFieldView.swift; sourceTree = "<group>"; };
 		30E75D332CF620B800A61DFA /* GradientButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButtonView.swift; sourceTree = "<group>"; };
 		30EB0A742B862C9B006FF732 /* BackgroundCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCustom.swift; sourceTree = "<group>"; };
@@ -80,7 +83,12 @@
 		7422E08F2D7E27A60099EC11 /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
 		742D4AB92D6D0A7300B8FE27 /* NewLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoadingView.swift; sourceTree = "<group>"; };
 		742D4ABB2D6D0ED800B8FE27 /* CastonProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastonProgressBarView.swift; sourceTree = "<group>"; };
+		742E41E52D8ECF79001C0899 /* TextCellInfoMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCellInfoMainView.swift; sourceTree = "<group>"; };
+		742E41E72D8ED1A8001C0899 /* AllWorksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllWorksView.swift; sourceTree = "<group>"; };
+		742E41E92D8ED24F001C0899 /* TopbarBackGroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopbarBackGroundView.swift; sourceTree = "<group>"; };
+		742E41EB2D8F4697001C0899 /* CustomSearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBarView.swift; sourceTree = "<group>"; };
 		7456FADA2D6E02D700B901E8 /* PlusCircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusCircleButtonView.swift; sourceTree = "<group>"; };
+		74BBD3CA2D889AC6009E71FD /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +177,7 @@
 				306D1F7B2CE7D26E000E74D4 /* AddWorckForTechnicView.swift */,
 				30E75D262CF478EA00A61DFA /* WorkFullInfoView.swift */,
 				306DD0322D07798300882FD3 /* WorksMainView.swift */,
+				742E41E72D8ED1A8001C0899 /* AllWorksView.swift */,
 			);
 			path = WorksCD;
 			sourceTree = "<group>";
@@ -222,8 +231,8 @@
 		30E75D2E2CF6180800A61DFA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				74BBD3CA2D889AC6009E71FD /* ShareSheet.swift */,
 				7422E08F2D7E27A60099EC11 /* CustomDatePicker.swift */,
-				30E75D2F2CF6183400A61DFA /* ShadowTextFieldView.swift */,
 				30E75D312CF61A0500A61DFA /* ResizebleTextFieldView.swift */,
 				30E75D332CF620B800A61DFA /* GradientButtonView.swift */,
 				3075E0E42CF724A600433CAD /* TechnicInfoView.swift */,
@@ -231,6 +240,9 @@
 				742D4ABB2D6D0ED800B8FE27 /* CastonProgressBarView.swift */,
 				7456FADA2D6E02D700B901E8 /* PlusCircleButtonView.swift */,
 				740D4BB82D74D7DF00CF6721 /* CustomTexrFieldStrokeview.swift */,
+				742E41E52D8ECF79001C0899 /* TextCellInfoMainView.swift */,
+				742E41E92D8ED24F001C0899 /* TopbarBackGroundView.swift */,
+				742E41EB2D8F4697001C0899 /* CustomSearchBarView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -332,21 +344,25 @@
 				30FA0C532D1D400B00D2D87A /* PhotoPicker.swift in Sources */,
 				30F877232B4C3BC6002EC497 /* BlurUIView.swift in Sources */,
 				742D4ABC2D6D0ED800B8FE27 /* CastonProgressBarView.swift in Sources */,
+				742E41EC2D8F4697001C0899 /* CustomSearchBarView.swift in Sources */,
 				7422E0902D7E27B30099EC11 /* CustomDatePicker.swift in Sources */,
 				308195782CCEB25700EE26C0 /* CoreDataManager.swift in Sources */,
 				308195792CCEB25700EE26C0 /* Garage.xcdatamodeld in Sources */,
 				7456FADB2D6E02D700B901E8 /* PlusCircleButtonView.swift in Sources */,
 				306DD0332D07798300882FD3 /* WorksMainView.swift in Sources */,
+				742E41E62D8ECF79001C0899 /* TextCellInfoMainView.swift in Sources */,
 				308195712CCEAE2000EE26C0 /* CoreDataViewModel.swift in Sources */,
 				30EB0A752B862C9B006FF732 /* BackgroundCustom.swift in Sources */,
 				742D4ABA2D6D0A7300B8FE27 /* NewLoadingView.swift in Sources */,
+				742E41E82D8ED1A8001C0899 /* AllWorksView.swift in Sources */,
 				3081956F2CCEA0F500EE26C0 /* AddTechnicCDView.swift in Sources */,
 				30D424DB2D00E08700CF2A5A /* sortFuncExtention.swift in Sources */,
 				30E75D272CF478EA00A61DFA /* WorkFullInfoView.swift in Sources */,
 				306DD0352D077C1600882FD3 /* CellInfoMainWorksView.swift in Sources */,
 				306DD0382D07802C00882FD3 /* MiniWorkCellView.swift in Sources */,
-				30E75D302CF6183400A61DFA /* ShadowTextFieldView.swift in Sources */,
 				30F8C40C2CCD82880047A87C /* ListTehnics.swift in Sources */,
+				742E41EA2D8ED24F001C0899 /* TopbarBackGroundView.swift in Sources */,
+				74BBD3CB2D889AD2009E71FD /* ShareSheet.swift in Sources */,
 				306D1F7C2CE7D26E000E74D4 /* AddWorckForTechnicView.swift in Sources */,
 				30E75D342CF620B800A61DFA /* GradientButtonView.swift in Sources */,
 				30C75F3B2AC452AB00B9D445 /* GarageAppApp.swift in Sources */,
@@ -516,7 +532,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3;
+				MARKETING_VERSION = 2.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = home.MotoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -551,7 +567,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3;
+				MARKETING_VERSION = 2.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = home.MotoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

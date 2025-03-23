@@ -17,17 +17,21 @@
 "priceLabel" = "Цена";
 "typeLabel" = "Тип";
 "noteLabel" = "Примечание";
+"seachLabel" = "Поиск";
 
 "editViewLabel" = "Изменить работу";
 "addTechicViewLabel" = "Новая техника";
 "addNewWorkViewLabel" = "Новая работа";
 
+"shareButtonLabel" = "Поделиться";
 "sortButtonLabel" = "Сортировать";
 "saveButtonLabel" = "Сохранить";
 "editButtonLabel" = "Изменить";
 "addTechinbuttonLabel" = "Добавить технику";
-"seeAllButton" = "Все";
+"seeAllButton" = "Все работы";
+"seeAllWorks" = "Показать все работы";
 
 "deleteTechnicMessage" = "Удалить эту технику?";
 "noWorksLabel" = "Нет работ. Пожалуйста добавте выполненую работу";
 "emptyListLabel" = "Список техники пуст. Пожалуйста добавьте новую технику";
+"noSearchWorks" = "Таких работ не найдено";

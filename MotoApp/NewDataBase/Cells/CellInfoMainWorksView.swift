@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct CellInfoMainWorksView: View {
-    @Environment(\.colorScheme) var colorScheme
+
     var text: LocalizedStringKey
     var value: String
     var image: String
+    
     var body: some View {
         VStack {
-           
                 Text(text)
                 .fontDesign(.monospaced)
                 .font(.system(size: 17))
@@ -33,7 +33,7 @@ struct CellInfoMainWorksView: View {
         .frame(maxWidth: .infinity)
         .padding(8)
         .background {
-            Color(colorScheme == .dark ? .white : .black)
+            Color(.black)
                 .opacity(0.05)
                 .cornerRadius(20)
         }

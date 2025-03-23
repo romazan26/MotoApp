@@ -20,7 +20,7 @@ struct WorkFullInfoView: View {
                 LazyVGrid(columns: [GridItem(.fixed(110), alignment: .leading),
                                     GridItem(.fixed(20)),
                                     GridItem(alignment: .leading)],alignment: .leading) {
-                    Text("noteLabel")
+                    Text("dateLabel")
                     Text(":")
                     Text("\(Dateformatter(date: work.date ?? Date()))")
                     Text("priceLabel")
