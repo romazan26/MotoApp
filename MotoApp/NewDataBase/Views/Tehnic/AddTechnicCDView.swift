@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddTechnicCDView: View {
-    @StateObject var vm: CoreDataViewModel
+    @StateObject var vm: AddTechnucViewModel
     @Environment(\.dismiss) private var dismiss
     @FocusState private var nameIsFocused: Bool
     @State private var animate = false
@@ -104,5 +104,5 @@ struct AddTechnicCDView: View {
 }
 
 #Preview {
-    AddTechnicCDView(vm: CoreDataViewModel())
+    AddTechnicCDView(vm: AddTechnucViewModel(isEditMode: true, technic: nil))
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ListTehnics: View {
-    @ObservedObject var vm = CoreDataViewModel()
+    @ObservedObject var vm = TechnicViewModel()
     @Environment(\.colorScheme) var colorScheme
     
     @State private var animate = false
@@ -46,7 +46,7 @@ struct ListTehnics: View {
                             }
                             ForEach(vm.technics) { technic in
                                 NavigationLink {
-                                    WorksMainView(vm: WorkCDViewmodel(technicCD: technic), vmTechnic: vm)
+                                    WorksMainView(vm: WorkMainViewmodel(technicCD: technic))
                                 } label: {
                                     TechnicCellView(technic: technic)
                                 }
@@ -55,7 +55,7 @@ struct ListTehnics: View {
                         
                         //MARK: - Add tehnic buttom
                         NavigationLink {
-                            AddTechnicCDView(vm: vm)
+                            AddTechnicCDView(vm: AddTechnucViewModel(isEditMode: false, technic: nil))
                         } label: {
                             PlusCircleButtonView()
                         }
@@ -64,7 +64,6 @@ struct ListTehnics: View {
                 }
                 
                 .onAppear(perform: {
-                    vm.fetchWorks()
                     vm.fetchTechnic()
                 })
             }

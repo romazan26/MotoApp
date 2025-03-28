@@ -5,31 +5,23 @@
 //  Created by Роман on 04.12.2024.
 //
 import Foundation
-import CoreData
 import UIKit
 import SwiftUI
-import Combine
 
-final class WorkCDViewmodel: ObservableObject{
+@MainActor
+final class WorkMainViewmodel: ObservableObject{
     let technicCD: TechnicCD
     let manager = CoreDataManager.instance
     
     @Published var works: [WorkCD] = []
     
     //MARK: - Simple propertys
-    @Published var simpleWork: WorkCD?
-    @Published var simpleDate = Date()
-    @Published var simpleTitleWork: String = ""
-    @Published var simpleOdometer: String = ""
-    @Published var simplePrice: String = ""
     @Published var simpleShareText: URL?
     
     //MARK: - Present propertys
-    @Published var isPresentInfoWork: Bool = false
-    @Published var isEditorWork: Bool = false
-    @Published var isPresentEditWork: Bool = false
     @Published var isPresentShareSheet: Bool = false
     @Published var isPresentAllWorks: Bool = false
+    @Published var isPresentDeleteAlert: Bool = false
     
     //MARK: - Sortes propertys
     @Published var sortedWorks: [WorkCD] = []
@@ -44,11 +36,7 @@ final class WorkCDViewmodel: ObservableObject{
     private var timerForFlipamination: Timer?
     private var isStartedAnimation: Bool = false
     
-    //MARK: - Search propertys
-    @Published var searchText: String = ""
-    @Published var searchResult: [WorkCD] = []
-    
-    private var cancellables: Set<AnyCancellable> = []
+   
     
     //MARK: - Init
     init(technicCD: TechnicCD) {
@@ -56,20 +44,6 @@ final class WorkCDViewmodel: ObservableObject{
         fetchWorks()
         selectedSortOption = SortOptionWork.calendar
         
-        $searchText
-            .debounce(for: 0.5, scheduler: RunLoop.main)
-            .combineLatest($sortedWorks)
-            .map { searchText, sortedWorks in
-                if searchText.isEmpty {
-                    return sortedWorks
-                }else{
-                    return sortedWorks.filter {
-                        $0.nameWork?.lowercased().contains(searchText.lowercased()) ?? false
-                    }
-                }
-            }
-            .assign(to: \.self.searchResult, on: self)
-            .store(in: &cancellables)
     }
     
     func convertDataToImage(_ data: Data?) -> UIImage? {
@@ -183,78 +157,28 @@ final class WorkCDViewmodel: ObservableObject{
         }
         return String(finalPrice)
     }
-    
-    //MARK: - Edit data
-    func editWork(){
-        simpleWork?.nameWork = simpleTitleWork
-        simpleWork?.odometr = Int64(simpleOdometer) ?? 0
-        simpleWork?.price = Int64(simplePrice) ?? 0
-        simpleWork?.date = simpleDate
-        saveWork()
-        clearWork()
-        isEditorWork = false
-        selectedSortOption = .calendar
-    }
-    
-    //MARK: - Feel data
-    func getEditWork(){
-        if let editWork = simpleWork{
-            simpleDate = editWork.date ?? Date()
-            simpleTitleWork = editWork.nameWork ?? ""
-            simpleOdometer = String(editWork.odometr)
-            simplePrice = String(editWork.price)
-            isEditorWork = true
-        }
-    }
+   
     
     //MARK: - Delete data
-    func deleteWork(work: WorkCD){
-        manager.context.delete(work)
-        saveWork()
-        selectedSortOption = SortOptionWork.calendar
-    }
     
     func deleteTechnic(){
-        if let works = technicCD.works?.allObjects as? [WorkCD] {
-            for work in works {
-                deleteWork(work: work)
-            }
-        }
-        manager.context.delete(technicCD)
-        manager.save()
+        manager.deleteTechnic(technicCD)
     }
-    
-    //MARK: - Add data
-    func addWork(){
-        let newWork = WorkCD(context: manager.context)
-        newWork.nameWork = simpleTitleWork
-        newWork.odometr = Int64(simpleOdometer) ?? 0
-        newWork.price = Int64(simplePrice) ?? 0
-        newWork.date = simpleDate
-        newWork.techics = technicCD
-        saveWork()
-        clearWork()
-        selectedSortOption = .calendar
-    }
-    
-    func clearWork(){
-        simpleTitleWork = ""
-        simpleOdometer = ""
-        simplePrice = ""
-        simpleDate = Date()
-        isEditorWork = false
-    }
-    func saveWork() {
+        
+     func updateWork() {
         works.removeAll()
-        manager.save()
         fetchWorks()
+         sortedWorks = sortingWorks()
     }
+    
+    
     func fetchWorks() {
-        let request = NSFetchRequest<WorkCD>(entityName: "WorkCD")
-        do {
-            works = try manager.context.fetch(request)
-        } catch {
-            print(error)
+        Task {
+            do{
+                works = try await manager.fetchWorks()
+            }catch let error{
+                print("error fetchWork:\(error)")
+            }
         }
     }
 }

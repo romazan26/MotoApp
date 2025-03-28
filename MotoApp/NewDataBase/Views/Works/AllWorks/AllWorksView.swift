@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AllWorksView: View {
-    @StateObject var vm: WorkCDViewmodel
+    @StateObject var vm: AllWorksViewModel
     @Environment(\.dismiss) var dismiss
     @FocusState private var isFocused: Bool
     @State private var animate = false
@@ -112,6 +112,10 @@ struct AllWorksView: View {
             
         }
         .navigationBarBackButtonHidden(true)
+        .navigationDestination(isPresented: $vm.isPresentEditWork, destination: {
+            AddWorckForTechnicView(vm: AddWorkViewModel(technicCD: vm.technicCD, isEditeWork: true, simpleWork: vm.simpleWork))
+                
+        })
         .sheet(isPresented: $vm.isPresentInfoWork, content: {
             WorkFullInfoView(work: vm.simpleWork!, vm: vm)
                 .presentationDetents([.fraction(0.6)])
@@ -120,5 +124,5 @@ struct AllWorksView: View {
 }
 
 #Preview {
-    AllWorksView(vm: WorkCDViewmodel(technicCD: TechnicCD(context: CoreDataManager.instance.context)))
+    AllWorksView(vm: AllWorksViewModel(technicCD: TechnicCD(context: CoreDataManager.instance.context)))
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TechnicInfoView: View {
 
-    @StateObject var vm: WorkCDViewmodel
+    @StateObject var vm: WorkMainViewmodel
     var body: some View {
         HStack {
             Image(.works)

@@ -11,7 +11,7 @@ struct PlusCircleButtonView: View {
     var body: some View {
         ZStack {
             Circle()
-                .foregroundStyle(.darkGray)
+                .foregroundStyle(.darkGrayApp)
                 .overlay(
                     Circle()
                         .stroke(Color.teracot.opacity(0.8), lineWidth: 4)

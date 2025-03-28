@@ -16,7 +16,6 @@ struct PhotoPicker: UIViewControllerRepresentable {
     @Binding var pickerResult: UIImage?
     @Binding var isPresented: Bool
     
-    
     func makeUIViewController(context: Context) -> PHPickerViewController {
         let controller = PHPickerViewController(configuration: configuration)
         controller.delegate = context.coordinator
@@ -29,29 +28,45 @@ struct PhotoPicker: UIViewControllerRepresentable {
         Coordinator(self)
     }
     
+    @MainActor  // Помечаем Coordinator как работающий на главном потоке
     class Coordinator: PHPickerViewControllerDelegate {
+        private let parent: PhotoPicker
         
-        
-        private let perent: PhotoPicker
-        
-        init(_ perent: PhotoPicker) {
-            self.perent = perent
+        init(_ parent: PhotoPicker) {
+            self.parent = parent
         }
+        
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+            // Обрабатываем результаты выбора
+            processPickerResults(results)
+            
+            // Закрываем пикер
+            parent.isPresented = false
+        }
+        
+        private func processPickerResults(_ results: [PHPickerResult]) {
             for image in results {
                 if image.itemProvider.canLoadObject(ofClass: UIImage.self) {
-                    image.itemProvider.loadObject(ofClass: UIImage.self) { newImage, error in
+                    image.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] newImage, error in
                         if let error = error {
-                            print(error.localizedDescription)
-                        }else {
-                            self.perent.pickerResult = (newImage as! UIImage)
+                            print("Error loading image: \(error.localizedDescription)")
+                            return
+                        }
+                        
+                        guard let uiImage = newImage as? UIImage else {
+                            print("Failed to cast to UIImage")
+                            return
+                        }
+                        
+                        // Обновляем результат на главном потоке
+                        DispatchQueue.main.async {
+                            self?.parent.pickerResult = uiImage
                         }
                     }
                 } else {
-                    print("Selected asset is not image")
+                    print("Selected asset is not an image")
                 }
             }
-            perent.isPresented = false
         }
     }
 }

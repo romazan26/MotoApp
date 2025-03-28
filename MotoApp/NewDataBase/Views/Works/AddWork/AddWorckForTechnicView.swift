@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct AddWorckForTechnicView: View {
-    
-    @ObservedObject var vm: WorkCDViewmodel
+    @ObservedObject var vm: AddWorkViewModel
+   // @ObservedObject var vm: WorkMainViewmodel
     @Environment(\.dismiss) private var dismiss
     @FocusState private var nameIsFocused: Bool
     @State private var animate = false
@@ -92,6 +92,7 @@ struct AddWorckForTechnicView: View {
                     Button {
                         if vm.isEditorWork {
                             vm.editWork()
+                            
                         }else{
                             vm.addWork()
                         }
@@ -124,7 +125,7 @@ struct AddWorckForTechnicView: View {
     
 }
 #Preview {
-    AddWorckForTechnicView(vm: WorkCDViewmodel(technicCD: TechnicCD(context: CoreDataManager.instance.context)))
+    AddWorckForTechnicView(vm: AddWorkViewModel(technicCD: TechnicCD(context: CoreDataManager.instance.context), isEditeWork: false, simpleWork: nil))
 }
 
 

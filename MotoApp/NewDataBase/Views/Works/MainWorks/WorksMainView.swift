@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct WorksMainView: View {
-    @StateObject var vm: WorkCDViewmodel
-    @StateObject var vmTechnic: CoreDataViewModel
+    @StateObject var vm: WorkMainViewmodel
     @Environment(\.dismiss) var dismiss
     
     @State private var animate = false
@@ -194,14 +193,14 @@ struct WorksMainView: View {
                     HStack{
                         //Delete
                         Button {
-                            vmTechnic.isPresentDeleteAlert = true
+                            vm.isPresentDeleteAlert = true
                         } label: {
                             GradientButtonView(label: "deleteLabel", color: .red)
                         }
                         
                         //Plus
                         NavigationLink {
-                            AddWorckForTechnicView(vm: vm)
+                            AddWorckForTechnicView(vm: AddWorkViewModel(technicCD: vm.technicCD, isEditeWork: false, simpleWork: nil))
                         } label: {
                             ZStack {
                                 Circle()
@@ -220,10 +219,8 @@ struct WorksMainView: View {
 
                         //Edit
                         NavigationLink {
-                            AddTechnicCDView(vm: vmTechnic)
-                                .onAppear {
-                                    vmTechnic.tapOfEdit(technic: vm.technicCD)
-                                }
+                            AddTechnicCDView(vm: AddTechnucViewModel(isEditMode: true,
+                                                                     technic: vm.technicCD))
                         } label: {
                             GradientButtonView(label: "editButtonLabel", color: .black)
                         }
@@ -234,20 +231,15 @@ struct WorksMainView: View {
                 }.padding()
                 
             }
-            .navigationDestination(isPresented: $vm.isPresentEditWork, destination: {
-                AddWorckForTechnicView(vm: vm)
-                    .onAppear {
-                        vm.getEditWork()
-                    }
-            })
+            
             .sheet(isPresented: $vm.isPresentShareSheet, content: {
                 ShareSheet(items: vm.simpleShareText!)
             })
             .navigationDestination(isPresented: $vm.isPresentAllWorks, destination: {
-                AllWorksView(vm: vm)
+                AllWorksView(vm: AllWorksViewModel(technicCD: vm.technicCD))
             })
             .navigationBarBackButtonHidden(true)
-            .alert(isPresented: $vmTechnic.isPresentDeleteAlert) {
+            .alert(isPresented: $vm.isPresentDeleteAlert) {
                 Alert(title: Text("deleteTechnicMessage"), primaryButton: .destructive(Text("deleteLabel")) {
                     vm.deleteTechnic()
                     dismiss()
@@ -255,10 +247,14 @@ struct WorksMainView: View {
             }
             
         }
+        .onAppear {
+            vm.updateWork()
+            print("appear")
+        }
     }
    
 }
 
 #Preview {
-    WorksMainView(vm: WorkCDViewmodel(technicCD: TechnicCD(context: CoreDataManager.instance.context)), vmTechnic: CoreDataViewModel())
+    WorksMainView(vm: WorkMainViewmodel(technicCD: TechnicCD(context: CoreDataManager.instance.context)))
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WorkFullInfoView: View {
     @ObservedObject var work: WorkCD
-    @ObservedObject var vm: WorkCDViewmodel
+    @ObservedObject var vm: AllWorksViewModel
     @Environment(\.dismiss) var dismiss
     var body: some View {
         ZStack {
@@ -39,7 +39,7 @@ struct WorkFullInfoView: View {
                 HStack {
                     //MARK: - Delete button
                     Button {
-                        vm.deleteWork(work: work)
+                        vm.deleteWork(workCD: work)
                         dismiss()
                     } label: {
                         GradientButtonView(label: "deleteLabel", color: .red)
@@ -47,8 +47,11 @@ struct WorkFullInfoView: View {
                     
                     //MARK: - Edit button
                     Button {
+                        vm.simpleWork = work
                         vm.isPresentInfoWork.toggle()
-                        vm.isPresentEditWork.toggle()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                            vm.isPresentEditWork.toggle()
+                        }
                         
                     } label: {
                         GradientButtonView(label: "editButtonLabel", color: .black)
@@ -68,5 +71,5 @@ struct WorkFullInfoView: View {
 
 
 #Preview {
-    WorkFullInfoView(work: WorkCD(context: CoreDataManager.instance.context), vm: WorkCDViewmodel(technicCD: TechnicCD(context: CoreDataManager.instance.context)))
+    WorkFullInfoView(work: WorkCD(context: CoreDataManager.instance.context), vm: AllWorksViewModel(technicCD: TechnicCD(context: CoreDataManager.instance.context)))
 }

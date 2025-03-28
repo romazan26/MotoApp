@@ -77,6 +77,26 @@ final class CoreDataManager {
         save()
     }
     //MARK: - Works
+    
+    func editWork(_ work: WorkCD, _ wdo: WorkTDO) {
+        work.nameWork = wdo.title
+        work.date =   wdo.date
+        work.odometr = wdo.odometr
+        work.price = wdo.price
+        save()
+    }
+    
+    func addWork(_ wdo: WorkTDO, _ technic: TechnicCD) {
+        let newWork = WorkCD(context: context)
+        newWork.nameWork = wdo.title
+        newWork.date =   wdo.date
+        newWork.odometr = wdo.odometr
+        newWork.price = wdo.price
+        newWork.techics = technic
+        save()
+        
+    }
+    
     func fetchWorks() async throws -> [WorkCD] {
         let fetchRequest: NSFetchRequest<WorkCD> = WorkCD.fetchRequest()
         return try await context.perform {
