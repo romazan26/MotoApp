@@ -5,13 +5,11 @@
 //  Created by Роман on 27.10.2024.
 //
 
-import CoreData
 import Foundation
 import UIKit
 import PhotosUI
 
 @MainActor
-
 final class CoreDataViewModel: ObservableObject {
     let manager = CoreDataManager.instance
     
@@ -48,14 +46,13 @@ final class CoreDataViewModel: ObservableObject {
     
     func saveEdit(){
         guard let simpleTechnic else { return }
-        simpleTechnic.title = titleTehnic
-        simpleTechnic.type = typeTehnic
-        simpleTechnic.note = noteTehnic
-        if let photo = simplePhoto {
-            simpleTechnic.photo = convertImageToData(photo)
-        }
+        let tdoTechinc = TechincTDO(title: titleTehnic,
+                                    type: typeTehnic,
+                                    note: noteTehnic,
+                                    photo: simplePhoto)
+        manager.editTechnic(simpleTechnic, tdoTechinc)
         isEditMode = false
-        saveTechnic()
+        updateTechnics()
         clearTehnic()
     }
     
@@ -104,31 +101,19 @@ final class CoreDataViewModel: ObservableObject {
     
     
     //MARK: - Delete data
-    func deleteWork(work: WorkCD){
-        manager.context.delete(work)
-        saveWork()
-    }
-    
     func deleteTechnic(technic: TechnicCD){
-        if let works = technic.works?.allObjects as? [WorkCD] {
-            for work in works {
-                deleteWork(work: work)
-            }
-        }
-        manager.context.delete(technic)
-        saveTechnic()
+        manager.deleteTechnic(technic)
+        updateTechnics()
     }
     
     //MARK: - Add data
     func addTehnic(){
-        let newTechnic = TechnicCD(context: manager.context)
-        newTechnic.title = titleTehnic
-        newTechnic.type = typeTehnic
-        newTechnic.note = noteTehnic
-        if let photo = simplePhoto{
-            newTechnic.photo = convertImageToData(photo)
-        }
-        saveTechnic()
+        let tdoTechinc = TechincTDO(title: titleTehnic,
+                                    type: typeTehnic,
+                                    note: noteTehnic,
+                                    photo: simplePhoto)
+        manager.addTechnic(tdoTechinc)
+        updateTechnics()
         clearTehnic()
     }
     
@@ -136,15 +121,8 @@ final class CoreDataViewModel: ObservableObject {
     //MARK: - Get Data
     func fetchTechnic() {
         Task {
-            let request = NSFetchRequest<TechnicCD>(entityName: "TechnicCD")
-            
             do {
-                let result = try await manager.context.perform {
-                    try self.manager.context.fetch(request)
-                }
-                await MainActor.run {
-                    self.technics = result // Обновляем данные на главном потоке
-                }
+                technics = try await manager.fetchTechnics()
             } catch {
                 print("Ошибка при выполнении запроса: \(error)")
             }
@@ -152,25 +130,24 @@ final class CoreDataViewModel: ObservableObject {
     }
     
     func fetchWorks() {
-        let request = NSFetchRequest<WorkCD>(entityName: "WorkCD")
+    Task{
         do {
-            works = try manager.context.fetch(request)
+            works = try await manager.fetchWorks()
         } catch {
-            print(error)
+            print("Ошибка при выполнении запроса: \(error)")
         }
     }
+}
     
     //MARK: - Save in CoreData
     
-    func saveTechnic() {
+    private func updateTechnics(){
         technics.removeAll()
-        manager.save()
         fetchTechnic()
     }
     
-    func saveWork() {
+    private func updateWorks(){
         works.removeAll()
-        manager.save()
         fetchWorks()
     }
     
