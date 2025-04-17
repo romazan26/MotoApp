@@ -99,6 +99,14 @@ struct AddTechnicCDView: View {
                 .padding()
             }
             .navigationBarBackButtonHidden(true)
+            .gesture(
+                            DragGesture()
+                                .onEnded { gesture in
+                                    if gesture.translation.width > 50 { // Свайп вправо
+                                        dismiss()
+                                    }
+                                }
+                        )
         }
     }
 }

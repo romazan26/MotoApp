@@ -29,6 +29,7 @@ struct AddWorckForTechnicView: View {
                             .frame(width: 20, height: 80)
                             .shadow(radius: 5)
                     }
+                    .frame(width: 20, height: 80)
                     .padding(.trailing, 10)
                     if !vm.isEditorWork{
                         if let imageData = vm.convertDataToImage(vm.technicCD.photo){
@@ -109,6 +110,14 @@ struct AddWorckForTechnicView: View {
                 .padding()
             }
             .navigationBarBackButtonHidden(true)
+            .gesture(
+                            DragGesture()
+                                .onEnded { gesture in
+                                    if gesture.translation.width > 50 { // Свайп вправо
+                                        dismiss()
+                                    }
+                                }
+                        )
             .onTapGesture {
                 nameIsFocused = false
             }

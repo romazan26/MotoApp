@@ -30,6 +30,7 @@ struct AllWorksView: View {
                             .frame(width: 20, height: 80)
                             .shadow(radius: 5)
                     }
+                    .frame(width: 20, height: 80)
                     .padding(.trailing, 10)
                     
                     //MARK: - Image technic
@@ -112,6 +113,14 @@ struct AllWorksView: View {
             
         }
         .navigationBarBackButtonHidden(true)
+        .gesture(
+                        DragGesture()
+                            .onEnded { gesture in
+                                if gesture.translation.width > 50 { // Свайп вправо
+                                    dismiss()
+                                }
+                            }
+                    )
         .navigationDestination(isPresented: $vm.isPresentEditWork, destination: {
             AddWorckForTechnicView(vm: AddWorkViewModel(technicCD: vm.technicCD, isEditeWork: true, simpleWork: vm.simpleWork))
                 

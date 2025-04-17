@@ -32,6 +32,7 @@ struct WorksMainView: View {
                             .frame(width: 20, height: 80)
                             .shadow(radius: 5)
                     }
+                    .frame(width: 20, height: 80)
                     .padding(.trailing, 10)
 
                     //MARK: - Image technic
@@ -239,6 +240,14 @@ struct WorksMainView: View {
                 AllWorksView(vm: AllWorksViewModel(technicCD: vm.technicCD))
             })
             .navigationBarBackButtonHidden(true)
+            .gesture(
+                            DragGesture()
+                                .onEnded { gesture in
+                                    if gesture.translation.width > 50 { // Свайп вправо
+                                        dismiss()
+                                    }
+                                }
+                        )
             .alert(isPresented: $vm.isPresentDeleteAlert) {
                 Alert(title: Text("deleteTechnicMessage"), primaryButton: .destructive(Text("deleteLabel")) {
                     vm.deleteTechnic()
