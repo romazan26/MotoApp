@@ -27,10 +27,10 @@ struct AllWorksView: View {
                         Image(systemName: "chevron.left")
                             .resizable()
                             .foregroundColor(.white)
-                            .frame(width: 20, height: 80)
+                            .frame(width: 30, height: 80)
                             .shadow(radius: 5)
+                            .padding(10)
                     }
-                    .frame(width: 20, height: 80)
                     .padding(.trailing, 10)
                     
                     //MARK: - Image technic

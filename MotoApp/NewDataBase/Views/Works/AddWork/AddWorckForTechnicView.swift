@@ -26,11 +26,10 @@ struct AddWorckForTechnicView: View {
                         Image(systemName: "chevron.left")
                             .resizable()
                             .foregroundColor(.white)
-                            .frame(width: 20, height: 80)
+                            .frame(width: 30, height: 80)
                             .shadow(radius: 5)
+                            .padding(10)
                     }
-                    .frame(width: 20, height: 80)
-                    .padding(.trailing, 10)
                     if !vm.isEditorWork{
                         if let imageData = vm.convertDataToImage(vm.technicCD.photo){
                             Image(uiImage: imageData)
@@ -53,7 +52,7 @@ struct AddWorckForTechnicView: View {
                     
                     Text(vm.isEditorWork ? "editViewLabel" :  "addNewWorkViewLabel")
                         .foregroundStyle(.white)
-                        .font(.system(size: 30, weight: .bold, design: .serif))
+                        .font(.system(size: 25, weight: .bold, design: .serif))
                         .minimumScaleFactor(0.5)
                     Spacer()
                     
