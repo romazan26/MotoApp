@@ -15,7 +15,7 @@ struct AllWorksView: View {
     
     var body: some View {
         
-        ZStack {
+        ZStack(alignment: .bottom) {
             Color.grayApp.ignoresSafeArea()
             VStack {
                 //MARK: - Top tool bar
@@ -34,17 +34,11 @@ struct AllWorksView: View {
                     .padding(.trailing, 10)
                     
                     //MARK: - Image technic
-                        if let imageData = vm.convertDataToImage(vm.technicCD.photo){
-                            Image(uiImage: imageData)
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 100, height: 100)
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
-                        }else{
-                            Image(.newLogo)
-                                .resizable()
-                                .frame(width: 100, height: 100)
-                        }
+                    Image(uiImage: UIImage.from(data: vm.technicCD.photo))
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 100, height: 100)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
                     
                     //MARK: - Name Technic
                     VStack(alignment: .leading) {
@@ -68,6 +62,29 @@ struct AllWorksView: View {
                     .padding(.horizontal, 10)
                     
                     Spacer()
+                    //MARK: Sorting button
+                    Menu {
+                        VStack {
+                            ForEach(SortOptionWork.allCases , id: \.self) { sort in
+                                Button {
+                                    vm.selectedSortOption = sort
+                                } label: {
+                                    Text(sort.rawValue)
+                                }
+                            }
+                        }
+                    } label: {
+                        VStack{
+                            Image(systemName: "list.bullet.clipboard")
+                                .resizable()
+                                .foregroundStyle(.white)
+                                .frame(width: 25, height: 35)
+                            Text("sortButtonLabel")
+                                .foregroundStyle(.white)
+                                .font(.system(size: 10))
+                                .minimumScaleFactor(0.5)
+                        }
+                    }
                     
                 }
                 .frame(maxWidth: .infinity)
@@ -107,23 +124,44 @@ struct AllWorksView: View {
                     }
                 }.padding()
             }
+            .onAppear {
+                vm.appearAllWork()
+            }
             .onTapGesture {
                 isFocused = false
+            }
+            //Plus
+            NavigationLink {
+                AddWorckForTechnicView(vm: AddWorkViewModel(technicCD: vm.technicCD, isEditeWork: false, simpleWork: nil))
+            } label: {
+                ZStack {
+                    Circle()
+                        .foregroundStyle(.teracot)
+                        .overlay(
+                            Circle()
+                                .stroke(Color.black.opacity(0.3), lineWidth: 5)
+                                .blur(radius: 5)
+                                .mask(Circle())
+                        )
+                    Image(.works)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                }.frame(width: 100, height: 100)
             }
             
         }
         .navigationBarBackButtonHidden(true)
         .gesture(
-                        DragGesture()
-                            .onEnded { gesture in
-                                if gesture.translation.width > 50 { // Свайп вправо
-                                    dismiss()
-                                }
-                            }
-                    )
+            DragGesture()
+                .onEnded { gesture in
+                    if gesture.translation.width > 50 { // Свайп вправо
+                        dismiss()
+                    }
+                }
+        )
         .navigationDestination(isPresented: $vm.isPresentEditWork, destination: {
             AddWorckForTechnicView(vm: AddWorkViewModel(technicCD: vm.technicCD, isEditeWork: true, simpleWork: vm.simpleWork))
-                
+            
         })
         .sheet(isPresented: $vm.isPresentInfoWork, content: {
             WorkFullInfoView(work: vm.simpleWork!, vm: vm)

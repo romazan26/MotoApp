@@ -17,20 +17,21 @@ struct CellInfoMainWorksView: View {
         VStack {
                 Text(text)
                 .fontDesign(.monospaced)
-                .font(.system(size: 17))
+                .font(.system(size: 25))
                     .minimumScaleFactor(0.5)
                 
                 Image(systemName: image)
                 .resizable()
-                .frame(width: 14, height: 14)
+                .aspectRatio(contentMode: .fit)
+               // .frame(width: 14, height: 14)
             
             Divider()
             Text(value)
-                .font(.system(size: 18, weight: .bold))
+                .font(.system(size: 25, weight: .bold))
                 .minimumScaleFactor(0.5)
         }
-        .frame(height: 80)
-        .frame(maxWidth: .infinity)
+       // .frame(height: 80)
+       // .frame(maxWidth: .infinity)
         .padding(8)
         .background {
             Color(.black)
@@ -42,5 +43,5 @@ struct CellInfoMainWorksView: View {
 
 #Preview {
     CellInfoMainWorksView(text: "odometrLabel", value: "15000", image: "speedometer")
-        .frame(width: 100)
+        .frame(width: 200, height: 200)
 }

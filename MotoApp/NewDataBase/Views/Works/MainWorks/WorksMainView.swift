@@ -36,18 +36,11 @@ struct WorksMainView: View {
                     .padding(.trailing, 10)
 
                     //MARK: - Image technic
-                        if let imageData = vm.convertDataToImage(vm.technicCD.photo){
-                            Image(uiImage: imageData)
+                    Image(uiImage: UIImage.from(data: vm.technicCD.photo))
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
                                 .frame(width: 100, height: 100)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                        }else{
-                            Image(.newLogo)
-                                .resizable()
-                                .frame(width: 100, height: 100)
-                        }
-                    
                     
                     //MARK: - Name Technic
                     VStack(alignment: .leading) {
@@ -79,30 +72,6 @@ struct WorksMainView: View {
                                         .minimumScaleFactor(0.5)
                                 }
                             }
-
-                            //MARK: Sorting button
-                            Menu {
-                                VStack {
-                                    ForEach(SortOptionWork.allCases , id: \.self) { sort in
-                                        Button {
-                                            vm.selectedSortOption = sort
-                                        } label: {
-                                            Text(sort.rawValue)
-                                        }
-                                    }
-                                }
-                            } label: {
-                                VStack{
-                                    Image(systemName: "list.bullet.clipboard")
-                                        .resizable()
-                                        .foregroundStyle(.white)
-                                        .frame(width: 25, height: 35)
-                                    Text("sortButtonLabel")
-                                        .foregroundStyle(.white)
-                                        .font(.system(size: 10))
-                                        .minimumScaleFactor(0.5)
-                                }
-                            }
                         }
                     }
                     .padding(.horizontal, 10)
@@ -120,13 +89,15 @@ struct WorksMainView: View {
                 VStack{
                     //MARK: - Infor table for technic
                     VStack {
-                        HStack{
+                        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], content: {
                             CellInfoMainWorksView(text: "odometrLabel",
                                                   value: "\(vm.getFinalOdometry())",
                                                   image: "speedometer")
+                            .frame(height: 150)
                             CellInfoMainWorksView(text: "spentLabel",
                                                   value: "\(vm.getFinalPrice())",
                                                   image: "dollarsign.bank.building")
+                            .frame(height: 150)
                             Button {
                                 vm.isPresentAllWorks.toggle()
                             } label: {
@@ -144,6 +115,7 @@ struct WorksMainView: View {
                                 .foregroundStyle(.black)
                                 .rotation3DEffect(.degrees(vm.isFliped ? 180 : 0), axis: (x: 0, y: 1, z: 0))
                             }
+                            .frame(height: 150)
                             .onAppear {
                                 vm.toggleAnimation()
                             }
@@ -151,6 +123,7 @@ struct WorksMainView: View {
                                 vm.toggleAnimation()
                             }
                         }
+                        )
                     }
                     .padding(8)
                     .background {
@@ -159,34 +132,6 @@ struct WorksMainView: View {
                             .cornerRadius(20)
                     }
                     
-                    //MARK: - Preview works list
-                    if vm.sortedWorks.isEmpty {
-                        
-                        Text("noWorksLabel")
-                            .font(.system(size: 20, weight: .bold, design: .default))
-                            .minimumScaleFactor(0.5)
-                            .multilineTextAlignment(.center)
-                            .padding()
-                        
-                    }else{
-                        ScrollView {
-                            ForEach(vm.sortedWorks.prefix(3)) { work in
-                                WorkCellCDView(work: work)
-                            }
-                            Button {
-                                vm.isPresentAllWorks.toggle()
-                            } label: {
-                                HStack {
-                                    Text("seeAllWorks")
-                                    Text("...")
-                                    Spacer()
-                                }.foregroundStyle(.teracot)
-                                    .font(.system(size: 20, weight: .bold, design: .monospaced))
-                                    .minimumScaleFactor(0.5)
-                            }
-                            
-                        }
-                    }
                     
                     Spacer()
                     

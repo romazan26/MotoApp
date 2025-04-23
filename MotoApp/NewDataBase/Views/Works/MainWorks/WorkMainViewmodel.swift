@@ -25,11 +25,6 @@ final class WorkMainViewmodel: ObservableObject{
     
     //MARK: - Sortes propertys
     @Published var sortedWorks: [WorkCD] = []
-    @Published var selectedSortOption = SortOptionWork.calendar {
-        didSet {
-            sortedWorks = sortingWorks()
-        }
-    }
     
     //MARK: - Animation propertyes
     @Published var isFliped: Bool = false
@@ -42,13 +37,7 @@ final class WorkMainViewmodel: ObservableObject{
     init(technicCD: TechnicCD) {
         self.technicCD = technicCD
         fetchWorks()
-        selectedSortOption = SortOptionWork.calendar
         
-    }
-    
-    func convertDataToImage(_ data: Data?) -> UIImage? {
-        guard let data else { return nil }
-        return UIImage(data: data)
     }
     
     //MARK: - Animation function
@@ -115,23 +104,6 @@ final class WorkMainViewmodel: ObservableObject{
         return text
     }
     
-    //MARK: - SortesFunction
-    func sortingWorks() -> [WorkCD] {
-        if let works = technicCD.works?.allObjects as? [WorkCD]{
-            switch selectedSortOption {
-             
-            case .doc:
-                return works.sorted(by: {$0.nameWork ?? "" < $1.nameWork ?? ""})
-            case .calendar:
-                return works.sorted(by: {$0.date ?? Date() < $1.date ?? Date()})
-            case .dollarsign:
-                return works.sorted(by: {$0.price < $1.price})
-            case .speedometer:
-                return works.sorted(by: {$0.odometr < $1.odometr})
-            }
-        }
-        return []
-    }
     
     //MARK: - Get info data
     func getFinalOdometry() -> String{
@@ -168,7 +140,6 @@ final class WorkMainViewmodel: ObservableObject{
      func updateWork() {
         works.removeAll()
         fetchWorks()
-         sortedWorks = sortingWorks()
     }
     
     

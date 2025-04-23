@@ -26,15 +26,12 @@ final class CoreDataManager {
             storeDescription.shouldInferMappingModelAutomatically = true
             print("migration good")
         }
-        
-        // Загружаем хранилище
+
         container.loadPersistentStores { description, error in
             if let error = error {
                 print("Error loading Core Data: \(error.localizedDescription)")
             }
         }
-        
-        // Устанавливаем контекст
         context = container.viewContext
     }
     
