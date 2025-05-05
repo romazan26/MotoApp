@@ -95,6 +95,7 @@
 		742E41EB2D8F4697001C0899 /* CustomSearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBarView.swift; sourceTree = "<group>"; };
 		742F81E62DB8347F00750285 /* extension_UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension_UIImage.swift; sourceTree = "<group>"; };
 		7456FADA2D6E02D700B901E8 /* PlusCircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusCircleButtonView.swift; sourceTree = "<group>"; };
+		746DD04B2DC937040082D992 /* Garage_ 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Garage_ 3.xcdatamodel"; sourceTree = "<group>"; };
 		74B7DDF12D96D453001FD4ED /* TechincTDO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechincTDO.swift; sourceTree = "<group>"; };
 		74B7DDF42D96D66C001FD4ED /* WorkTDO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkTDO.swift; sourceTree = "<group>"; };
 		74B7DDF62D97062B001FD4ED /* AddTechnucViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTechnucViewModel.swift; sourceTree = "<group>"; };
@@ -596,7 +597,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3.3;
+				MARKETING_VERSION = 2.3.4;
 				PRODUCT_BUNDLE_IDENTIFIER = home.MotoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -631,7 +632,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3.3;
+				MARKETING_VERSION = 2.3.4;
 				PRODUCT_BUNDLE_IDENTIFIER = home.MotoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -671,6 +672,7 @@
 		308195752CCEB25700EE26C0 /* Garage.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				746DD04B2DC937040082D992 /* Garage_ 3.xcdatamodel */,
 				30FA0C512D1D3E1D00D2D87A /* Garage_2.xcdatamodel */,
 				308195772CCEB25700EE26C0 /* Garage.xcdatamodel */,
 			);
