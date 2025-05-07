@@ -12,7 +12,7 @@ struct GarageAppApp: App {
 
     var body: some Scene {
         WindowGroup {
-                NewLoadingView()
+                MainView()
                 .preferredColorScheme(.light)
         }
     }

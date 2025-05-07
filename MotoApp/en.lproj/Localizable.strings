@@ -18,6 +18,7 @@
 "typeLabel" = "Type";
 "noteLabel" = "Note";
 "seachLabel" = "Search";
+"settingsLabel" = "Settings";
 
 "editViewLabel" = "Change the job";
 "addTechicViewLabel" = "New equipment";

@@ -18,6 +18,7 @@
 "typeLabel" = "Тип";
 "noteLabel" = "Примечание";
 "seachLabel" = "Поиск";
+"settingsLabel" = "Настройки";
 
 "editViewLabel" = "Изменить работу";
 "addTechicViewLabel" = "Новая техника";
