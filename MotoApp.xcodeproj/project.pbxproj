@@ -51,12 +51,19 @@
 		746DD0502DC954050082D992 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746DD04F2DC953FE0082D992 /* MainViewModel.swift */; };
 		746DD0542DC954EF0082D992 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746DD0532DC954E70082D992 /* PageView.swift */; };
 		746DD0562DC956650082D992 /* PageIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746DD0552DC956650082D992 /* PageIconView.swift */; };
+		747880B42DDE63A9008A949F /* PlusButtonOneItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747880B32DDE63A9008A949F /* PlusButtonOneItemView.swift */; };
+		74A6C41C2DDDC79F001F4A5E /* CustomTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A6C41B2DDDC79F001F4A5E /* CustomTopBarView.swift */; };
+		74A6C41E2DDDDD0E001F4A5E /* AddNewChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A6C41D2DDDDD0E001F4A5E /* AddNewChecklistView.swift */; };
+		74A6C4202DDDDEF8001F4A5E /* AddCheckListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A6C41F2DDDDEE9001F4A5E /* AddCheckListViewModel.swift */; };
 		74B7DDF32D96D453001FD4ED /* TechincTDO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B7DDF12D96D453001FD4ED /* TechincTDO.swift */; };
 		74B7DDF52D96D674001FD4ED /* WorkTDO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B7DDF42D96D66C001FD4ED /* WorkTDO.swift */; };
 		74B7DDF72D97063C001FD4ED /* AddTechnucViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B7DDF62D97062B001FD4ED /* AddTechnucViewModel.swift */; };
 		74B7DDFC2D971242001FD4ED /* AddWorkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B7DDFB2D97123B001FD4ED /* AddWorkViewModel.swift */; };
 		74B7DDFF2D973189001FD4ED /* AllWorksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B7DDFE2D97317F001FD4ED /* AllWorksViewModel.swift */; };
 		74BBD3CB2D889AD2009E71FD /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BBD3CA2D889AC6009E71FD /* ShareSheet.swift */; };
+		74E13CEF2DD2914700C4D578 /* CheckListTDO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E13CEE2DD2913900C4D578 /* CheckListTDO.swift */; };
+		74E13CF12DD2918400C4D578 /* ItemCheckTDO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E13CF02DD2917B00C4D578 /* ItemCheckTDO.swift */; };
+		74E13CF32DD294E300C4D578 /* CheckListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E13CF22DD294D800C4D578 /* CheckListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,12 +115,20 @@
 		746DD04F2DC953FE0082D992 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		746DD0532DC954E70082D992 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		746DD0552DC956650082D992 /* PageIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageIconView.swift; sourceTree = "<group>"; };
+		747880B32DDE63A9008A949F /* PlusButtonOneItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButtonOneItemView.swift; sourceTree = "<group>"; };
+		747FC98F2DCCBC4300CA0E75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		74A6C41B2DDDC79F001F4A5E /* CustomTopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTopBarView.swift; sourceTree = "<group>"; };
+		74A6C41D2DDDDD0E001F4A5E /* AddNewChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewChecklistView.swift; sourceTree = "<group>"; };
+		74A6C41F2DDDDEE9001F4A5E /* AddCheckListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCheckListViewModel.swift; sourceTree = "<group>"; };
 		74B7DDF12D96D453001FD4ED /* TechincTDO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechincTDO.swift; sourceTree = "<group>"; };
 		74B7DDF42D96D66C001FD4ED /* WorkTDO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkTDO.swift; sourceTree = "<group>"; };
 		74B7DDF62D97062B001FD4ED /* AddTechnucViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTechnucViewModel.swift; sourceTree = "<group>"; };
 		74B7DDFB2D97123B001FD4ED /* AddWorkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkViewModel.swift; sourceTree = "<group>"; };
 		74B7DDFE2D97317F001FD4ED /* AllWorksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllWorksViewModel.swift; sourceTree = "<group>"; };
 		74BBD3CA2D889AC6009E71FD /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
+		74E13CEE2DD2913900C4D578 /* CheckListTDO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListTDO.swift; sourceTree = "<group>"; };
+		74E13CF02DD2917B00C4D578 /* ItemCheckTDO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCheckTDO.swift; sourceTree = "<group>"; };
+		74E13CF22DD294D800C4D578 /* CheckListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				742D4AB92D6D0A7300B8FE27 /* NewLoadingView.swift */,
+				300424872CFE2338007E5A4D /* LoadingViewModel.swift */,
 			);
 			path = Loading;
 			sourceTree = "<group>";
@@ -143,7 +159,6 @@
 				306DD0362D077FFD00882FD3 /* Cells */,
 				30D424DA2D00E08700CF2A5A /* Enums */,
 				30E75D2E2CF6180800A61DFA /* Helpers */,
-				306D1F782CE7C16F000E74D4 /* ViewModels */,
 				306D1F772CE7C166000E74D4 /* Views */,
 			);
 			path = NewDataBase;
@@ -160,16 +175,6 @@
 				3081957D2CCEB40700EE26C0 /* Works */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		306D1F782CE7C16F000E74D4 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				74B7DDF62D97062B001FD4ED /* AddTechnucViewModel.swift */,
-				300424872CFE2338007E5A4D /* LoadingViewModel.swift */,
-				308195702CCEAE1700EE26C0 /* TechnicViewModel.swift */,
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		306DD0362D077FFD00882FD3 /* Cells */ = {
@@ -197,6 +202,8 @@
 				3081956B2CCE9E3600EE26C0 /* TechnicCellView.swift */,
 				3081956E2CCEA0F500EE26C0 /* AddTechnicCDView.swift */,
 				30F8C40B2CCD82880047A87C /* ListTehnics.swift */,
+				74B7DDF62D97062B001FD4ED /* AddTechnucViewModel.swift */,
+				308195702CCEAE1700EE26C0 /* TechnicViewModel.swift */,
 			);
 			path = Tehnic;
 			sourceTree = "<group>";
@@ -230,6 +237,7 @@
 		30C75F392AC452AB00B9D445 /* MotoApp */ = {
 			isa = PBXGroup;
 			children = (
+				747FC98F2DCCBC4300CA0E75 /* Info.plist */,
 				306D1F762CE7C151000E74D4 /* NewDataBase */,
 				308195762CCEB25700EE26C0 /* CoreData */,
 				30C75F3A2AC452AB00B9D445 /* GarageAppApp.swift */,
@@ -274,6 +282,8 @@
 				742E41E92D8ED24F001C0899 /* TopbarBackGroundView.swift */,
 				742E41EB2D8F4697001C0899 /* CustomSearchBarView.swift */,
 				746DD0552DC956650082D992 /* PageIconView.swift */,
+				74A6C41B2DDDC79F001F4A5E /* CustomTopBarView.swift */,
+				747880B32DDE63A9008A949F /* PlusButtonOneItemView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -302,7 +312,10 @@
 		742639552DCBECDD00EDE9E9 /* CheckList */ = {
 			isa = PBXGroup;
 			children = (
+				74A6C41F2DDDDEE9001F4A5E /* AddCheckListViewModel.swift */,
+				74E13CF22DD294D800C4D578 /* CheckListViewModel.swift */,
 				742639562DCBECEE00EDE9E9 /* CheckListView.swift */,
+				74A6C41D2DDDDD0E001F4A5E /* AddNewChecklistView.swift */,
 			);
 			path = CheckList;
 			sourceTree = "<group>";
@@ -327,6 +340,8 @@
 		74B7DDF22D96D453001FD4ED /* TDO */ = {
 			isa = PBXGroup;
 			children = (
+				74E13CF02DD2917B00C4D578 /* ItemCheckTDO.swift */,
+				74E13CEE2DD2913900C4D578 /* CheckListTDO.swift */,
 				74B7DDF42D96D66C001FD4ED /* WorkTDO.swift */,
 				74B7DDF12D96D453001FD4ED /* TechincTDO.swift */,
 			);
@@ -442,6 +457,7 @@
 				746DD04E2DC93E2E0082D992 /* MainView.swift in Sources */,
 				3081957F2CCEBB0900EE26C0 /* WorkCellCDView.swift in Sources */,
 				30F877212B4C3BC6002EC497 /* CustomTextFieldUIView.swift in Sources */,
+				74E13CF32DD294E300C4D578 /* CheckListViewModel.swift in Sources */,
 				30F877222B4C3BC6002EC497 /* AddAertUIVuew.swift in Sources */,
 				74B7DDF32D96D453001FD4ED /* TechincTDO.swift in Sources */,
 				742F81E72DB8348C00750285 /* extension_UIImage.swift in Sources */,
@@ -449,6 +465,7 @@
 				3075E0E52CF724A600433CAD /* TechnicInfoView.swift in Sources */,
 				30FA0C532D1D400B00D2D87A /* PhotoPicker.swift in Sources */,
 				746DD0502DC954050082D992 /* MainViewModel.swift in Sources */,
+				74E13CEF2DD2914700C4D578 /* CheckListTDO.swift in Sources */,
 				30F877232B4C3BC6002EC497 /* BlurUIView.swift in Sources */,
 				742D4ABC2D6D0ED800B8FE27 /* CastonProgressBarView.swift in Sources */,
 				742E41EC2D8F4697001C0899 /* CustomSearchBarView.swift in Sources */,
@@ -457,6 +474,7 @@
 				308195792CCEB25700EE26C0 /* Garage.xcdatamodeld in Sources */,
 				7456FADB2D6E02D700B901E8 /* PlusCircleButtonView.swift in Sources */,
 				306DD0332D07798300882FD3 /* WorksMainView.swift in Sources */,
+				747880B42DDE63A9008A949F /* PlusButtonOneItemView.swift in Sources */,
 				742E41E62D8ECF79001C0899 /* TextCellInfoMainView.swift in Sources */,
 				308195712CCEAE2000EE26C0 /* TechnicViewModel.swift in Sources */,
 				30EB0A752B862C9B006FF732 /* BackgroundCustom.swift in Sources */,
@@ -465,18 +483,22 @@
 				742E41E82D8ED1A8001C0899 /* AllWorksView.swift in Sources */,
 				74B7DDFC2D971242001FD4ED /* AddWorkViewModel.swift in Sources */,
 				3081956F2CCEA0F500EE26C0 /* AddTechnicCDView.swift in Sources */,
+				74A6C41C2DDDC79F001F4A5E /* CustomTopBarView.swift in Sources */,
 				742639572DCBECEE00EDE9E9 /* CheckListView.swift in Sources */,
 				30D424DB2D00E08700CF2A5A /* sortFuncExtention.swift in Sources */,
 				30E75D272CF478EA00A61DFA /* WorkFullInfoView.swift in Sources */,
 				306DD0352D077C1600882FD3 /* CellInfoMainWorksView.swift in Sources */,
 				306DD0382D07802C00882FD3 /* MiniWorkCellView.swift in Sources */,
+				74A6C4202DDDDEF8001F4A5E /* AddCheckListViewModel.swift in Sources */,
 				30F8C40C2CCD82880047A87C /* ListTehnics.swift in Sources */,
 				74B7DDF72D97063C001FD4ED /* AddTechnucViewModel.swift in Sources */,
 				742E41EA2D8ED24F001C0899 /* TopbarBackGroundView.swift in Sources */,
 				74BBD3CB2D889AD2009E71FD /* ShareSheet.swift in Sources */,
 				306D1F7C2CE7D26E000E74D4 /* AddWorckForTechnicView.swift in Sources */,
 				30E75D342CF620B800A61DFA /* GradientButtonView.swift in Sources */,
+				74E13CF12DD2918400C4D578 /* ItemCheckTDO.swift in Sources */,
 				30C75F3B2AC452AB00B9D445 /* GarageAppApp.swift in Sources */,
+				74A6C41E2DDDDD0E001F4A5E /* AddNewChecklistView.swift in Sources */,
 				30BBB6422B77AC2600448494 /* ButtonView.swift in Sources */,
 				740D4BB92D74D7DF00CF6721 /* CustomTexrFieldStrokeview.swift in Sources */,
 				30E75D322CF61A0500A61DFA /* ResizebleTextFieldView.swift in Sources */,
@@ -634,6 +656,7 @@
 				DEVELOPMENT_TEAM = AR6AN34RS9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MotoApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Мой гараж";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -669,6 +692,7 @@
 				DEVELOPMENT_TEAM = AR6AN34RS9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MotoApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Мой гараж";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -724,7 +748,7 @@
 				30FA0C512D1D3E1D00D2D87A /* Garage_2.xcdatamodel */,
 				308195772CCEB25700EE26C0 /* Garage.xcdatamodel */,
 			);
-			currentVersion = 30FA0C512D1D3E1D00D2D87A /* Garage_2.xcdatamodel */;
+			currentVersion = 746DD04B2DC937040082D992 /* Garage_ 3.xcdatamodel */;
 			path = Garage.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

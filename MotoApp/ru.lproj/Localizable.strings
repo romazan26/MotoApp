@@ -6,6 +6,9 @@
   
 */
 
+"labelNewItemCheckList" = "Новая позиция";
+"labelNewChecklist" = "Новый чек - лист";
+"labelCheckLists" = "Список чек - листов";
 "labelTechnicList" = "Список техники";
 "labelWorksList" = "Список работ";
 "countOfWorks" = "Колличество работ";

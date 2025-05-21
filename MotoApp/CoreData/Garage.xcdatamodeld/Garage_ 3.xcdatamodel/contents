@@ -3,10 +3,12 @@
     <entity name="Checklist" representedClassName="Checklist" syncable="YES" codeGenerationType="class">
         <attribute name="comlitList" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="item" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ItemCheck" inverseName="checkList" inverseEntity="ItemCheck"/>
     </entity>
     <entity name="ItemCheck" representedClassName="ItemCheck" syncable="YES" codeGenerationType="class">
         <attribute name="completed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="checkList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Checklist" inverseName="item" inverseEntity="Checklist"/>
     </entity>
     <entity name="TechnicCD" representedClassName="TechnicCD" syncable="YES" codeGenerationType="class">
         <attribute name="note" optional="YES" attributeType="String"/>

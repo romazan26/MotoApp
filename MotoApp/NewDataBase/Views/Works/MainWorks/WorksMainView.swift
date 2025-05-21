@@ -11,81 +11,15 @@ struct WorksMainView: View {
     @StateObject var vm: WorkMainViewmodel
     @Environment(\.dismiss) var dismiss
     
-    @State private var animate = false
-    
-    
     var body: some View {
         
         ZStack {
             Color.grayApp.ignoresSafeArea()
             VStack {
                 //MARK: - Top tool bar
-                HStack{
-                    
-                    //MARK: - Back button
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "chevron.left")
-                            .resizable()
-                            .foregroundColor(.white)
-                            .frame(width: 30, height: 80)
-                            .shadow(radius: 5)
-                            .padding(10)
-                    }
-                    .padding(.trailing, 10)
-
-                    //MARK: - Image technic
-                    Image(uiImage: UIImage.from(data: vm.technicCD.photo))
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 100, height: 100)
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
-                    
-                    //MARK: - Name Technic
-                    VStack(alignment: .leading) {
-                       
-                            Text(vm.technicCD.title ?? "")
-                                .foregroundStyle(.white)
-                                .font(.system(size: 28, weight: .bold, design: .serif))
-                                .minimumScaleFactor(0.5)
-                        
-                        Spacer()
-                        HStack {
-                            Text(vm.technicCD.note ?? "")
-                                .foregroundStyle(.white)
-                                .minimumScaleFactor(0.5)
-                            Spacer()
-                            
-                            //MARK: Share button
-                            Button {
-                                vm.tapShareButton()
-                            } label: {
-                                VStack{
-                                    Image(systemName: "square.and.arrow.up")
-                                        .resizable()
-                                        .foregroundStyle(.white)
-                                        .frame(width: 25, height: 35)
-                                    Text("shareButtonLabel")
-                                        .foregroundStyle(.white)
-                                        .font(.system(size: 10))
-                                        .minimumScaleFactor(0.5)
-                                }
-                            }
-                        }
-                    }
-                    .padding(.horizontal, 10)
-                   
-                    
-                }
-                .frame(maxWidth: .infinity)
-                .frame(maxHeight: 100)
-                .padding()
-                .background {TopbarBackGroundView(animate: $animate)}
-                .onAppear {
-                    self.animate = true
-                }
-                .shadow(color: .black, radius: 15)
+                CustomTopBarView(barImage: UIImage.from(data: vm.technicCD.photo),
+                                 titleUp: vm.technicCD.title ?? "",
+                                 titleDown: vm.technicCD.note ?? "")
                 VStack{
                     //MARK: - Infor table for technic
                     VStack {
@@ -98,6 +32,8 @@ struct WorksMainView: View {
                                                   value: "\(vm.getFinalPrice())",
                                                   image: "dollarsign.bank.building")
                             .frame(height: 150)
+                            
+                            //MARK: - All works button
                             Button {
                                 vm.isPresentAllWorks.toggle()
                             } label: {
@@ -122,6 +58,15 @@ struct WorksMainView: View {
                             .onDisappear {
                                 vm.toggleAnimation()
                             }
+                            
+                            //MARK: - Share button
+                            Button {
+                                vm.tapShareButton()
+                            } label: {
+                                CellInfoMainWorksView(text: "shareButtonLabel", value: "", image: "square.and.arrow.up")
+                                    .frame(height: 150)
+                                    .foregroundStyle(.black)
+                            }
                         }
                         )
                     }
@@ -131,8 +76,7 @@ struct WorksMainView: View {
                             .opacity(0.05)
                             .cornerRadius(20)
                     }
-                    
-                    
+
                     Spacer()
                     
                     //MARK: - Delete and Edit buttons

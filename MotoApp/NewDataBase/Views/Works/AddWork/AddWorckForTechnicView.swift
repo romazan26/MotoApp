@@ -58,7 +58,7 @@ struct AddWorckForTechnicView: View {
                     
                 }
                 .padding()
-                .background {TopbarBackGroundView(animate: $animate)}
+                .background {TopbarBackGroundView()}
                 .onAppear {
                     self.animate = true
                 }

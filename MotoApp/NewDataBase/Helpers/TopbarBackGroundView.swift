@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TopbarBackGroundView: View {
-    @Binding var animate: Bool
+    @State private var animate: Bool = true
     var body: some View {
         LinearGradient(gradient: Gradient(colors: [animate ? Color.grayApp : Color.black.opacity(0.2), animate ? Color.black.opacity(0.1) : Color.grayApp]), startPoint: .topLeading, endPoint: .bottomTrailing)
             .edgesIgnoringSafeArea(.all)
@@ -17,5 +17,5 @@ struct TopbarBackGroundView: View {
 }
 
 #Preview {
-    TopbarBackGroundView(animate: .constant(true))
+    TopbarBackGroundView()
 }

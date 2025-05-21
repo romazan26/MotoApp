@@ -20,22 +20,9 @@ struct ListTehnics: View {
 
                 VStack(spacing: 0) {
                     //MARK: - Top tool bar
-                    HStack {
-                        Image(.newLogo)
-                            .resizable()
-                            .frame(width: 100, height: 100)
-                        Spacer()
-                        Text("labelTechnicList")
-                            .foregroundStyle(.white)
-                            .font(.system(size: 30, weight: .bold, design: .serif))
-                            .minimumScaleFactor(0.5)
-                    }
-                    .padding()
-                    .background { TopbarBackGroundView(animate: $animate) }
-                    .onAppear { self.animate = true }
-                    .shadow(color: .black, radius: 15)
+                    CustomTopBarView(barText: "labelTechnicList")
 
-                    //MARK: - Контейнер с ScrollView
+                    //MARK: - List for technics
                     GeometryReader { geo in
                         ZStack(alignment: .bottomTrailing) {
                             ScrollView {

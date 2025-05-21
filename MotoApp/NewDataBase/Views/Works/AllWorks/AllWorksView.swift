@@ -91,7 +91,7 @@ struct AllWorksView: View {
                 .frame(maxHeight: 100)
                 .padding()
                 .background {
-                    TopbarBackGroundView(animate: $animate)
+                    TopbarBackGroundView()
                 }
                 .onAppear {
                     self.animate = true

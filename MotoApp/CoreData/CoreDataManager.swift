@@ -42,6 +42,63 @@ final class CoreDataManager {
             print("Save data error: \(error.localizedDescription)")
         }
     }
+    
+    //MARK: - ItemCheckList
+    func fetchItemsCheckList(_ cl: Checklist) async throws -> [ItemCheck] {
+        let fetchRequest: NSFetchRequest<ItemCheck> = ItemCheck.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "checkList == %@", cl)
+        return try await context.perform {
+            try self.context.fetch(fetchRequest)
+        }
+    }
+    
+    
+    func addItemCheck(_ ic: ItemCheckTDO, to cl: Checklist) {
+        let newItemCheck = ItemCheck(context: context)
+        newItemCheck.title = ic.title
+        newItemCheck.completed = ic.completed
+        newItemCheck.checkList = cl
+        save()
+    }
+    
+    func editItemCheck(_ ic: ItemCheck, tdo: ItemCheckTDO) {
+        ic.title = tdo.title
+        ic.completed = tdo.completed
+        save()
+    }
+    
+    func deleteItemCheck(_ ic: ItemCheck) {
+        context.delete(ic)
+        save()
+    }
+    
+    //MARK: - CheckList
+    func fetchCheckLists() async throws -> [Checklist] {
+        let fetchRequest: NSFetchRequest<Checklist> = Checklist.fetchRequest()
+        return try await context.perform {
+            try self.context.fetch(fetchRequest)
+        }
+    }
+    
+    func editCheckList(_ cl: Checklist, tdo: CheckListTDO) {
+        cl.title = tdo.title
+        cl.comlitList = tdo.completed
+        save()
+    }
+    
+    func deleteCheckList(_ cl: Checklist) {
+        context.delete(cl)
+        save()
+    }
+    
+    func addCheckList(_ cl: CheckListTDO) -> Checklist{
+        let newCheckList = Checklist(context: context)
+        newCheckList.title = cl.title
+        newCheckList.comlitList = cl.completed
+        save()
+        return newCheckList
+    }
+    
     //MARK: - Techinc
     func addTechnic(_ tdo: TechincTDO) {
         let newTechnic = TechnicCD(context: context)

@@ -6,6 +6,9 @@
   
 */
 
+"labelNewItemCheckList" = "New position";
+"labelNewChecklist" = "New checklist";
+"labelCheckLists" = "List of checklists";
 "labelTechnicList" = "List of equipment";
 "labelWorksList" = "List of works";
 "countOfWorks" = "Count of works";
