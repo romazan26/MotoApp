@@ -23,15 +23,12 @@ struct CellInfoMainWorksView: View {
                 Image(systemName: image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-               // .frame(width: 14, height: 14)
             
             Divider()
             Text(value)
                 .font(.system(size: 25, weight: .bold))
                 .minimumScaleFactor(0.5)
         }
-       // .frame(height: 80)
-       // .frame(maxWidth: .infinity)
         .padding(8)
         .background {
             Color(.black)

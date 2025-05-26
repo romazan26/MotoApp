@@ -23,11 +23,14 @@ struct AddNewChecklistView: View {
                     Divider()
                     ScrollView {
                         
-                        ForEach(vm.items, id: \.self) { item in
-                            Text(item)
+                        ForEach(Array(vm.items.enumerated()), id: \.element) { index, item in
+                            CellNewItemCheckListView(title: item) {
+                                vm.deleteItem(at: index)
+                            }
                         }
                         
                         CustomTexrFieldStrokeview(title: "labelNewItemCheckList", text: $vm.titleItem)
+                            .padding(.top)
                         
                         //MARK: - Add item for list
                         Button {
@@ -38,7 +41,7 @@ struct AddNewChecklistView: View {
                         }
                         .disabled(!vm.canAddItem)
                     }
-
+                    
                     Spacer()
                     Button {
                         vm.addNewCheckList {
@@ -55,6 +58,16 @@ struct AddNewChecklistView: View {
                 ProgressView()
             }
         }
+        .navigationBarBackButtonHidden()
+        //MARK: Swipe to back
+        .gesture(
+            DragGesture()
+                .onEnded { gesture in
+                    if gesture.translation.width > 50 { // Свайп вправо
+                        dismiss()
+                    }
+                }
+        )
     }
 }
 

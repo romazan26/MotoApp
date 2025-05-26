@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PlusButtonOneItemView: View {
+    var height: CGFloat = 60
     var body: some View {
         ZStack {
             Image(systemName: "plus")
@@ -17,11 +18,11 @@ struct PlusButtonOneItemView: View {
                 .foregroundStyle(.teracot)
             
         }
-        .frame(height: 60)
+        .frame(height: height)
         .frame(maxWidth: .infinity)
         .overlay {
             RoundedRectangle(cornerRadius: 12)
-                .stroke(.teracot.opacity(0.5), lineWidth: 2.0)
+                .stroke(.teracot, lineWidth: 2.0)
         }
     }
 }
