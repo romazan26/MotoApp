@@ -6,6 +6,7 @@
   
 */
 
+"labelCheckList" = "Чек - Лист";
 "labelNewItemCheckList" = "Новая позиция";
 "labelNewChecklist" = "Новый чек - лист";
 "labelCheckLists" = "Список чек - листов";
@@ -22,6 +23,7 @@
 "noteLabel" = "Примечание";
 "seachLabel" = "Поиск";
 "settingsLabel" = "Настройки";
+"resetLabel" = "Сбросить";
 
 "editViewLabel" = "Изменить работу";
 "addTechicViewLabel" = "Новая техника";

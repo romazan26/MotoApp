@@ -38,6 +38,7 @@
 		740BB2B82DE330850065D095 /* CellNewItemCheckListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740BB2B72DE330850065D095 /* CellNewItemCheckListView.swift */; };
 		740D4BB92D74D7DF00CF6721 /* CustomTexrFieldStrokeview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D4BB82D74D7DF00CF6721 /* CustomTexrFieldStrokeview.swift */; };
 		7422E0902D7E27B30099EC11 /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7422E08F2D7E27A60099EC11 /* CustomDatePicker.swift */; };
+		7423773A2DF77A12003E26C8 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742377392DF77A12003E26C8 /* CustomTabBar.swift */; };
 		742639542DCBECB300EDE9E9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742639532DCBECB300EDE9E9 /* SettingsView.swift */; };
 		742639572DCBECEE00EDE9E9 /* CheckListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742639562DCBECEE00EDE9E9 /* CheckListView.swift */; };
 		742D4ABA2D6D0A7300B8FE27 /* NewLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742D4AB92D6D0A7300B8FE27 /* NewLoadingView.swift */; };
@@ -64,6 +65,7 @@
 		74B7DDF72D97063C001FD4ED /* AddTechnucViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B7DDF62D97062B001FD4ED /* AddTechnucViewModel.swift */; };
 		74B7DDFC2D971242001FD4ED /* AddWorkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B7DDFB2D97123B001FD4ED /* AddWorkViewModel.swift */; };
 		74B7DDFF2D973189001FD4ED /* AllWorksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B7DDFE2D97317F001FD4ED /* AllWorksViewModel.swift */; };
+		74BB4E0B2DE87C8500154B9C /* CellItemCheckListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BB4E0A2DE87C8500154B9C /* CellItemCheckListView.swift */; };
 		74BBD3CB2D889AD2009E71FD /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BBD3CA2D889AC6009E71FD /* ShareSheet.swift */; };
 		74E13CEF2DD2914700C4D578 /* CheckListTDO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E13CEE2DD2913900C4D578 /* CheckListTDO.swift */; };
 		74E13CF12DD2918400C4D578 /* ItemCheckTDO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E13CF02DD2917B00C4D578 /* ItemCheckTDO.swift */; };
@@ -105,6 +107,7 @@
 		740BB2B72DE330850065D095 /* CellNewItemCheckListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellNewItemCheckListView.swift; sourceTree = "<group>"; };
 		740D4BB82D74D7DF00CF6721 /* CustomTexrFieldStrokeview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTexrFieldStrokeview.swift; sourceTree = "<group>"; };
 		7422E08F2D7E27A60099EC11 /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
+		742377392DF77A12003E26C8 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		742639532DCBECB300EDE9E9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		742639562DCBECEE00EDE9E9 /* CheckListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListView.swift; sourceTree = "<group>"; };
 		742D4AB92D6D0A7300B8FE27 /* NewLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoadingView.swift; sourceTree = "<group>"; };
@@ -133,6 +136,7 @@
 		74B7DDF62D97062B001FD4ED /* AddTechnucViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTechnucViewModel.swift; sourceTree = "<group>"; };
 		74B7DDFB2D97123B001FD4ED /* AddWorkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkViewModel.swift; sourceTree = "<group>"; };
 		74B7DDFE2D97317F001FD4ED /* AllWorksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllWorksViewModel.swift; sourceTree = "<group>"; };
+		74BB4E0A2DE87C8500154B9C /* CellItemCheckListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItemCheckListView.swift; sourceTree = "<group>"; };
 		74BBD3CA2D889AC6009E71FD /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		74E13CEE2DD2913900C4D578 /* CheckListTDO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListTDO.swift; sourceTree = "<group>"; };
 		74E13CF02DD2917B00C4D578 /* ItemCheckTDO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCheckTDO.swift; sourceTree = "<group>"; };
@@ -193,6 +197,7 @@
 				306DD0372D07802C00882FD3 /* MiniWorkCellView.swift */,
 				740BB2B72DE330850065D095 /* CellNewItemCheckListView.swift */,
 				74A0972A2DE4F4EE0002250D /* CellCheckListView.swift */,
+				74BB4E0A2DE87C8500154B9C /* CellItemCheckListView.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -294,6 +299,7 @@
 				746DD0552DC956650082D992 /* PageIconView.swift */,
 				74A6C41B2DDDC79F001F4A5E /* CustomTopBarView.swift */,
 				747880B32DDE63A9008A949F /* PlusButtonOneItemView.swift */,
+				742377392DF77A12003E26C8 /* CustomTabBar.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -496,6 +502,7 @@
 				746DD0502DC954050082D992 /* MainViewModel.swift in Sources */,
 				74E13CEF2DD2914700C4D578 /* CheckListTDO.swift in Sources */,
 				30F877232B4C3BC6002EC497 /* BlurUIView.swift in Sources */,
+				7423773A2DF77A12003E26C8 /* CustomTabBar.swift in Sources */,
 				742D4ABC2D6D0ED800B8FE27 /* CastonProgressBarView.swift in Sources */,
 				742E41EC2D8F4697001C0899 /* CustomSearchBarView.swift in Sources */,
 				7422E0902D7E27B30099EC11 /* CustomDatePicker.swift in Sources */,
@@ -537,6 +544,7 @@
 				746DD0542DC954EF0082D992 /* PageView.swift in Sources */,
 				3081956C2CCE9E3600EE26C0 /* TechnicCellView.swift in Sources */,
 				300424882CFE2340007E5A4D /* LoadingViewModel.swift in Sources */,
+				74BB4E0B2DE87C8500154B9C /* CellItemCheckListView.swift in Sources */,
 				746DD0562DC956650082D992 /* PageIconView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

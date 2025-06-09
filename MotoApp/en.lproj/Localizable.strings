@@ -6,6 +6,7 @@
   
 */
 
+"labelCheckList" = "Сhecklist";
 "labelNewItemCheckList" = "New position";
 "labelNewChecklist" = "New checklist";
 "labelCheckLists" = "List of checklists";
@@ -22,6 +23,7 @@
 "noteLabel" = "Note";
 "seachLabel" = "Search";
 "settingsLabel" = "Settings";
+"resetLabel" = "Reset";
 
 "editViewLabel" = "Change the job";
 "addTechicViewLabel" = "New equipment";

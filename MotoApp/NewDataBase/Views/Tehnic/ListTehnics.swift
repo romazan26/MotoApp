@@ -29,7 +29,8 @@ struct ListTehnics: View {
                                 if vm.technics.isEmpty {
                                     Text(LocalizedStringKey("emptyListLabel"))
                                         .multilineTextAlignment(.center)
-                                        .frame(height: geo.size.height) // Центрировать если пусто
+                                        .frame(height: geo.size.height)
+                                        .minimumScaleFactor(0.5)
                                 } else {
                                     VStack(spacing: 12) {
                                         ForEach(vm.technics) { technic in
@@ -50,6 +51,7 @@ struct ListTehnics: View {
                                 PlusCircleButtonView()
                             }
                             .padding(10)
+                            .offset(y: -60)
                         }
                     }
                     .padding(.horizontal)
