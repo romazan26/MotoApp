@@ -9,10 +9,6 @@ import Foundation
 
 final class MainViewModel: ObservableObject {
     @Published var currentPage: PageView = .garage
+    @Published var isTabBarVisible = true
     
-    let tabItems = [
-        TabItem(icon: "house.fill", title: "Home"),
-        TabItem(icon: "magnifyingglass", title: "Search"),
-        TabItem(icon: "person.fill", title: "Profile")
-    ]
 }

@@ -51,7 +51,6 @@ struct ListTehnics: View {
                                 PlusCircleButtonView()
                             }
                             .padding(10)
-                            .offset(y: -60)
                         }
                     }
                     .padding(.horizontal)
