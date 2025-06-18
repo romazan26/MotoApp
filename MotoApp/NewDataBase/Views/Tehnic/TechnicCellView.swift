@@ -68,6 +68,3 @@ struct TechnicCellView: View {
     }
 }
 
-//#Preview {
-//    TechnicCellView(technic: TechnicCD())
-//}

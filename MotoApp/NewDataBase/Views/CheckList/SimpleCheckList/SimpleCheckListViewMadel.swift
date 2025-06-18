@@ -12,6 +12,7 @@ final class SimpleCheckListViewModel: ObservableObject {
     let manager = CoreDataManager.instance
     
     @Published var items: [ItemCheck] = []
+    @Published var isPresentDeleteAlert: Bool = false
     
     init(checkList: Checklist) {
         self.checkList = checkList

@@ -41,8 +41,9 @@ struct CustomTabBar: View {
                 Color.white
                     .shadow(radius: 5)
                     .blur(radius: 10, opaque: true)
-                    .opacity(0.5)
+                    .opacity(0.6)
                     .clipShape(.capsule)
+                    .padding(.horizontal)
             )
             .offset(x: isVisible ? 0 : -UIScreen.main.bounds.width)
         // Выбранная иконка, которая всегда видна

@@ -17,14 +17,13 @@ struct CellItemCheckListView: View {
                 .foregroundColor(.white)
             Spacer()
             Image(systemName: complited ? "checkmark.circle.fill" : "circle")
-                .foregroundColor(complited ? .green : .white)
+                .foregroundColor(complited ? .teracot : .white)
                 .padding(.trailing)
         }
         //MARK: - Background
         .padding()
         .background(
             Color.grayApp).cornerRadius(26)
-        
             .overlay {
                 RoundedRectangle(cornerRadius: 26)
                     .stroke(.white, lineWidth: 2.0)

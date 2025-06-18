@@ -34,7 +34,8 @@ struct CheckListView: View {
                                                 SimpleCheckListView(viewModel: SimpleCheckListViewModel(checkList: checkList))
                                             } label: {
                                                 CellCheckListView(nameCheckList: checkList.title ?? "Untitled",
-                                                                  countCheckListItem: vm.getCountItem(list: checkList))
+                                                                  countCheckListItem: vm.getCountItem(list: checkList),
+                                                                  completed: vm.checkAllItem(list: checkList))
                                             }
                                         }
                                     }

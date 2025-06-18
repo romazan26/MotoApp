@@ -42,4 +42,20 @@ final class CheckListViewModel: ObservableObject {
     func updateCheckList(){
         Task { await fetchCheckList() }
     }
+    
+    func checkAllItem(list: Checklist) -> Bool {
+        var answer: Bool = false
+        if let items = list.item?.allObjects as? [ItemCheck]{
+            var countTrue: Int = 0
+            for item in items {
+                if item.completed == true {
+                    countTrue += 1
+                }
+            }
+            if countTrue == items.count {
+                answer = true
+            }
+        }
+        return answer
+    }
 }

@@ -35,6 +35,28 @@ final class CoreDataManager {
         context = container.viewContext
     }
     
+    func deleteAllData() {
+        let persistentStoreCoordinator = container.persistentStoreCoordinator
+
+        for entityName in container.managedObjectModel.entities.compactMap({ $0.name }) {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+            let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+            batchDeleteRequest.resultType = .resultTypeObjectIDs
+
+            do {
+                let result = try context.execute(batchDeleteRequest) as? NSBatchDeleteResult
+                if let objectIDs = result?.result as? [NSManagedObjectID] {
+                    let changes = [NSDeletedObjectsKey: objectIDs]
+                    NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes, into: [context])
+                }
+            } catch {
+                print("Failed to batch delete \(entityName): \(error)")
+            }
+        }
+
+        save()
+    }
+    
     func save() {
         do {
             try context.save()

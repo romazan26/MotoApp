@@ -16,9 +16,10 @@ struct SimpleCheckListView: View {
             VStack {
                 CustomTopBarView(barText: "\(viewModel.checkList.title ?? "")", titleUp: viewModel.checkList.title ?? "")
                 
-                VStack{
+               
                     //MARK: - Items list
                     ScrollView {
+                        VStack{
                         ForEach(viewModel.items) { item in
                             Button {
                                 viewModel.completeItem(item: item)
@@ -26,12 +27,12 @@ struct SimpleCheckListView: View {
                                 CellItemCheckListView(nameItem: item.title ?? "", complited: item.completed)
                             }
                         }
+                        }.padding()
                     }
                     //MARK: - Delete and reset Button
                     HStack{
                         Button {
-                            dismiss()
-                            viewModel.deleteCheckList()
+                            viewModel.isPresentDeleteAlert.toggle()
                         } label: {
                             GradientButtonView(label: "deleteLabel", color: .red)
                         }
@@ -44,12 +45,20 @@ struct SimpleCheckListView: View {
                             GradientButtonView(label: "resetLabel", color: .orange)
                         }
                     }
-                }.padding()
-                
-                
+                    .padding()
+                    .padding(.bottom, 25)                
             }
             .navigationBarBackButtonHidden()
-        }.gesture(
+        }
+        //MARK: - Delete alert
+        .alert(isPresented: $viewModel.isPresentDeleteAlert) {
+            Alert(title: Text("deleteCheckListMessage"), primaryButton: .cancel(), secondaryButton: .default(Text("deleteLabel"), action: {
+                dismiss()
+                viewModel.deleteCheckList()
+            }))
+        }
+        //MARK: - Back slide
+        .gesture(
             DragGesture()
                 .onEnded({ gesture in
                     if gesture.translation.width > 50 {

@@ -29,7 +29,6 @@
 		30E75D272CF478EA00A61DFA /* WorkFullInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E75D262CF478EA00A61DFA /* WorkFullInfoView.swift */; };
 		30E75D322CF61A0500A61DFA /* ResizebleTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E75D312CF61A0500A61DFA /* ResizebleTextFieldView.swift */; };
 		30E75D342CF620B800A61DFA /* GradientButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E75D332CF620B800A61DFA /* GradientButtonView.swift */; };
-		30EB0A752B862C9B006FF732 /* BackgroundCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB0A742B862C9B006FF732 /* BackgroundCustom.swift */; };
 		30F877212B4C3BC6002EC497 /* CustomTextFieldUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F8771E2B4C3BC6002EC497 /* CustomTextFieldUIView.swift */; };
 		30F877222B4C3BC6002EC497 /* AddAertUIVuew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F8771F2B4C3BC6002EC497 /* AddAertUIVuew.swift */; };
 		30F877232B4C3BC6002EC497 /* BlurUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F877202B4C3BC6002EC497 /* BlurUIView.swift */; };
@@ -54,6 +53,8 @@
 		746DD0542DC954EF0082D992 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746DD0532DC954E70082D992 /* PageView.swift */; };
 		746DD0562DC956650082D992 /* PageIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746DD0552DC956650082D992 /* PageIconView.swift */; };
 		747880B42DDE63A9008A949F /* PlusButtonOneItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747880B32DDE63A9008A949F /* PlusButtonOneItemView.swift */; };
+		7496DBE62E02C5EB0038BBFF /* CellForSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7496DBE52E02C5EB0038BBFF /* CellForSettingsView.swift */; };
+		7496DBE82E02D4EF0038BBFF /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7496DBE72E02D4E40038BBFF /* SettingsViewModel.swift */; };
 		74A0972B2DE4F4EF0002250D /* CellCheckListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A0972A2DE4F4EE0002250D /* CellCheckListView.swift */; };
 		74A097302DE4F6C20002250D /* AddCheckListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A0972D2DE4F6C20002250D /* AddCheckListViewModel.swift */; };
 		74A097312DE4F6C20002250D /* AddNewChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A0972E2DE4F6C20002250D /* AddNewChecklistView.swift */; };
@@ -97,7 +98,6 @@
 		30E75D262CF478EA00A61DFA /* WorkFullInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkFullInfoView.swift; sourceTree = "<group>"; };
 		30E75D312CF61A0500A61DFA /* ResizebleTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizebleTextFieldView.swift; sourceTree = "<group>"; };
 		30E75D332CF620B800A61DFA /* GradientButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButtonView.swift; sourceTree = "<group>"; };
-		30EB0A742B862C9B006FF732 /* BackgroundCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCustom.swift; sourceTree = "<group>"; };
 		30F8771E2B4C3BC6002EC497 /* CustomTextFieldUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextFieldUIView.swift; sourceTree = "<group>"; };
 		30F8771F2B4C3BC6002EC497 /* AddAertUIVuew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAertUIVuew.swift; sourceTree = "<group>"; };
 		30F877202B4C3BC6002EC497 /* BlurUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurUIView.swift; sourceTree = "<group>"; };
@@ -125,6 +125,8 @@
 		746DD0552DC956650082D992 /* PageIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageIconView.swift; sourceTree = "<group>"; };
 		747880B32DDE63A9008A949F /* PlusButtonOneItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButtonOneItemView.swift; sourceTree = "<group>"; };
 		747FC98F2DCCBC4300CA0E75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		7496DBE52E02C5EB0038BBFF /* CellForSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellForSettingsView.swift; sourceTree = "<group>"; };
+		7496DBE72E02D4E40038BBFF /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		74A0972A2DE4F4EE0002250D /* CellCheckListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellCheckListView.swift; sourceTree = "<group>"; };
 		74A0972D2DE4F6C20002250D /* AddCheckListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCheckListViewModel.swift; sourceTree = "<group>"; };
 		74A0972E2DE4F6C20002250D /* AddNewChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewChecklistView.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				740BB2B72DE330850065D095 /* CellNewItemCheckListView.swift */,
 				74A0972A2DE4F4EE0002250D /* CellCheckListView.swift */,
 				74BB4E0A2DE87C8500154B9C /* CellItemCheckListView.swift */,
+				7496DBE52E02C5EB0038BBFF /* CellForSettingsView.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -311,7 +314,6 @@
 				30F8771F2B4C3BC6002EC497 /* AddAertUIVuew.swift */,
 				30F877202B4C3BC6002EC497 /* BlurUIView.swift */,
 				30BBB6412B77AC2600448494 /* ButtonView.swift */,
-				30EB0A742B862C9B006FF732 /* BackgroundCustom.swift */,
 			);
 			name = Extenstation;
 			path = MotoApp/Extenstation;
@@ -320,6 +322,7 @@
 		742639522DCBEC9700EDE9E9 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				7496DBE72E02D4E40038BBFF /* SettingsViewModel.swift */,
 				742639532DCBECB300EDE9E9 /* SettingsView.swift */,
 			);
 			path = Settings;
@@ -496,6 +499,7 @@
 				30F877222B4C3BC6002EC497 /* AddAertUIVuew.swift in Sources */,
 				74B7DDF32D96D453001FD4ED /* TechincTDO.swift in Sources */,
 				742F81E72DB8348C00750285 /* extension_UIImage.swift in Sources */,
+				7496DBE62E02C5EB0038BBFF /* CellForSettingsView.swift in Sources */,
 				74B7DDFF2D973189001FD4ED /* AllWorksViewModel.swift in Sources */,
 				3075E0E52CF724A600433CAD /* TechnicInfoView.swift in Sources */,
 				30FA0C532D1D400B00D2D87A /* PhotoPicker.swift in Sources */,
@@ -516,7 +520,6 @@
 				747880B42DDE63A9008A949F /* PlusButtonOneItemView.swift in Sources */,
 				742E41E62D8ECF79001C0899 /* TextCellInfoMainView.swift in Sources */,
 				308195712CCEAE2000EE26C0 /* TechnicViewModel.swift in Sources */,
-				30EB0A752B862C9B006FF732 /* BackgroundCustom.swift in Sources */,
 				74B7DDF52D96D674001FD4ED /* WorkTDO.swift in Sources */,
 				742D4ABA2D6D0A7300B8FE27 /* NewLoadingView.swift in Sources */,
 				742E41E82D8ED1A8001C0899 /* AllWorksView.swift in Sources */,
@@ -524,6 +527,7 @@
 				74A0972B2DE4F4EF0002250D /* CellCheckListView.swift in Sources */,
 				3081956F2CCEA0F500EE26C0 /* AddTechnicCDView.swift in Sources */,
 				74A6C41C2DDDC79F001F4A5E /* CustomTopBarView.swift in Sources */,
+				7496DBE82E02D4EF0038BBFF /* SettingsViewModel.swift in Sources */,
 				742639572DCBECEE00EDE9E9 /* CheckListView.swift in Sources */,
 				30D424DB2D00E08700CF2A5A /* sortFuncExtention.swift in Sources */,
 				30E75D272CF478EA00A61DFA /* WorkFullInfoView.swift in Sources */,
@@ -708,7 +712,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3.4;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = home.MotoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -744,7 +748,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3.4;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = home.MotoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

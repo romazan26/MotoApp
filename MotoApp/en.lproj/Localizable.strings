@@ -37,9 +37,14 @@
 "seeAllButton" = "See all";
 "seeAllWorks" = "Show all works";
 
+"deleteCheckListMessage" = "Delete this checklist?";
 "deleteTechnicMessage" = "Remove this technique?";
 "noWorksLabel" = "No works";
 "emptyListLabel" = "The list of equipment is empty. Please add a new technique";
 "noSearchWorks" = "No such works have been found.";
 
+"rateusButton" = "RateUs";
+"policyButton" = "Policy";
+"resetAllButton" = "Reset all data";
+"resetDataLabel" = "Do you really want to delete all the data? You will not be able to restore the data.";
 
