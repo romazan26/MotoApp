@@ -20,30 +20,39 @@ struct SettingsView: View {
                 CustomTopBarView(barText: "settingsLabel")
                 Spacer()
                 
-                VStack(spacing: 20){
-                    //MARK: - Rate us button
-                    Button {
-                        if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-                            SKStoreReviewController.requestReview(in: scene)
+                ScrollView{
+                    VStack(spacing: 20){
+                        Button {
+                            viewModel.isPresentedAllTypeWork.toggle()
+                        } label: {
+                            CellForSettingsView(nameButton: "showAllTypeButton", imageName: "doc.badge.gearshape")
                         }
-                    } label: {
-                        CellForSettingsView(nameButton: "rateusButton", imageName: "star.fill")
-                    }
-                    
-                    //MARK: - Policy button
-                    Button { UIApplication.shared.open(viewModel.policyURL)}
-                    label: {
-                        CellForSettingsView(nameButton: "policyButton", imageName: "lock.document.fill")
-                    }
 
-                    //MARK: - Delete all data button
-                    Button {
-                        viewModel.isPresentedDeleteAlert.toggle()
-                    } label: {
-                        CellForSettingsView(nameButton: "resetAllButton", imageName: "arrow.circlepath", red: true)
-                    }
-                    
-                }.padding()
+                        
+                        //MARK: - Rate us button
+                        Button {
+                            if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                                SKStoreReviewController.requestReview(in: scene)
+                            }
+                        } label: {
+                            CellForSettingsView(nameButton: "rateusButton", imageName: "star.fill")
+                        }
+                        
+                        //MARK: - Policy button
+                        Button { UIApplication.shared.open(viewModel.policyURL)}
+                        label: {
+                            CellForSettingsView(nameButton: "policyButton", imageName: "lock.document.fill")
+                        }
+                        
+                        //MARK: - Delete all data button
+                        Button {
+                            viewModel.isPresentedDeleteAlert.toggle()
+                        } label: {
+                            CellForSettingsView(nameButton: "resetAllButton", imageName: "arrow.circlepath", red: true)
+                        }
+                        
+                    }.padding()
+                }
                 
                 Spacer()
             }
@@ -51,6 +60,9 @@ struct SettingsView: View {
                 Alert(title: Text("resetAllButton"), message: Text("resetDataLabel"), primaryButton: .cancel(), secondaryButton: .destructive(Text("deleteLabel"), action: {
                     viewModel.clearData()
                 }))
+            }
+            .fullScreenCover(isPresented: $viewModel.isPresentedAllTypeWork) {
+                AllTypeWorkView()
             }
         }
     }

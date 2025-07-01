@@ -9,7 +9,6 @@ import SwiftUI
 
 struct AddWorckForTechnicView: View {
     @ObservedObject var vm: AddWorkViewModel
-   // @ObservedObject var vm: WorkMainViewmodel
     @Environment(\.dismiss) private var dismiss
     @FocusState private var nameIsFocused: Bool
     @State private var animate = false
@@ -83,8 +82,23 @@ struct AddWorckForTechnicView: View {
                         .keyboardType(.numberPad)
                     
                     CustomDatePicker(selectedDate: $vm.simpleDate)
-                        
                     
+                    if vm.typeWork.isEmpty {
+                        ProgressView()
+                    } else {
+                        HStack {
+                            Text("listTypeofWork")
+                            Spacer()
+                            Picker("", selection: $vm.simpleTypeWork) {
+                                ForEach(vm.typeWork, id: \.self) { typeWork in
+                                    Text(typeWork.nameType ?? "Без названия")
+                                    .tag(typeWork as TypeWork?)
+                                }
+                            }.accentColor(.black)
+                        }
+                        
+                    }
+                      
                     Spacer()
                     
                     //MARK: - Add Button
@@ -135,5 +149,4 @@ struct AddWorckForTechnicView: View {
 #Preview {
     AddWorckForTechnicView(vm: AddWorkViewModel(technicCD: TechnicCD(context: CoreDataManager.instance.context), isEditeWork: false, simpleWork: nil))
 }
-
 

@@ -65,6 +65,26 @@ final class CoreDataManager {
         }
     }
     
+    //MARK: - Type of work
+    
+    func fetchTypeOfWork() async throws -> [TypeWork] {
+        let fetchRequest: NSFetchRequest<TypeWork> = TypeWork.fetchRequest()
+        return try await context.perform {
+            try self.context.fetch(fetchRequest)
+        }
+    }
+    
+    func addNewtype(type: String){
+        let newTypeWork = TypeWork(context: context)
+        newTypeWork.nameType = type
+        save()
+    }
+    
+    func deleteTypeOfWork(_ type: TypeWork) {
+        context.delete(type)
+        save()
+    }
+    
     //MARK: - ItemCheckList
     func fetchItemsCheckList(_ cl: Checklist) async throws -> [ItemCheck] {
         let fetchRequest: NSFetchRequest<ItemCheck> = ItemCheck.fetchRequest()
@@ -162,13 +182,16 @@ final class CoreDataManager {
         save()
     }
     
-    func addWork(_ wdo: WorkTDO, _ technic: TechnicCD) {
+    func addWork(_ wdo: WorkTDO, _ technic: TechnicCD, type: TypeWork?) {
         let newWork = WorkCD(context: context)
         newWork.nameWork = wdo.title
         newWork.date =   wdo.date
         newWork.odometr = wdo.odometr
         newWork.price = wdo.price
         newWork.techics = technic
+        if let type = type {
+            newWork.type = type
+        }
         save()
         
     }

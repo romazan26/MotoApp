@@ -24,9 +24,13 @@
 "seachLabel" = "Search";
 "settingsLabel" = "Settings";
 "resetLabel" = "Reset";
+"listTypeofWork" = "List of job types";
+"closebutton" = "Close";
+"addButton" = "Add";
 
 "editViewLabel" = "Change the job";
 "addTechicViewLabel" = "New equipment";
+"newTypeLabel" = "New type";
 "addNewWorkViewLabel" = "New job";
 
 "shareButtonLabel" = "Share";
@@ -47,4 +51,5 @@
 "policyButton" = "Policy";
 "resetAllButton" = "Reset all data";
 "resetDataLabel" = "Do you really want to delete all the data? You will not be able to restore the data.";
+"showAllTypeButton" = "View all types of jobs";
 

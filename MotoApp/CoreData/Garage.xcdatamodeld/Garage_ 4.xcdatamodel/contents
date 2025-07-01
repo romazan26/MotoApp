@@ -17,11 +17,16 @@
         <attribute name="type" optional="YES" attributeType="String"/>
         <relationship name="works" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="WorkCD" inverseName="techics" inverseEntity="WorkCD"/>
     </entity>
+    <entity name="TypeWork" representedClassName="TypeWork" syncable="YES" codeGenerationType="class">
+        <attribute name="nameType" optional="YES" attributeType="String"/>
+        <relationship name="work" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WorkCD" inverseName="type" inverseEntity="WorkCD"/>
+    </entity>
     <entity name="WorkCD" representedClassName="WorkCD" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="nameWork" optional="YES" attributeType="String"/>
         <attribute name="odometr" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="price" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="techics" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TechnicCD" inverseName="works" inverseEntity="TechnicCD"/>
+        <relationship name="type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TypeWork" inverseName="work" inverseEntity="TypeWork"/>
     </entity>
 </model>

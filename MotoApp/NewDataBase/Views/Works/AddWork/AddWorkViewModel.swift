@@ -12,11 +12,14 @@ final class AddWorkViewModel: ObservableObject {
     let manager = CoreDataManager.instance
     let technicCD: TechnicCD
     
+    @Published var typeWork: [TypeWork] = []
+    
     @Published var simpleWork: WorkCD?
     @Published var simpleDate = Date()
     @Published var simpleTitleWork: String = ""
     @Published var simpleOdometer: String = ""
     @Published var simplePrice: String = ""
+    @Published var simpleTypeWork: TypeWork?
     
     @Published var isEditorWork: Bool
     
@@ -28,15 +31,27 @@ final class AddWorkViewModel: ObservableObject {
             getEditWork(editWork: simpleWork)
             self.simpleWork = simpleWork
         }
+        fetchTypeWork()
     }
-        
+     
+    //MARK: - Fetch type work
+    private func fetchTypeWork() {
+        Task { @MainActor in
+            do {
+                self.typeWork = try await manager.fetchTypeOfWork()
+            } catch {
+                print("Error fetching type work: \(error.localizedDescription)")
+            }
+        }
+    }
+    
     //MARK: - Add data
     func addWork(){
         let workTdo = WorkTDO(date: simpleDate,
                               title: simpleTitleWork,
                               odometr: Int64(simpleOdometer) ?? 0,
                               price: Int64(simplePrice) ?? 0)
-        manager.addWork(workTdo, technicCD)
+        manager.addWork(workTdo, technicCD, type: simpleTypeWork)
         clearWork()
     }
     

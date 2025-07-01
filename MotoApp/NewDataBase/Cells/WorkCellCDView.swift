@@ -35,6 +35,17 @@ struct WorkCellCDView: View {
                 .font(.system(size: 14, weight: .bold))
                 .foregroundStyle(.black)
                 .opacity(0.6)
+                //MARK: - Type of work
+                HStack{
+                    Text("typeLabel")
+                    if let type = work.type{
+                        Text(":  \(type.nameType ?? "")")
+                    }
+                    
+                }
+                .font(.system(size: 14, weight: .bold))
+                .foregroundStyle(.black)
+                .opacity(0.6)
                 
             }
             

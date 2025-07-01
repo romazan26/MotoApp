@@ -24,9 +24,13 @@
 "seachLabel" = "Поиск";
 "settingsLabel" = "Настройки";
 "resetLabel" = "Сбросить";
+"listTypeofWork" = "Список типов работ";
+"closebutton" = "Закрыть";
+"addButton" = "Добавить";
 
 "editViewLabel" = "Изменить работу";
 "addTechicViewLabel" = "Новая техника";
+"newTypeLabel" = "Новый тип";
 "addNewWorkViewLabel" = "Новая работа";
 
 "shareButtonLabel" = "Поделиться";
@@ -47,3 +51,4 @@
 "policyButton" = "Политика безопасности";
 "resetAllButton" = "Сбросить все данные";
 "resetDataLabel" = "Вы действительно хотите удалить все данные? Востановить данные будет нельзя";
+"showAllTypeButton" = "Посмотреть все типы работ";

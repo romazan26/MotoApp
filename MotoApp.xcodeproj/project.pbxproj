@@ -52,6 +52,10 @@
 		746DD0502DC954050082D992 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746DD04F2DC953FE0082D992 /* MainViewModel.swift */; };
 		746DD0542DC954EF0082D992 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746DD0532DC954E70082D992 /* PageView.swift */; };
 		746DD0562DC956650082D992 /* PageIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746DD0552DC956650082D992 /* PageIconView.swift */; };
+		7476CD1C2E146AAD007B585B /* AllTypeWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7476CD1A2E146AAD007B585B /* AllTypeWorkView.swift */; };
+		7476CD1E2E146D4F007B585B /* TypeWorkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7476CD1D2E146D43007B585B /* TypeWorkViewModel.swift */; };
+		7476CD202E147CA5007B585B /* AddTypeWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7476CD1F2E147CA5007B585B /* AddTypeWorkView.swift */; };
+		7476CD222E1481BA007B585B /* CellForTypeWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7476CD212E1481BA007B585B /* CellForTypeWorkView.swift */; };
 		747880B42DDE63A9008A949F /* PlusButtonOneItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747880B32DDE63A9008A949F /* PlusButtonOneItemView.swift */; };
 		7496DBE62E02C5EB0038BBFF /* CellForSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7496DBE52E02C5EB0038BBFF /* CellForSettingsView.swift */; };
 		7496DBE82E02D4EF0038BBFF /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7496DBE72E02D4E40038BBFF /* SettingsViewModel.swift */; };
@@ -123,6 +127,11 @@
 		746DD04F2DC953FE0082D992 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		746DD0532DC954E70082D992 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		746DD0552DC956650082D992 /* PageIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageIconView.swift; sourceTree = "<group>"; };
+		7476CD162E1467AD007B585B /* Garage_ 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Garage_ 4.xcdatamodel"; sourceTree = "<group>"; };
+		7476CD1A2E146AAD007B585B /* AllTypeWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTypeWorkView.swift; sourceTree = "<group>"; };
+		7476CD1D2E146D43007B585B /* TypeWorkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeWorkViewModel.swift; sourceTree = "<group>"; };
+		7476CD1F2E147CA5007B585B /* AddTypeWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTypeWorkView.swift; sourceTree = "<group>"; };
+		7476CD212E1481BA007B585B /* CellForTypeWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellForTypeWorkView.swift; sourceTree = "<group>"; };
 		747880B32DDE63A9008A949F /* PlusButtonOneItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButtonOneItemView.swift; sourceTree = "<group>"; };
 		747FC98F2DCCBC4300CA0E75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		7496DBE52E02C5EB0038BBFF /* CellForSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellForSettingsView.swift; sourceTree = "<group>"; };
@@ -181,6 +190,7 @@
 		306D1F772CE7C166000E74D4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7476CD1B2E146AAD007B585B /* AllTypeWork */,
 				742639552DCBECDD00EDE9E9 /* CheckList */,
 				742639522DCBEC9700EDE9E9 /* Settings */,
 				746DD04C2DC93E030082D992 /* Main */,
@@ -201,6 +211,7 @@
 				74A0972A2DE4F4EE0002250D /* CellCheckListView.swift */,
 				74BB4E0A2DE87C8500154B9C /* CellItemCheckListView.swift */,
 				7496DBE52E02C5EB0038BBFF /* CellForSettingsView.swift */,
+				7476CD212E1481BA007B585B /* CellForTypeWorkView.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -356,6 +367,16 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		7476CD1B2E146AAD007B585B /* AllTypeWork */ = {
+			isa = PBXGroup;
+			children = (
+				7476CD1D2E146D43007B585B /* TypeWorkViewModel.swift */,
+				7476CD1A2E146AAD007B585B /* AllTypeWorkView.swift */,
+				7476CD1F2E147CA5007B585B /* AddTypeWorkView.swift */,
+			);
+			path = AllTypeWork;
+			sourceTree = "<group>";
+		};
 		74A0972F2DE4F6C20002250D /* AddCheckList */ = {
 			isa = PBXGroup;
 			children = (
@@ -502,7 +523,9 @@
 				7496DBE62E02C5EB0038BBFF /* CellForSettingsView.swift in Sources */,
 				74B7DDFF2D973189001FD4ED /* AllWorksViewModel.swift in Sources */,
 				3075E0E52CF724A600433CAD /* TechnicInfoView.swift in Sources */,
+				7476CD1C2E146AAD007B585B /* AllTypeWorkView.swift in Sources */,
 				30FA0C532D1D400B00D2D87A /* PhotoPicker.swift in Sources */,
+				7476CD222E1481BA007B585B /* CellForTypeWorkView.swift in Sources */,
 				746DD0502DC954050082D992 /* MainViewModel.swift in Sources */,
 				74E13CEF2DD2914700C4D578 /* CheckListTDO.swift in Sources */,
 				30F877232B4C3BC6002EC497 /* BlurUIView.swift in Sources */,
@@ -513,6 +536,7 @@
 				308195782CCEB25700EE26C0 /* CoreDataManager.swift in Sources */,
 				308195792CCEB25700EE26C0 /* Garage.xcdatamodeld in Sources */,
 				74A097302DE4F6C20002250D /* AddCheckListViewModel.swift in Sources */,
+				7476CD202E147CA5007B585B /* AddTypeWorkView.swift in Sources */,
 				74A097312DE4F6C20002250D /* AddNewChecklistView.swift in Sources */,
 				7456FADB2D6E02D700B901E8 /* PlusCircleButtonView.swift in Sources */,
 				306DD0332D07798300882FD3 /* WorksMainView.swift in Sources */,
@@ -541,6 +565,7 @@
 				306D1F7C2CE7D26E000E74D4 /* AddWorckForTechnicView.swift in Sources */,
 				30E75D342CF620B800A61DFA /* GradientButtonView.swift in Sources */,
 				74E13CF12DD2918400C4D578 /* ItemCheckTDO.swift in Sources */,
+				7476CD1E2E146D4F007B585B /* TypeWorkViewModel.swift in Sources */,
 				30C75F3B2AC452AB00B9D445 /* GarageAppApp.swift in Sources */,
 				30BBB6422B77AC2600448494 /* ButtonView.swift in Sources */,
 				740D4BB92D74D7DF00CF6721 /* CustomTexrFieldStrokeview.swift in Sources */,
@@ -788,11 +813,12 @@
 		308195752CCEB25700EE26C0 /* Garage.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				7476CD162E1467AD007B585B /* Garage_ 4.xcdatamodel */,
 				746DD04B2DC937040082D992 /* Garage_ 3.xcdatamodel */,
 				30FA0C512D1D3E1D00D2D87A /* Garage_2.xcdatamodel */,
 				308195772CCEB25700EE26C0 /* Garage.xcdatamodel */,
 			);
-			currentVersion = 746DD04B2DC937040082D992 /* Garage_ 3.xcdatamodel */;
+			currentVersion = 7476CD162E1467AD007B585B /* Garage_ 4.xcdatamodel */;
 			path = Garage.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
