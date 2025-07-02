@@ -20,7 +20,7 @@ final class TypeWorkViewModel: ObservableObject {
     }
     
     func getTypeWorks() {
-        Task{
+        Task{ @MainActor in
             do{
                 typeWorks = try await manager.fetchTypeOfWork()
             }catch {

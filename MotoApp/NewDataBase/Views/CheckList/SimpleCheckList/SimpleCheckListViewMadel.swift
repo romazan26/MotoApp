@@ -44,7 +44,7 @@ final class SimpleCheckListViewModel: ObservableObject {
     
     func resetCheckList() {
         for item in items {
-            var itemTDO = ItemCheckTDO(completed: false, title: item.title ?? "")
+            let itemTDO = ItemCheckTDO(completed: false, title: item.title ?? "")
             manager.editItemCheck(item, tdo: itemTDO)
         }
         gettingItems()

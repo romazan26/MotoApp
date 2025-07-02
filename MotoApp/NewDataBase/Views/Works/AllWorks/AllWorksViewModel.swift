@@ -37,11 +37,12 @@ final class AllWorksViewModel: ObservableObject {
         fetchWorks()
         fetchType()
         sortWorks()
+        sortForType()
     }
     
     //MARK: Type function
     private func fetchType() {
-        Task {
+        Task {@MainActor in
             do {
                 typeWork = try await manager.fetchTypeOfWork()
             }catch {
@@ -50,20 +51,37 @@ final class AllWorksViewModel: ObservableObject {
         }
     }
     
+    private func sortForType() {
+        $selectedtypeWork
+            .combineLatest($works)
+            .map { selectedTypeWork, works in
+                if let selectedTypeWork = selectedTypeWork {
+                    return works.filter { $0.type == selectedTypeWork }
+                } else {
+                    return works
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.sortedWorks, on: self)
+            .store(in: &cancellables)
+    }
+    
+
+    
     //MARK: - SortesFunction
     private func sortWorks() {
         $selectedSortOption
-            .combineLatest($works)
-            .map { selectedSortOption, works in
+            .combineLatest($sortedWorks)
+            .map { selectedSortOption, sortedWorks in
                 switch selectedSortOption {
                 case .doc:
-                    return works.sorted { ($0.nameWork ?? "") < ($1.nameWork ?? "") }
+                    return sortedWorks.sorted { ($0.nameWork ?? "") < ($1.nameWork ?? "") }
                 case .calendar:
-                    return works.sorted { ($0.date ?? Date()) < ($1.date ?? Date()) }
+                    return sortedWorks.sorted { ($0.date ?? Date()) > ($1.date ?? Date()) }
                 case .dollarsign:
-                    return works.sorted { $0.price < $1.price }
+                    return sortedWorks.sorted { $0.price > $1.price }
                 case .speedometer:
-                    return works.sorted { $0.odometr < $1.odometr }
+                    return sortedWorks.sorted { $0.odometr > $1.odometr }
                 }
             }
             .combineLatest($searchText.debounce(for: 0.5, scheduler: RunLoop.main))

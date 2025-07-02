@@ -36,7 +36,7 @@ final class CoreDataManager {
     }
     
     func deleteAllData() {
-        let persistentStoreCoordinator = container.persistentStoreCoordinator
+        _ = container.persistentStoreCoordinator
 
         for entityName in container.managedObjectModel.entities.compactMap({ $0.name }) {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
