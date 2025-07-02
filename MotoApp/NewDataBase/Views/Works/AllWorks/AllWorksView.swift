@@ -102,6 +102,12 @@ struct AllWorksView: View {
                     CustomSearchBarView(title: "seachLabel", text: $vm.searchText)
                         .focused($isFocused)
                     
+                    TypeOfWorkMenuView(typeWork: vm.typeWork, selectedTypeWork: vm.selectedtypeWork) {
+                        vm.selectedtypeWork = nil
+                    } actionType: { type in
+                        vm.selectedtypeWork = type
+                    }
+
                     //MARK: - Preview works list
                     if vm.searchResult.isEmpty {
                         

@@ -16,12 +16,16 @@ final class AllWorksViewModel: ObservableObject {
     //MARK: - Search propertys
     @Published var searchText: String = ""
     @Published var searchResult: [WorkCD] = []
+    
     @Published private(set) var works: [WorkCD] = []
     @Published private(set) var sortedWorks: [WorkCD] = []
     
     @Published var isPresentInfoWork: Bool = false
     @Published var isPresentEditWork: Bool = false
+    
     @Published var simpleWork: WorkCD?
+    @Published var selectedtypeWork: TypeWork? = nil
+    @Published var typeWork: [TypeWork] = []
     
     @Published var selectedSortOption = SortOptionWork.calendar
     
@@ -31,7 +35,19 @@ final class AllWorksViewModel: ObservableObject {
         self.technicCD = technicCD
         
         fetchWorks()
+        fetchType()
         sortWorks()
+    }
+    
+    //MARK: Type function
+    private func fetchType() {
+        Task {
+            do {
+                typeWork = try await manager.fetchTypeOfWork()
+            }catch {
+                print(error.localizedDescription)
+            }
+        }
     }
     
     //MARK: - SortesFunction
