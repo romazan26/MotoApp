@@ -174,11 +174,14 @@ final class CoreDataManager {
     }
     //MARK: - Works
     
-    func editWork(_ work: WorkCD, _ wdo: WorkTDO) {
+    func editWork(_ work: WorkCD, _ wdo: WorkTDO, type: TypeWork?) {
         work.nameWork = wdo.title
         work.date =   wdo.date
         work.odometr = wdo.odometr
         work.price = wdo.price
+        if let type = type {
+            work.type = type
+        }
         save()
     }
     

@@ -63,7 +63,7 @@ final class AddWorkViewModel: ObservableObject {
                               title: simpleTitleWork,
                               odometr: Int64(simpleOdometer) ?? 0,
                               price: Int64(simplePrice) ?? 0)
-        manager.editWork(editWork, workTdo)
+        manager.editWork(editWork, workTdo, type: simpleTypeWork)
         clearWork()
         isEditorWork = false
     }
