@@ -103,6 +103,12 @@ final class CoreDataManager {
         save()
     }
     
+    func editeCheckList(_ cl: Checklist, tdo: CheckListTDO) {
+        cl.title = tdo.title
+        cl.comlitList = tdo.completed
+        save()
+    }
+    
     func editItemCheck(_ ic: ItemCheck, tdo: ItemCheckTDO) {
         ic.title = tdo.title
         ic.completed = tdo.completed

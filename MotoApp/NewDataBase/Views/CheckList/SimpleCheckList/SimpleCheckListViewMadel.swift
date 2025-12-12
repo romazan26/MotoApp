@@ -6,13 +6,16 @@
 //
 
 import Foundation
+import Combine
+import SwiftUI
 
 final class SimpleCheckListViewModel: ObservableObject {
-    let checkList: Checklist
+    var checkList: Checklist
     let manager = CoreDataManager.instance
     
     @Published var items: [ItemCheck] = []
     @Published var isPresentDeleteAlert: Bool = false
+    @Published var checkListTitle: String = ""
     
     init(checkList: Checklist) {
         self.checkList = checkList
@@ -20,11 +23,18 @@ final class SimpleCheckListViewModel: ObservableObject {
     }
     
      func gettingItems() {
+         // Обновляем объект из контекста CoreData
+         manager.context.refresh(checkList, mergeChanges: true)
+         checkListTitle = checkList.title ?? ""
          if let itemsData = checkList.item?.allObjects as? [ItemCheck] {
              items = itemsData
          }else{
              items = []
          }
+    }
+    
+    func updateCheckList() {
+        gettingItems()
     }
     
     func completeItem(item: ItemCheck) {

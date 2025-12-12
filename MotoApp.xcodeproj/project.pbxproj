@@ -47,6 +47,8 @@
 		742E41EA2D8ED24F001C0899 /* TopbarBackGroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742E41E92D8ED24F001C0899 /* TopbarBackGroundView.swift */; };
 		742E41EC2D8F4697001C0899 /* CustomSearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742E41EB2D8F4697001C0899 /* CustomSearchBarView.swift */; };
 		742F81E72DB8348C00750285 /* extension_UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742F81E62DB8347F00750285 /* extension_UIImage.swift */; };
+		7451378E2EEC9F4D0003C3E0 /* EditeCheckListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7451378B2EEC9F4D0003C3E0 /* EditeCheckListView.swift */; };
+		7451378F2EEC9F4D0003C3E0 /* EditeCheckListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7451378C2EEC9F4D0003C3E0 /* EditeCheckListViewModel.swift */; };
 		7456FADB2D6E02D700B901E8 /* PlusCircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7456FADA2D6E02D700B901E8 /* PlusCircleButtonView.swift */; };
 		746DD04E2DC93E2E0082D992 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746DD04D2DC93E2E0082D992 /* MainView.swift */; };
 		746DD0502DC954050082D992 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746DD04F2DC953FE0082D992 /* MainViewModel.swift */; };
@@ -57,6 +59,7 @@
 		7476CD202E147CA5007B585B /* AddTypeWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7476CD1F2E147CA5007B585B /* AddTypeWorkView.swift */; };
 		7476CD222E1481BA007B585B /* CellForTypeWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7476CD212E1481BA007B585B /* CellForTypeWorkView.swift */; };
 		747880B42DDE63A9008A949F /* PlusButtonOneItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747880B32DDE63A9008A949F /* PlusButtonOneItemView.swift */; };
+		747F195F2E1672B300128BCE /* Background2025View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747F195E2E1672B300128BCE /* Background2025View.swift */; };
 		749240E62E1523B1005E5704 /* TypeOfWorkMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749240E52E1523B1005E5704 /* TypeOfWorkMenuView.swift */; };
 		7496DBE62E02C5EB0038BBFF /* CellForSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7496DBE52E02C5EB0038BBFF /* CellForSettingsView.swift */; };
 		7496DBE82E02D4EF0038BBFF /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7496DBE72E02D4E40038BBFF /* SettingsViewModel.swift */; };
@@ -122,6 +125,8 @@
 		742E41E92D8ED24F001C0899 /* TopbarBackGroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopbarBackGroundView.swift; sourceTree = "<group>"; };
 		742E41EB2D8F4697001C0899 /* CustomSearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBarView.swift; sourceTree = "<group>"; };
 		742F81E62DB8347F00750285 /* extension_UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension_UIImage.swift; sourceTree = "<group>"; };
+		7451378B2EEC9F4D0003C3E0 /* EditeCheckListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditeCheckListView.swift; sourceTree = "<group>"; };
+		7451378C2EEC9F4D0003C3E0 /* EditeCheckListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditeCheckListViewModel.swift; sourceTree = "<group>"; };
 		7456FADA2D6E02D700B901E8 /* PlusCircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusCircleButtonView.swift; sourceTree = "<group>"; };
 		746DD04B2DC937040082D992 /* Garage_ 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Garage_ 3.xcdatamodel"; sourceTree = "<group>"; };
 		746DD04D2DC93E2E0082D992 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -134,6 +139,7 @@
 		7476CD1F2E147CA5007B585B /* AddTypeWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTypeWorkView.swift; sourceTree = "<group>"; };
 		7476CD212E1481BA007B585B /* CellForTypeWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellForTypeWorkView.swift; sourceTree = "<group>"; };
 		747880B32DDE63A9008A949F /* PlusButtonOneItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButtonOneItemView.swift; sourceTree = "<group>"; };
+		747F195E2E1672B300128BCE /* Background2025View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background2025View.swift; sourceTree = "<group>"; };
 		747FC98F2DCCBC4300CA0E75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		749240E52E1523B1005E5704 /* TypeOfWorkMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfWorkMenuView.swift; sourceTree = "<group>"; };
 		7496DBE52E02C5EB0038BBFF /* CellForSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellForSettingsView.swift; sourceTree = "<group>"; };
@@ -317,6 +323,7 @@
 				747880B32DDE63A9008A949F /* PlusButtonOneItemView.swift */,
 				742377392DF77A12003E26C8 /* CustomTabBar.swift */,
 				749240E52E1523B1005E5704 /* TypeOfWorkMenuView.swift */,
+				747F195E2E1672B300128BCE /* Background2025View.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -345,6 +352,7 @@
 		742639552DCBECDD00EDE9E9 /* CheckList */ = {
 			isa = PBXGroup;
 			children = (
+				7451378D2EEC9F4D0003C3E0 /* EditeCheckList */,
 				74A097332DE4F9F00002250D /* SimpleCheckList */,
 				74A0972F2DE4F6C20002250D /* AddCheckList */,
 				74E13CF22DD294D800C4D578 /* CheckListViewModel.swift */,
@@ -359,6 +367,15 @@
 				742F81E62DB8347F00750285 /* extension_UIImage.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7451378D2EEC9F4D0003C3E0 /* EditeCheckList */ = {
+			isa = PBXGroup;
+			children = (
+				7451378B2EEC9F4D0003C3E0 /* EditeCheckListView.swift */,
+				7451378C2EEC9F4D0003C3E0 /* EditeCheckListViewModel.swift */,
+			);
+			path = EditeCheckList;
 			sourceTree = "<group>";
 		};
 		746DD04C2DC93E030082D992 /* Main */ = {
@@ -525,6 +542,8 @@
 				742F81E72DB8348C00750285 /* extension_UIImage.swift in Sources */,
 				7496DBE62E02C5EB0038BBFF /* CellForSettingsView.swift in Sources */,
 				74B7DDFF2D973189001FD4ED /* AllWorksViewModel.swift in Sources */,
+				7451378E2EEC9F4D0003C3E0 /* EditeCheckListView.swift in Sources */,
+				7451378F2EEC9F4D0003C3E0 /* EditeCheckListViewModel.swift in Sources */,
 				3075E0E52CF724A600433CAD /* TechnicInfoView.swift in Sources */,
 				7476CD1C2E146AAD007B585B /* AllTypeWorkView.swift in Sources */,
 				30FA0C532D1D400B00D2D87A /* PhotoPicker.swift in Sources */,
@@ -577,6 +596,7 @@
 				746DD0542DC954EF0082D992 /* PageView.swift in Sources */,
 				3081956C2CCE9E3600EE26C0 /* TechnicCellView.swift in Sources */,
 				300424882CFE2340007E5A4D /* LoadingViewModel.swift in Sources */,
+				747F195F2E1672B300128BCE /* Background2025View.swift in Sources */,
 				74BB4E0B2DE87C8500154B9C /* CellItemCheckListView.swift in Sources */,
 				746DD0562DC956650082D992 /* PageIconView.swift in Sources */,
 			);
@@ -741,7 +761,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = home.MotoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -777,7 +797,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = home.MotoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

@@ -23,13 +23,11 @@ struct ListTehnics: View {
                     CustomTopBarView(barText: "labelTechnicList")
 
                     //MARK: - List for technics
-                   // GeometryReader { geo in
                         ZStack(alignment: .bottomTrailing) {
                             ScrollView {
                                 if vm.technics.isEmpty {
                                     Text(LocalizedStringKey("emptyListLabel"))
                                         .multilineTextAlignment(.center)
-                                       // .frame(height: geo.size.height)
                                         .minimumScaleFactor(0.5)
                                 } else {
                                     VStack(spacing: 12) {
@@ -52,7 +50,6 @@ struct ListTehnics: View {
                             }
                             .padding(10)
                         }
-                   // }
                     .padding(.horizontal)
                 }
                 .onAppear {

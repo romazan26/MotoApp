@@ -15,6 +15,7 @@ struct SimpleCheckListView: View {
             Color.grayApp.ignoresSafeArea()
             VStack {
                 CustomTopBarView(barText: "\(viewModel.checkList.title ?? "")", titleUp: viewModel.checkList.title ?? "")
+
                 
                
                     //MARK: - Items list
@@ -36,7 +37,12 @@ struct SimpleCheckListView: View {
                         } label: {
                             GradientButtonView(label: "deleteLabel", color: .red)
                         }
-                        
+                        NavigationLink {
+                            EditeCheckListView(vm: EditeCheckListViewModel(editList: viewModel.checkList))
+                        } label: {
+                            GradientButtonView(label: "editButtonLabel", color: .green)
+                        }
+
                         Spacer()
                         
                         Button {
@@ -49,6 +55,9 @@ struct SimpleCheckListView: View {
                     .padding(.bottom, 25)                
             }
             .navigationBarBackButtonHidden()
+            .onAppear {
+                viewModel.updateCheckList()
+            }
         }
         //MARK: - Delete alert
         .alert(isPresented: $viewModel.isPresentDeleteAlert) {
